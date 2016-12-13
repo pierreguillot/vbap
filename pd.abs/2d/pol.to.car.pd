@@ -1,0 +1,19 @@
+#N canvas 540 216 233 188 10;
+#X obj 20 12 inlet;
+#X obj 20 35 / 180;
+#X obj 20 57 * 3.14159;
+#X obj 20 79 t f f, f 8;
+#X obj 20 101 cos;
+#X obj 65 101 sin;
+#X obj 20 123 pack f f;
+#X obj 20 145 outlet;
+#X text 98 27 Converts degrees to radians and computes the cartesian
+coordinates assuming that a unit radius of one., f 18;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 1 5 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 1;
+#X connect 6 0 7 0;
