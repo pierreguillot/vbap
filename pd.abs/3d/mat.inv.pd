@@ -1,4 +1,4 @@
-#N canvas 556 434 337 255 10;
+#N canvas 556 434 404 255 10;
 #X obj 50 173 *;
 #X obj 81 173 *;
 #X obj 112 173 *;
@@ -6,8 +6,6 @@
 #X obj 50 12 inlet;
 #X obj 50 195 pack f f f f, f 16;
 #X obj 50 217 outlet;
-#X text 171 30 Computes the matrix inversion of a 2x2 matrix., f 18
-;
 #N canvas 0 22 314 241 det.A 0;
 #X obj 30 77 *;
 #X obj 69 77 *;
@@ -33,23 +31,25 @@
 #X obj 50 76 unpack f f f f, f 16;
 #X obj 112 113 * -1;
 #X obj 81 113 * -1;
-#X msg 50 56 \$4 \$3 \$2 \$1;
+#X text 171 30 Computes the matrix inversion of a 3x3 matrix., f 18
+;
+#X msg 50 56 \$6 \$5 \$4 \$3 \$2 \$1;
 #X connect 0 0 5 0;
 #X connect 1 0 5 1;
 #X connect 2 0 5 2;
 #X connect 3 0 5 3;
-#X connect 4 0 9 0;
+#X connect 4 0 8 0;
 #X connect 5 0 6 0;
-#X connect 8 0 3 1;
-#X connect 8 0 0 1;
-#X connect 8 0 1 1;
-#X connect 8 0 2 1;
-#X connect 9 0 13 0;
-#X connect 9 1 8 0;
-#X connect 10 0 0 0;
-#X connect 10 1 12 0;
-#X connect 10 2 11 0;
-#X connect 10 3 3 0;
-#X connect 11 0 2 0;
-#X connect 12 0 1 0;
-#X connect 13 0 10 0;
+#X connect 7 0 3 1;
+#X connect 7 0 0 1;
+#X connect 7 0 1 1;
+#X connect 7 0 2 1;
+#X connect 8 0 13 0;
+#X connect 8 1 7 0;
+#X connect 9 0 0 0;
+#X connect 9 1 11 0;
+#X connect 9 2 10 0;
+#X connect 9 3 3 0;
+#X connect 10 0 2 0;
+#X connect 11 0 1 0;
+#X connect 13 0 9 0;
