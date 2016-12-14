@@ -29,11 +29,10 @@
 #X connect 5 3 0 1;
 #X connect 6 0 5 0;
 #X restore 77 138 pd det.A;
-#X obj 50 34 t l l;
+#X obj 50 54 t l l;
 #X obj 50 76 unpack f f f f, f 16;
 #X obj 112 113 * -1;
 #X obj 81 113 * -1;
-#X msg 50 56 \$4 \$3 \$2 \$1;
 #X connect 0 0 5 0;
 #X connect 1 0 5 1;
 #X connect 2 0 5 2;
@@ -44,7 +43,7 @@
 #X connect 8 0 0 1;
 #X connect 8 0 1 1;
 #X connect 8 0 2 1;
-#X connect 9 0 13 0;
+#X connect 9 0 10 0;
 #X connect 9 1 8 0;
 #X connect 10 0 0 0;
 #X connect 10 1 12 0;
@@ -52,4 +51,3 @@
 #X connect 10 3 3 0;
 #X connect 11 0 2 0;
 #X connect 12 0 1 0;
-#X connect 13 0 10 0;
