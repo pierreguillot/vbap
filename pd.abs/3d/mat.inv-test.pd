@@ -16,6 +16,14 @@
 #X obj 165 85 list;
 #X msg 168 44 1 0 0 0 1 0 0 0 1;
 #X msg 188 64 0 1 2 1 0 1 2 1 0;
+#X obj 531 104 list prepend matrix 3 3;
+#X obj 531 126 list trim;
+#X obj 531 169 list split 3;
+#X obj 531 189 list prepend set;
+#X obj 531 211 list trim;
+#X msg 531 233 1 4 7 2 5 8 3 6 9, f 21;
+#X msg 561 58 1 2 3 4 5 6 7 8 9;
+#X obj 531 147 mtx_transpose;
 #X connect 0 0 6 0;
 #X connect 1 0 5 0;
 #X connect 2 0 3 0;
@@ -30,3 +38,10 @@
 #X connect 12 0 2 0;
 #X connect 13 0 12 0;
 #X connect 14 0 12 0;
+#X connect 15 0 16 0;
+#X connect 16 0 22 0;
+#X connect 17 1 18 0;
+#X connect 18 0 19 0;
+#X connect 19 0 20 0;
+#X connect 21 0 15 0;
+#X connect 22 0 17 0;

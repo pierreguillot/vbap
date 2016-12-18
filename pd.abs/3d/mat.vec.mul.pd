@@ -23,12 +23,6 @@
 #X obj 20 248 pack f f f, f 27;
 #X obj 47 103 t f f f, f 27;
 #X obj 71 77 t f f f, f 27;
-#X obj 95 293 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 0 256;
-#X obj 155 293 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 0 256;
-#X obj 225 293 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 0 256;
 #X connect 0 0 7 0;
 #X connect 1 0 8 0;
 #X connect 2 0 4 0;
@@ -48,19 +42,16 @@
 #X connect 8 7 16 1;
 #X connect 8 8 18 1;
 #X connect 9 0 21 0;
-#X connect 9 0 24 0;
 #X connect 10 0 12 0;
 #X connect 11 0 12 1;
 #X connect 12 0 14 0;
 #X connect 13 0 14 1;
 #X connect 14 0 21 1;
-#X connect 14 0 25 0;
 #X connect 15 0 17 0;
 #X connect 16 0 17 1;
 #X connect 17 0 19 0;
 #X connect 18 0 19 1;
 #X connect 19 0 21 2;
-#X connect 19 0 26 0;
 #X connect 20 0 2 0;
 #X connect 20 1 10 0;
 #X connect 20 2 15 0;
