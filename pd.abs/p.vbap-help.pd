@@ -24,14 +24,15 @@ the text object \, you can bang the right inlet to re-compute the matrices.
 You can also change the text object by sending the name of the new
 text object as a symbol in the right inlet., f 105;
 #X obj 13 171 text define -k \$0-angles;
-#A set stereo 45 -45 \; octo 0 45 90 135 180 225 270 315 \; five 0
-30 110 250 330 \; cube 45 35.3 135 35.3 225 35.3 315 35.3 45 -35.3
-135 -35.3 225 -35.3 315 -35.3 \; tri 45 0 0 35.3 -45 0 \; dodecahedron
-180 90 0 26.6 324 -26.6 72 26.6 36 -26.6 144 26.6 108 -26.6 216 26.6
-180 -26.6 288 26.6 252 -26.6 180 -90 \; icosahedron 180 69.1 159.1
-0 90 20.9 135 35.3 135 -35.3 180 -69.1 20.9 0 90 -20.9 45 35.3 45 -35.3
-0 69.1 200.9 0 270 20.9 225 35.3 225 -35.3 0 -69.1 339.1 0 270 -20.9
-315 35.3 315 -35.3 \;;
+#A set stereo 45 -45 \; square 0 90 180 270 \; octo 0 45 90 135 180
+225 270 315 \; five 0 30 110 250 330 \; cube 45 35.3 135 35.3 225 35.3
+315 35.3 45 -35.3 135 -35.3 225 -35.3 315 -35.3 \; tri 45 0 0 35.3
+-45 0 \; dodecahedron 180 90 0 26.6 324 -26.6 72 26.6 36 -26.6 144
+26.6 108 -26.6 216 26.6 180 -26.6 288 26.6 252 -26.6 180 -90 \; icosahedron
+180 69.1 159.1 0 90 20.9 135 35.3 135 -35.3 180 -69.1 20.9 0 90 -20.9
+45 35.3 45 -35.3 0 69.1 200.9 0 270 20.9 225 35.3 225 -35.3 0 -69.1
+339.1 0 270 -20.9 315 35.3 315 -35.3 \; pulkki 0 0 72 0 144 0 216 0
+288 0 60 45 180 45 240 45 \;;
 #N canvas 0 22 415 475 example.3d.triangle 0;
 #X obj 43 230 noise~;
 #X text 151 38 Angle of the virtual source in degrees, f 21;
@@ -109,10 +110,10 @@ text object as a symbol in the right inlet., f 105;
 #X connect 16 0 12 1;
 #X connect 20 0 3 1;
 #X connect 20 0 9 0;
-#X restore 13 251 pd example.3d.triangle;
+#X restore 13 271 pd example.3d.triangle;
 #N canvas 0 22 450 300 example.2d.stereo 0;
 #X obj 154 63 nbx 5 14 -45 45 0 0 empty \$0-angle empty 0 -8 0 10 -262144
--1 -1 0 256;
+-1 -1 43 256;
 #X obj 184 104 list prepend set;
 #X obj 184 126 list trim;
 #X obj 25 82 noise~;
@@ -142,7 +143,7 @@ text object as a symbol in the right inlet., f 105;
 #X restore 25 104 pd vector.gain.stereo~;
 #X text 151 30 Angle of the virtual source in degrees, f 21;
 #X text 184 169 Gains of the loudspkeakers, f 13;
-#X msg 184 148 0.707107 0.707107;
+#X msg 184 148 0.999391 0.0348994;
 #X obj 329 58 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 25 135 misc/vu.meter~;
@@ -158,7 +159,7 @@ text object as a symbol in the right inlet., f 105;
 #X connect 11 0 1 0;
 #X connect 11 0 4 1;
 #X restore 13 191 pd example.2d.stereo;
-#N canvas 0 22 450 300 example.2d.octo 0;
+#N canvas 466 202 450 300 example.2d.octo 0;
 #N canvas 0 22 496 180 vector.gain.octo~ 0;
 #X obj 26 15 inlet~;
 #X obj 54 107 *~;
@@ -242,11 +243,11 @@ text object as a symbol in the right inlet., f 105;
 #X text 179 172 Gains of the loudspkeakers, f 13;
 #N canvas 252 23 618 319 loudspks.display~ 0;
 #X obj 238 96 inlet~;
-#X obj 157 107 cnv 10 10 10 empty \$0-ls-octo-1 empty 20 12 0 14 -166441
--262144 0;
+#X obj 157 107 cnv 10 10 10 empty \$0-ls-octo-1 empty 20 12 0 14 -241291
+-241291 0;
 #X obj 248 145 inlet~;
-#X obj 127 127 cnv 10 10 10 empty \$0-ls-octo-2 empty 20 12 0 14 -166441
--262144 0;
+#X obj 127 127 cnv 10 10 10 empty \$0-ls-octo-2 empty 20 12 0 14 -260818
+-260818 0;
 #X obj 107 157 cnv 10 10 10 empty \$0-ls-octo-3 empty 20 12 0 14 -166441
 -262144 0;
 #X obj 157 207 cnv 10 10 10 empty \$0-ls-octo-5 empty 20 12 0 14 -166441
@@ -284,10 +285,10 @@ text object as a symbol in the right inlet., f 105;
 #X coords 0 -1 1 1 124 124 2 100 100;
 #X restore 43 133 pd loudspks.display~;
 #X obj 181 59 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 0 256;
+-262144 -1 -1 386 256;
 #X obj 181 102 list prepend set;
 #X obj 181 124 list trim;
-#X msg 181 146 0 0.990933 0.134361 0 0 0 0 0;
+#X msg 181 146 0.59624 0.802806 0 0 0 0 0 0;
 #X obj 352 57 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 181 80 p.vbap 2d text octo \$0-angles;
@@ -306,114 +307,27 @@ text object as a symbol in the right inlet., f 105;
 #X connect 9 0 10 1;
 #X connect 10 0 6 0;
 #X connect 10 0 0 1;
-#X restore 13 211 pd example.2d.octo;
-#N canvas 371 127 450 300 example.2d.five 0;
-#X obj 43 85 noise~;
-#X text 158 24 Angle of the virtual source in degrees, f 21;
-#X text 179 172 Gains of the loudspkeakers, f 13;
-#N canvas 252 23 618 319 loudspks.display~ 0;
-#X obj 238 96 inlet~;
-#X obj 157 113 cnv 10 10 10 empty \$0-ls-five-1 empty 20 12 0 14 -166441
--262144 0;
-#X obj 248 145 inlet~;
-#X obj 117 133 cnv 10 10 10 empty \$0-ls-five-2 empty 20 12 0 14 -260818
--260818 0;
-#X obj 127 203 cnv 10 10 10 empty \$0-ls-five-3 empty 20 12 0 14 -241291
--241291 0;
-#X obj 197 133 cnv 10 10 10 empty \$0-ls-five-5 empty 20 12 0 14 -166441
--262144 0;
-#X obj 187 203 cnv 10 10 10 empty \$0-ls-five-4 empty 20 12 0 14 -166441
--262144 0;
-#X obj 268 196 inlet~;
-#X obj 278 245 inlet~;
-#X obj 408 96 inlet~;
-#X obj 238 122 misc/color.ls~ \$0-ls-five-1;
-#X obj 248 171 misc/color.ls~ \$0-ls-five-2;
-#X obj 268 222 misc/color.ls~ \$0-ls-five-3;
-#X obj 278 271 misc/color.ls~ \$0-ls-five-4;
-#X obj 408 122 misc/color.ls~ \$0-ls-five-5;
-#X connect 0 0 10 0;
-#X connect 2 0 11 0;
-#X connect 7 0 12 0;
-#X connect 8 0 13 0;
-#X connect 9 0 14 0;
-#X coords 0 -1 1 1 124 124 2 100 100;
-#X restore 43 133 pd loudspks.display~;
-#X obj 181 59 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 -663 256;
-#X obj 181 102 list prepend set;
-#X obj 181 124 list trim;
-#X msg 181 146 0 0.869348 0.494201 0 0;
-#X obj 352 57 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X restore 13 231 pd example.2d.octo;
+#N canvas 371 127 450 300 example.2d.five 1;
+#X text 19 14 Angle of the virtual source in degrees, f 21;
+#X text 19 162 Gains of the loudspkeakers, f 13;
+#X obj 21 49 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 76 256;
+#X obj 21 92 list prepend set;
+#X obj 21 114 list trim;
+#X msg 21 136 0 0.61374 0.789508 0 0;
+#X obj 218 47 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#N canvas 0 22 496 180 vector.gain.five~ 0;
-#X obj 26 15 inlet~;
-#X obj 54 107 *~;
-#X obj 69 15 inlet;
-#X msg 69 59 \$1 20;
-#X obj 69 81 line~;
-#X obj 54 129 outlet~;
-#X obj 103 107 *~;
-#X msg 118 59 \$1 20;
-#X obj 118 81 line~;
-#X obj 103 129 outlet~;
-#X obj 152 107 *~;
-#X msg 167 59 \$1 20;
-#X obj 167 81 line~;
-#X obj 152 129 outlet~;
-#X obj 201 107 *~;
-#X msg 216 59 \$1 20;
-#X obj 216 81 line~;
-#X obj 201 129 outlet~;
-#X obj 251 107 *~;
-#X msg 266 59 \$1 20;
-#X obj 266 81 line~;
-#X obj 251 129 outlet~;
-#X obj 69 37 unpack f f f f f, f 34;
-#X connect 0 0 1 0;
-#X connect 0 0 6 0;
-#X connect 0 0 10 0;
-#X connect 0 0 14 0;
-#X connect 0 0 18 0;
-#X connect 1 0 5 0;
-#X connect 2 0 22 0;
+#X msg 192 21 print;
+#X obj 21 70 p.vbap 2d text five \$0-angles;
+#X connect 2 0 8 0;
 #X connect 3 0 4 0;
-#X connect 4 0 1 1;
-#X connect 6 0 9 0;
-#X connect 7 0 8 0;
-#X connect 8 0 6 1;
-#X connect 10 0 13 0;
-#X connect 11 0 12 0;
-#X connect 12 0 10 1;
-#X connect 14 0 17 0;
-#X connect 15 0 16 0;
-#X connect 16 0 14 1;
-#X connect 18 0 21 0;
-#X connect 19 0 20 0;
-#X connect 20 0 18 1;
-#X connect 22 0 3 0;
-#X connect 22 1 7 0;
-#X connect 22 2 11 0;
-#X connect 22 3 15 0;
-#X connect 22 4 19 0;
-#X restore 43 108 pd vector.gain.five~;
-#X msg 326 31 print;
-#X obj 181 80 p.vbap 2d text five \$0-angles;
-#X connect 0 0 9 0;
-#X connect 4 0 11 0;
-#X connect 5 0 6 0;
-#X connect 6 0 7 0;
-#X connect 8 0 11 1;
-#X connect 9 0 3 0;
-#X connect 9 1 3 1;
-#X connect 9 2 3 2;
-#X connect 9 3 3 3;
-#X connect 9 4 3 4;
-#X connect 10 0 11 1;
-#X connect 11 0 5 0;
-#X connect 11 0 9 1;
-#X restore 13 231 pd example.2d.five;
-#N canvas 428 73 810 561 example.3d.cube 0;
+#X connect 4 0 5 0;
+#X connect 6 0 8 1;
+#X connect 7 0 8 1;
+#X connect 8 0 3 0;
+#X restore 13 251 pd example.2d.five;
+#N canvas 428 73 884 526 example.3d.cube 0;
 #X obj 196 192 list prepend set;
 #X obj 196 214 list trim;
 #X obj 192 100 nbx 5 14 -1e+37 1e+37 0 0 empty \$0-angle empty 0 -8
@@ -426,23 +340,23 @@ text object as a symbol in the right inlet., f 105;
 #X obj 248 276 noise~;
 #N canvas 252 23 618 319 loudspks.display~ 0;
 #X obj 238 96 inlet~;
-#X obj 137 121 cnv 10 10 10 empty \$0-ls-8-1 empty 20 12 0 14 -166441
--262144 0;
+#X obj 137 121 cnv 10 10 10 empty \$0-ls-8-1 empty 20 12 0 14 -260818
+-260818 0;
 #X obj 248 145 inlet~;
 #X obj 137 161 cnv 10 10 10 empty \$0-ls-8-2 empty 20 12 0 14 -166441
 -262144 0;
 #X obj 177 161 cnv 10 10 10 empty \$0-ls-8-3 empty 20 12 0 14 -166441
 -262144 0;
-#X obj 137 241 cnv 10 10 10 empty \$0-ls-8-6 empty 20 12 0 14 -166441
--262144 0;
+#X obj 137 241 cnv 10 10 10 empty \$0-ls-8-6 empty 20 12 0 14 -241291
+-241291 0;
 #X obj 177 121 cnv 10 10 10 empty \$0-ls-8-4 empty 20 12 0 14 -166441
 -262144 0;
 #X obj 137 201 cnv 10 10 10 empty \$0-ls-8-5 empty 20 12 0 14 -166441
 -262144 0;
 #X obj 177 201 cnv 10 10 10 empty \$0-ls-8-8 empty 20 12 0 14 -166441
 -262144 0;
-#X obj 177 241 cnv 10 10 10 empty \$0-ls-8-7 empty 20 12 0 14 -166441
--262144 0;
+#X obj 177 241 cnv 10 10 10 empty \$0-ls-8-7 empty 20 12 0 14 -241291
+-241291 0;
 #X obj 268 196 inlet~;
 #X obj 278 245 inlet~;
 #X obj 408 96 inlet~;
@@ -583,7 +497,6 @@ text object as a symbol in the right inlet., f 105;
 #X connect 4 0 5 0;
 #X connect 5 0 0 0;
 #X restore 493 133 pd get.text;
-#X msg 494 103 cube \$1;
 #X obj 497 81 symbol \$0-angles;
 #X obj 501 53 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
@@ -593,7 +506,7 @@ text object as a symbol in the right inlet., f 105;
 #X obj 485 252 pack f f f f f f f f f;
 #X obj 485 276 list prepend set;
 #X obj 485 298 list trim;
-#X msg 485 320 0 0 0.925787 0.34845 0 0 0.14663 0 0;
+#X msg 485 320 0.777881 0 0 0 0 0.399067 0.485435 0 0;
 #X obj 666 142 t b f;
 #X msg 294 1 90;
 #X obj 68 276 noise~;
@@ -726,13 +639,20 @@ text object as a symbol in the right inlet., f 105;
 #X connect 32 0 33 0;
 #X connect 33 0 31 1;
 #X restore 68 299 pd vector.gain.cube~;
+#X obj 668 199 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0 256;
+#X obj 668 218 t b f;
+#X obj 516 36 loadbang;
+#X msg 494 103 pulkki \$1;
+#X obj 633 80 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 23 256;
+#X obj 714 88 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 45 256;
 #X connect 0 0 1 0;
 #X connect 1 0 11 0;
 #X connect 2 0 6 0;
-#X connect 2 0 29 0;
 #X connect 3 0 20 0;
 #X connect 4 0 5 0;
-#X connect 4 0 35 0;
 #X connect 5 0 6 0;
 #X connect 5 1 3 1;
 #X connect 6 0 3 0;
@@ -755,56 +675,62 @@ text object as a symbol in the right inlet., f 105;
 #X connect 18 0 2 0;
 #X connect 19 0 20 1;
 #X connect 20 0 0 0;
-#X connect 20 0 39 1;
+#X connect 20 0 38 1;
 #X connect 21 0 23 0;
-#X connect 22 0 30 0;
+#X connect 22 0 29 0;
 #X connect 23 0 22 0;
 #X connect 24 0 21 0;
-#X connect 24 0 28 0;
-#X connect 25 0 24 0;
+#X connect 24 0 27 0;
+#X connect 25 0 42 0;
 #X connect 26 0 25 0;
-#X connect 27 0 26 0;
-#X connect 29 0 22 0;
-#X connect 29 1 22 1;
+#X connect 28 0 22 0;
+#X connect 28 1 22 1;
+#X connect 29 0 30 0;
+#X connect 29 1 30 1;
+#X connect 29 2 30 2;
+#X connect 29 3 30 3;
+#X connect 29 4 30 4;
+#X connect 29 5 30 5;
+#X connect 29 6 30 6;
+#X connect 29 7 30 7;
+#X connect 29 8 30 8;
 #X connect 30 0 31 0;
-#X connect 30 1 31 1;
-#X connect 30 2 31 2;
-#X connect 30 3 31 3;
-#X connect 30 4 31 4;
-#X connect 30 5 31 5;
-#X connect 30 6 31 6;
-#X connect 30 7 31 7;
-#X connect 30 8 31 8;
+#X connect 30 0 9 1;
 #X connect 31 0 32 0;
-#X connect 31 0 9 1;
 #X connect 32 0 33 0;
-#X connect 33 0 34 0;
-#X connect 35 0 22 0;
-#X connect 35 1 22 2;
-#X connect 36 0 2 0;
-#X connect 37 0 39 0;
-#X connect 39 0 38 0;
-#X connect 39 1 38 1;
-#X connect 39 2 38 2;
-#X connect 39 3 38 3;
-#X connect 39 4 38 4;
-#X connect 39 5 38 5;
-#X connect 39 6 38 6;
-#X connect 39 7 38 7;
-#X restore 13 271 pd example.3d.cube;
+#X connect 34 0 22 0;
+#X connect 34 1 22 2;
+#X connect 35 0 2 0;
+#X connect 36 0 38 0;
+#X connect 38 0 37 0;
+#X connect 38 1 37 1;
+#X connect 38 2 37 2;
+#X connect 38 3 37 3;
+#X connect 38 4 37 4;
+#X connect 38 5 37 5;
+#X connect 38 6 37 6;
+#X connect 38 7 37 7;
+#X connect 39 0 40 0;
+#X connect 40 0 22 0;
+#X connect 40 1 22 3;
+#X connect 41 0 25 0;
+#X connect 42 0 24 0;
+#X connect 43 0 28 0;
+#X connect 44 0 34 0;
+#X restore 13 291 pd example.3d.cube;
 #N canvas 428 73 810 561 example.3d.dodecahedron 0;
 #X obj 196 192 list prepend set;
 #X obj 196 214 list trim;
 #X obj 192 100 nbx 5 14 -1e+37 1e+37 0 0 empty \$0-angle empty 0 -8
-0 10 -262144 -1 -1 -38 256;
+0 10 -262144 -1 -1 0 256;
 #X obj 196 148 pack f f, f 15;
 #X obj 256 99 nbx 5 14 -1e+37 1e+37 0 0 empty \$0-angle empty 0 -8
-0 10 -262144 -1 -1 -109 256;
+0 10 -262144 -1 -1 0 256;
 #X obj 256 118 t b f;
 #X obj 196 127 f;
 #X obj 322 133 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X msg 196 236 0 0 0 0 0 0 0.291212 0 0.264502 0 0 0.919366;
+#X msg 196 236 0 0.816497 0.408248 0 0.408248 0 0 0 0 0 0 0;
 #X msg 128 38 0;
 #X msg 168 38 45;
 #X msg 348 109 text last;
@@ -968,20 +894,20 @@ text object as a symbol in the right inlet., f 105;
 #X connect 19 11 20 11;
 #X connect 21 0 0 0;
 #X connect 21 0 19 1;
-#X restore 13 291 pd example.3d.dodecahedron;
+#X restore 13 311 pd example.3d.dodecahedron;
 #N canvas 428 73 810 561 example.3d.icosahedron 0;
 #X obj 196 192 list prepend set;
 #X obj 196 214 list trim;
 #X obj 192 100 nbx 5 14 -1e+37 1e+37 0 0 empty \$0-angle empty 0 -8
-0 10 -262144 -1 -1 20 256;
+0 10 -262144 -1 -1 0 256;
 #X obj 196 148 pack f f, f 15;
 #X obj 256 99 nbx 5 14 -1e+37 1e+37 0 0 empty \$0-angle empty 0 -8
-0 10 -262144 -1 -1 37 256;
+0 10 -262144 -1 -1 0 256;
 #X obj 256 118 t b f;
 #X obj 196 127 f;
 #X obj 322 133 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X msg 196 236 0 0 0 0 0 0 0 0 0.94328 0 0 0 0 0 0 0 0.187029 0 0.274305
+#X msg 196 236 0 0 0 0 0 0 0.707107 0 0 0 0 0 0 0 0 0 0.707107 0 0
 0;
 #X msg 128 38 0;
 #X msg 168 38 45;
@@ -1146,4 +1072,23 @@ text object as a symbol in the right inlet., f 105;
 #X connect 19 11 20 11;
 #X connect 21 0 0 0;
 #X connect 21 0 19 1;
-#X restore 13 311 pd example.3d.icosahedron;
+#X restore 13 331 pd example.3d.icosahedron;
+#N canvas 771 166 450 300 example.2d.square 1;
+#X text 9 14 Angle of the virtual source in degrees, f 21;
+#X text 9 162 Gains of the loudspkeakers, f 13;
+#X obj 11 49 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 142 256;
+#X obj 11 92 list prepend set;
+#X obj 11 114 list trim;
+#X msg 11 136 0 0.615661 0.788011 0;
+#X obj 194 47 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 11 70 p.vbap 2d text square \$0-angles;
+#X msg 214 45 print;
+#X connect 2 0 7 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 6 0 7 1;
+#X connect 7 0 3 0;
+#X connect 8 0 7 1;
+#X restore 13 211 pd example.2d.square;
