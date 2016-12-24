@@ -1,4 +1,4 @@
-#N canvas 163 266 512 576 10;
+#N canvas 415 101 512 576 10;
 #X obj 20 22 inlet;
 #X obj 98 65 list length;
 #X obj 98 87 t f f;
@@ -467,7 +467,7 @@
 #X connect 29 0 30 0;
 #X connect 30 0 22 0;
 #X restore 46 176 pd get.all.triplets;
-#N canvas 345 102 687 701 is.triplet.valid 1;
+#N canvas 345 102 687 701 is.triplet.valid 0;
 #X obj 57 17 inlet;
 #N canvas 0 22 259 357 get.other.indices 0;
 #X obj 6 98 until;
@@ -1058,8 +1058,8 @@
 #X connect 15 0 16 1;
 #X connect 16 0 9 0;
 #X restore 174 424 pd distance;
-#X obj 124 493 sel 1;
-#X obj 144 515 f 0;
+#X obj 174 493 sel 1;
+#X obj 174 515 f 0;
 #X obj 174 471 <;
 #N canvas 202 293 166 199 pt.length 0;
 #X obj 34 17 inlet;
@@ -1090,12 +1090,12 @@
 #X connect 8 0 9 1;
 #X connect 9 0 10 0;
 #X connect 10 0 11 0;
-#X restore 169 257 pd pt.length;
+#X restore 147 267 pd pt.length;
 #X obj 120 242 t l l;
-#X obj 169 279 > 1e-06;
+#X obj 147 289 > 1e-06;
 #X obj 174 446 + 1e-07;
-#X obj 260 285 loadbang;
-#X msg 260 307 3;
+#X obj 238 355 loadbang;
+#X msg 238 377 3;
 #X connect 0 0 6 0;
 #X connect 1 0 8 0;
 #X connect 1 1 15 0;
