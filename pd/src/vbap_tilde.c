@@ -6,122 +6,48 @@
 
 #include <m_pd.h>
 
-static t_class *leeloo_class;
+static t_class *vbap_tilde_class;
 
-typedef struct _leeloo
+typedef struct _vbap_tilde
 {
-    t_object    l_obj;
-    t_float     l_f;
-    size_t      l_nios;
-    t_sample*   l_vtemp;
-    size_t      l_vsize;
-} t_leeloo;
+    t_object    v_obj;
+    t_float     v_f;
+} t_vbap_tilde;
 
-static void *leeloo_new(t_float f)
+static void *vbap_tilde_new(t_float f)
 {
-    size_t i;
-    t_leeloo *x = (t_leeloo *)pd_new(leeloo_class);
+    t_vbap_tilde *x = (t_vbap_tilde *)pd_new(vbap_tilde_class);
     if(x)
     {
-        x->l_nios = (f < 1) ? 1 : (size_t)f;
-        for(i = 1; i < x->l_nios; ++i)
-        {
-            signalinlet_new((t_object *)x, 0);
-            outlet_new((t_object *)x, &s_signal);
-        }
         outlet_new((t_object *)x, &s_signal);
-        x->l_vsize = 0;
-        x->l_vtemp = NULL;
     }
     
     return (x);
 }
 
-void leeloo_free(t_leeloo *x)
+void vbap_tilde_free(t_vbap_tilde *x)
 {
-    if(x->l_vsize && x->l_vtemp)
-    {
-        freebytes(x->l_vtemp, x->l_vsize);
-        x->l_vtemp = NULL;
-        x->l_vsize = 0;
-    }
+    ;
 }
 
-t_int *leeloo_perform(t_int *w)
+t_int *vbap_tilde_perform(t_int *w)
 {
-    size_t i, j;
-    size_t nios     = (size_t)(w[1]);
-    size_t n        = (size_t)(w[2]);
-    t_sample  *vec  = (t_sample *)(w[3]);
-    t_sample  *in, *out, *temp;
-    
-    temp = vec;
-    for(i = 4; i < nios+4; ++i)
-    {
-        in = (t_sample *)(w[i]);
-        for(j = 0; j < n; ++j) {
-            *temp++ = *in++;
-        }
-    }
-    
-    temp = vec;
-    for(; i < 2*nios+4; ++i)
-    {
-        out = (t_sample *)(w[i]);
-        for(j = 0; j < n; ++j) {
-            *out++ = *temp++;
-        }
-    }
-    
-    return (w+nios*2+4);
+    return NULL;
 }
 
-void leeloo_dsp(t_leeloo *x, t_signal **sp)
+void vbap_tilde_dsp(t_vbap_tilde *x, t_signal **sp)
 {
-    size_t i;
-    t_int* vec;
-    if(x->l_vsize && x->l_vtemp)
-    {
-        freebytes(x->l_vtemp, x->l_vsize);
-        x->l_vtemp = NULL;
-        x->l_vsize = 0;
-    }
-    x->l_vsize = sizeof(t_sample) * x->l_nios * (size_t)sp[0]->s_n;
-    x->l_vtemp = (t_sample *)getbytes(x->l_vsize);
-    if(x->l_vtemp)
-    {
-        vec = (t_int *)getbytes((x->l_nios * 2 + 3) * sizeof(t_int));
-        if(vec)
-        {
-            vec[0] = (t_int)x->l_nios;
-            vec[1] = (t_int)sp[0]->s_n;
-            vec[2] = (t_int)x->l_vtemp;
-            for(i = 0; i < x->l_nios * 2; ++i)
-            {
-                vec[i+3] = (t_int)sp[i]->s_vec;
-            }
-            dsp_addv(leeloo_perform, (x->l_nios * 2 + 3), vec);
-            freebytes(vec, (x->l_nios * 2 + 2) * sizeof(t_int));
-        }
-        else
-        {
-            pd_error(x, "can't allocate temporary vectors.");
-        }
-    }
-    else
-    {
-        pd_error(x, "can't allocate temporary vectors.");
-    }
     
 }
 
-EXTERN void leeloo_tilde_setup(void)
+EXTERN void vbap_tilde_tilde_setup(void)
 {
-    t_class* c = class_new(gensym("leeloo~"), (t_newmethod)leeloo_new, NULL, sizeof(t_leeloo), CLASS_DEFAULT, A_DEFFLOAT, 0);
+    t_class* c = class_new(gensym("vbap~"), (t_newmethod)vbap_tilde_new, (t_method)vbap_tilde_free,
+                           sizeof(t_vbap_tilde), CLASS_DEFAULT, A_DEFFLOAT, 0);
     if(c)
     {
-        class_addmethod(c, (t_method)leeloo_dsp, gensym("dsp"), A_CANT);
-        CLASS_MAINSIGNALIN(c, t_leeloo, l_f);
+        class_addmethod(c, (t_method)vbap_tilde_dsp, gensym("dsp"), A_CANT);
+        CLASS_MAINSIGNALIN(c, t_vbap_tilde, v_f);
     }
-    leeloo_class = c;
+    vbap_tilde_class = c;
 }
