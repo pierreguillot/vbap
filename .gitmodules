@@ -1,3 +1,6 @@
 [submodule "pd/pd.build"]
 	path = pd/pd.build
 	url = https://pierreguillot@github.com/pierreguillot/pd.build.git
+[submodule "pd/pd.src"]
+	path = pd/pd.src
+	url = https://github.com/pure-data/pure-data.git
