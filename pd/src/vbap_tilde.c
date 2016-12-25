@@ -5,6 +5,7 @@
 */
 
 #include <m_pd.h>
+#include "../../src/vbap.h"
 
 static t_class *vbap_tilde_class;
 
@@ -12,6 +13,7 @@ typedef struct _vbap_tilde
 {
     t_object    v_obj;
     t_float     v_f;
+    t_vbapf*    v_vbap;
 } t_vbap_tilde;
 
 static void *vbap_tilde_new(t_float f)

@@ -1,0 +1,31 @@
+#N canvas 587 286 541 246 10;
+#X obj 72 146 list prepend set;
+#X obj 72 168 list trim;
+#X msg 72 190 0.92388 0.382683;
+#X obj 72 124 vbap.coeff 2d 45 -45;
+#X obj 72 92 nbx 5 14 -45 45 0 0 empty empty empty 0 -8 0 10 -262144
+-1 -1 0 256;
+#X obj 222 146 list prepend set;
+#X obj 222 168 list trim;
+#X msg 222 190 3.17865e-08 -1 0 0;
+#X obj 222 93 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 90 256;
+#X obj 222 124 vbap.coeff 2d 0 90 180 270;
+#X msg 296 91 set 2d 0 90 180 270;
+#X msg 252 60 90;
+#X msg 222 60 0;
+#X msg 282 60 180;
+#X msg 312 60 270;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 0 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 8 0 9 0;
+#X connect 9 0 5 0;
+#X connect 10 0 9 0;
+#X connect 11 0 8 0;
+#X connect 12 0 8 0;
+#X connect 13 0 8 0;
+#X connect 14 0 8 0;

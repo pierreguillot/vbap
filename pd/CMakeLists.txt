@@ -13,3 +13,6 @@ set_pd_external_path("${PROJECT_SOURCE_DIR}/ext/")
 
 file(GLOB vbap_tilde_sources ${PROJECT_SOURCE_DIR}/src/vbap_tilde.c ${PROJECT_SOURCE_DIR}/../src/vbap.c ${PROJECT_SOURCE_DIR}/../src/vbap.h)
 add_pd_external(vbap_tilde_project vbap~ "${vbap_tilde_sources}")
+
+file(GLOB vbap_coeff_sources ${PROJECT_SOURCE_DIR}/src/vbap_coeff.c ${PROJECT_SOURCE_DIR}/../src/vbap.c ${PROJECT_SOURCE_DIR}/../src/vbap.h)
+add_pd_external(vbap_coeff_project vbap.coeff "${vbap_coeff_sources}")

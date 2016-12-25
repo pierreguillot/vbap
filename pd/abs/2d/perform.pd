@@ -67,22 +67,20 @@
 #X obj 21 46 inlet;
 #X text 18 13 The unit-length vector PT = [p1 \, p2]T \, which points
 toward the virtual source. T denotes the matrix transposition.;
-#X text 92 132 polar to cartesian with switched abscissa and ordinate
-for transposed, f 36;
 #X obj 66 178 outlet;
 #X obj 21 68 * 3.14159;
 #X obj 21 90 / 180;
 #X obj 21 136 sin;
 #X obj 21 158 * -1;
 #X obj 66 136 cos;
-#X connect 0 0 8 0;
-#X connect 0 1 10 0;
-#X connect 2 0 6 0;
-#X connect 6 0 7 0;
-#X connect 7 0 0 0;
-#X connect 8 0 9 0;
-#X connect 9 0 1 0;
-#X connect 10 0 5 0;
+#X connect 0 0 7 0;
+#X connect 0 1 9 0;
+#X connect 2 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 0 0;
+#X connect 7 0 8 0;
+#X connect 8 0 1 0;
+#X connect 9 0 4 0;
 #X restore 117 184 pd to.p;
 #X obj 11 500 outlet;
 #N canvas 0 22 450 336 pass 0;

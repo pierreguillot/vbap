@@ -217,7 +217,7 @@ Base Amplitude Panning technique., f 90;
 #X connect 7 0 8 1;
 #X connect 8 0 3 0;
 #X restore 13 121 pd example.2d.square;
-#N canvas 428 73 375 448 compare.3d.cube 1;
+#N canvas 428 73 375 448 compare.3d.cube 0;
 #X obj 31 25 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
 -262144 -1 -1 0 256;
 #X obj 31 93 pack f f, f 15;
