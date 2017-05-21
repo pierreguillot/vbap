@@ -12,6 +12,7 @@
 #include <math.h>
 #include <float.h>
 #include <assert.h>
+#define UNUSED(x) (void)(x)
 
 void test_stereo(t_vbapf* vbap)
 {
@@ -43,6 +44,9 @@ void test_stereo(t_vbapf* vbap)
 
 int main(int argc, const char * argv[])
 {
+    UNUSED(argc);
+    UNUSED(argv);
+    
     t_vbapf* vbap   = vbapf_new();
     printf("running 2d tests :\n");
     assert(vbap);
