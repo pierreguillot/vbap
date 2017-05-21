@@ -32,9 +32,10 @@ VBAP_EXTERN void vbapf_free(t_vbapf* vbap);
 //! @brief Gets the current number of loudspeakers.
 VBAP_EXTERN size_t vbapf_nls(t_vbapf const* vbap);
 
-//! @brief Prepare the vbap structure for a specific configuration.
+//! @brief Prepares the vbap structure for a specific configuration.
 VBAP_EXTERN char vbapf_2d_prepare(t_vbapf* vbap, size_t const nangles, float const * angles);
 
+//! @brief Computes the coefficients of the loudspeakers for a specified angle.
 VBAP_EXTERN void vbapf_2d_perform(t_vbapf const* vbap, float const angle, float * coefficients);
 
 //! @}

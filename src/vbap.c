@@ -5,7 +5,6 @@
 */
 
 #include "vbap.h"
-#include <m_pd.h>
 
 #include <stddef.h>
 #include <stdlib.h>
