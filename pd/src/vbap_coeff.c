@@ -5,7 +5,7 @@
 */
 
 #include <m_pd.h>
-#include "../../src/vbap.h"
+#include <vbap.h>
 
 static t_class *vbap_coeff_class;
 static t_symbol *vbap_coeff_sym_2d;

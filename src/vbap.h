@@ -4,27 +4,39 @@
 // WARRANTIES, see the file, "LICENSE.txt," in this distribution.
 */
 
-#ifndef _VBAP_INCLUDE_C_
-#define _VBAP_INCLUDE_C_
+#ifndef VBAP_INCLUDE_C
+#define VBAP_INCLUDE_C
 
 #include <stddef.h>
 
 #define VBAP_EXTERN
 #define VBAP_EXTERN_STRUCT
 
+//! @defgroup vbapf vbapf
+//! @brief The single point precision part of the library.
+
+//! @addtogroup vbapf
+//! @{
+
 VBAP_EXTERN_STRUCT struct _vbapf;
+
+//! @brief The opaque type used to compute vbap coefficients.
 typedef struct _vbapf t_vbapf;
 
-//! @brief Creates a new single point precision vbap structure.
-//! @return A pointer to the new vbap structure or NULL if the allocation failed.
+//! @brief Allocates a new vbap structure.
 VBAP_EXTERN t_vbapf* vbapf_new(void);
 
-//! @brief Frees an allocated single point precision vbap structure.
-//! @return A pointer to the new t_vbapf or NULL if the allocation failed.
+//! @brief Frees a vbap structure.
 VBAP_EXTERN void vbapf_free(t_vbapf* vbap);
+
+//! @brief Gets the current number of loudspeakers.
 VBAP_EXTERN size_t vbapf_nls(t_vbapf const* vbap);
 
+//! @brief Prepare the vbap structure for a specific configuration.
 VBAP_EXTERN char vbapf_2d_prepare(t_vbapf* vbap, size_t const nangles, float const * angles);
+
 VBAP_EXTERN void vbapf_2d_perform(t_vbapf const* vbap, float const angle, float * coefficients);
 
-#endif // _VBAP_INCLUDE_C_
+//! @}
+
+#endif // VBAP_INCLUDE_C

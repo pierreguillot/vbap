@@ -12,9 +12,7 @@
 #include <math.h>
 #include <float.h>
 
-#ifndef M_PI
-#define M_PI        3.14159265358979323846264338327950288
-#endif
+#define VBAP_DEG_TO_RAD_F 0.01745329238474369049072266f
 
 typedef struct _vbapf
 {
@@ -79,7 +77,7 @@ size_t vbapf_nls(t_vbapf const* vbap)
 char vbapf_2d_prepare(t_vbapf* vbap, size_t const nangles, float const * angles)
 {
     char valid;
-    float x1, y1, x2, y2, xc, yc, xr, yr, dc, deta;
+    float x1, y1, x2, y2, xc, yc, xr, yr, dc, deta, ra;
     size_t i = 0, j = 0, k = 0, err = 0;
     size_t const max = vbap_factorial(nangles);
     
@@ -114,12 +112,14 @@ char vbapf_2d_prepare(t_vbapf* vbap, size_t const nangles, float const * angles)
     
     for(i = 0; i < nangles; ++i)
     {
-        x1 = -sinf(angles[i] / 180.f * M_PI);
-        y1 = cosf(angles[i] / 180.f * M_PI);
+        ra = angles[i] * VBAP_DEG_TO_RAD_F;
+        x1 = -sinf(ra);
+        y1 = cosf(ra);
         for(j = i+1; j < nangles; ++j)
         {
-            x2 = -sinf(angles[j] / 180.f * M_PI);
-            y2 = cosf(angles[j] / 180.f * M_PI);
+            ra = angles[j] * VBAP_DEG_TO_RAD_F;
+            x2 = -sinf(ra);
+            y2 = cosf(ra);
             xc = (x1 + x2) / 2.f;
             yc = (y1 + y2) / 2.f;
             
@@ -131,8 +131,9 @@ char vbapf_2d_prepare(t_vbapf* vbap, size_t const nangles, float const * angles)
             {
                 if(k != i && k != j)
                 {
-                    xr = xc + sinf(angles[k] / 180.f * M_PI);
-                    yr = yc - cosf(angles[k] / 180.f * M_PI);
+                    ra = angles[k] * VBAP_DEG_TO_RAD_F;
+                    xr = xc + sinf(ra);
+                    yr = yc - cosf(ra);
                     valid = (char)(sqrtf(xr * xr + yr * yr) > dc);
                 }
             }
@@ -163,10 +164,10 @@ char vbapf_2d_prepare(t_vbapf* vbap, size_t const nangles, float const * angles)
 void vbapf_2d_perform(t_vbapf const* vbap, float const angle, float * coefficients)
 {
     size_t i = 0, index = -1;
-    float r1, r2, s1, s2, powr, ref = 0.;
-    
-    float const x = -sinf(angle / 180.f * M_PI);
-    float const y = cosf(angle / 180.f * M_PI);
+    float r1, r2, s1 = 0.f, s2 = 0.f, powr, ref = 0.f;
+    float const ra = angle * VBAP_DEG_TO_RAD_F;
+    float const x = -sinf(ra);
+    float const y = cosf(ra);
     
     for(i = 0; i < vbap->v_n; ++i)
     {

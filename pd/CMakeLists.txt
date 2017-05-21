@@ -11,6 +11,15 @@ project(pd.vbap)
 set_pd_sources(${PROJECT_SOURCE_DIR}/pd.src/src/)
 set_pd_external_path("${PROJECT_SOURCE_DIR}/ext/")
 
+if(CMAKE_C_COMPILER_ID STREQUAL "MSVC")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /W4")
+elseif(CMAKE_C_COMPILER_ID STREQUAL "GNU")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -pedantic")
+elseif(CMAKE_C_COMPILER_ID STREQUAL "Clang")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Weverything -Wno-padded -Wno-reserved-id-macro")
+endif()
+
+include_directories(${PROJECT_SOURCE_DIR}/../src/)
 file(GLOB vbap_tilde_sources ${PROJECT_SOURCE_DIR}/src/vbap_tilde.c ${PROJECT_SOURCE_DIR}/../src/vbap.c ${PROJECT_SOURCE_DIR}/../src/vbap.h)
 add_pd_external(vbap_tilde_project vbap~ "${vbap_tilde_sources}")
 
