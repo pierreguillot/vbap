@@ -139,7 +139,7 @@ char vbapf_2d_prepare(t_vbapf* vbap, size_t const nangles, float const * angles)
             }
             if(valid)
             {
-                // Transposed of the inverse of the matrix
+                /* Transposed of the inverse of the matrix */
                 deta = (x1 * y2 - x2 * y1);
                 if(fabsf(deta) < FLT_EPSILON)
                 {
