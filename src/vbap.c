@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <float.h>
+#include <stdint.h>
 
 #define VBAP_DEG_TO_RAD_F 0.01745329238474369049072266f
 
@@ -162,7 +163,7 @@ char vbapf_2d_prepare(t_vbapf* vbap, size_t const nangles, float const * angles)
 
 void vbapf_2d_perform(t_vbapf const* vbap, float const angle, float * coefficients)
 {
-    size_t i = 0, index = -1;
+    size_t i = 0, index = SIZE_MAX;
     float r1, r2, s1 = 0.f, s2 = 0.f, powr, ref = 0.f;
     float const ra = angle * VBAP_DEG_TO_RAD_F;
     float const x = -sinf(ra);
