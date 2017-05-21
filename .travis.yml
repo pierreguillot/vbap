@@ -1,0 +1,34 @@
+language: c
+dist: trusty
+sudo: required
+
+notifications:
+  email: false
+
+git:
+  submodules: true
+  depth: 3
+
+matrix:
+  include:
+    - os: linux
+      compiler: gcc
+      addons:
+        apt:
+          packages: ['python-pip', 'python-yaml']
+      before_script:
+        - pip install --user git+git://github.com/eddyxu/cpp-coveralls.git
+      after_success:
+        - coveralls -e build/CMakeFiles/feature_tests.cxx -e build/CMakeFiles/feature_tests.c -e build/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp -e build/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.c -e build/CMakeFiles/3.2.2/CompilerIdCXX/CMakeCXXCompilerId.cpp -e build/CMakeFiles/3.2.2/CompilerIdC/CMakeCCompilerId.c -e tests -e pd -e publications -e docs --gcov-options '\-lp'
+    - os: linux
+      compiler: clang
+    - os: osx
+      compiler: gcc
+    - os: osx
+      compiler: clang
+
+script:
+  - mkdir build
+  - cd build
+  - cmake --build .
+  - ctest .
