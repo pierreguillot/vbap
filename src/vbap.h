@@ -9,8 +9,17 @@
 
 #include <stddef.h>
 
-#define VBAP_EXTERN
-#define VBAP_EXTERN_STRUCT
+#ifdef _WIN32
+#define VBAP_EXTERN __declspec(dllexport) extern
+#else
+#define VBAP_EXTERN extern
+#endif
+
+#if defined(_MSC_VER) && !defined(_LANGUAGE_C_PLUS_PLUS) && !defined(__cplusplus)
+#define VBAP_EXTERN_STRUCT extern struct
+#else
+#define VBAP_EXTERN_STRUCT struct
+#endif
 
 //! @defgroup vbapf vbapf
 //! @brief The single point precision part of the library.
@@ -18,7 +27,7 @@
 //! @addtogroup vbapf
 //! @{
 
-VBAP_EXTERN_STRUCT struct _vbapf;
+VBAP_EXTERN_STRUCT _vbapf;
 
 //! @brief The opaque type used to compute vbap coefficients.
 typedef struct _vbapf t_vbapf;
