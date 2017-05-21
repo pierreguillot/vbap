@@ -12,3 +12,7 @@ Vector Base Amplitude Panning
 * V. Pulkki, [Spatial Sound Generation And Perception By Amplitude Panning Techniques](https://aaltodoc.aalto.fi/bitstream/handle/123456789/2345/isbn9512255324.pdf), Dissertation for the degree of Doctor of Science in Technology, Helsinki University of Technology Laboratory of Acoustics and Audio Signal Processing, 2001, August
 * V. Pulkki, [Compensating Displacement Of Amplitude-Panned Virtual sources](http://legacy.spa.aalto.fi/research/cat/vbap/papers/pulkkiaes22.pdf), AES 22nd International Conference on Virtual, Synthetic and Entertainment Audio, Espoo, Finland, 2002, June
 * J-M. Batke and F. Keiler, [Using VBAP-Derived Panning Functions For 3D Ambisonics Decoding](http://ambisonics10.ircam.fr/drupal/files/proceedings/presentations/O14_47.pdf), Proceedings of the 2nd International Symposium on Ambisonics and Spherical Acoustics, Paris, France, 2010
+
+## Documentation
+
+https://pierreguillot.github.io/vbap/

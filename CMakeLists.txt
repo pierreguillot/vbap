@@ -17,4 +17,13 @@ endif()
 
 include_directories(${PROJECT_SOURCE_DIR}/src/)
 file(GLOB vbap_sources ${PROJECT_SOURCE_DIR}/src/vbap.c ${PROJECT_SOURCE_DIR}/src/vbap.h)
-add_library(vbap ${vbap_sources})
+source_group(src FILES ${vbap_sources})
+
+add_library(vbap_dynamic SHARED ${vbap_sources})
+add_library(vbap_static STATIC ${vbap_sources})
+set_target_properties(vbap_dynamic PROPERTIES OUTPUT_NAME vbap)
+set_target_properties(vbap_static PROPERTIES OUTPUT_NAME vbap)
+
+add_executable(vbap_test ${PROJECT_SOURCE_DIR}/tests/test_2d.c)
+target_link_libraries(vbap_test vbap_dynamic)
+add_test(vbap_test_all vbap_test)
