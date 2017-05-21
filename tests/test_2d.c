@@ -14,6 +14,8 @@
 #include <assert.h>
 #define UNUSED(x) (void)(x)
 
+void test_stereo(t_vbapf* vbap);
+
 void test_stereo(t_vbapf* vbap)
 {
     float angles[2] = {45.f, -45.f};
