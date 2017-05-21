@@ -76,9 +76,9 @@ size_t vbapf_nls(t_vbapf const* vbap)
 
 char vbapf_2d_prepare(t_vbapf* vbap, size_t const nangles, float const * angles)
 {
-    char valid;
+    char valid, err = 0;
     float x1, y1, x2, y2, xc, yc, xr, yr, dc, deta, ra;
-    size_t i = 0, j = 0, k = 0, err = 0;
+    size_t i = 0, j = 0, k = 0;
     size_t const max = vbap_factorial(nangles);
     
     if(vbap->v_n && vbap->v_matrices)
