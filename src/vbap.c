@@ -14,13 +14,13 @@
 
 #define VBAP_DEG_TO_RAD_F 0.01745329238474369049072266f
 
-typedef struct _vbapf
+struct _vbapf
 {
     size_t  v_nls;
     size_t  v_n;
     float*  v_matrices;
     size_t* v_indices;
-} t_vbapf;
+};
 
 static size_t vbap_factorial(size_t value)
 {
