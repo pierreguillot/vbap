@@ -1,7 +1,11 @@
 # vbap
 Vector Base Amplitude Panning
 
-## Publications
+[![Build Status](https://travis-ci.org/pierreguillot/vbap.svg?branch=master)](https://travis-ci.org/pierreguillot/vbap)
+[![Coverage Status](https://coveralls.io/repos/github/pierreguillot/vbap/badge.svg?branch=master)](https://coveralls.io/github/pierreguillot/vbap?branch=master)
+[![Documentation](https://img.shields.io/badge/docs-doxygen-blue.svg)](https://pierreguillot.github.io/vbap/)
+
+### Publications
 * V. Pulkki, [Virtual Sound Source Positioning Using Vector Base Amplitude Panning](https://aaltodoc.aalto.fi/bitstream/handle/123456789/2345/article1.pdf), Journal of the Audio Engineering Society, Vol.45, No.6, 1997 June
 * V. Pulkki & T. Lokki, [Creating Auditory Displays with Multiple Loudspeakers Using VBAP: A Case Study with DIVA Project](https://aaltodoc.aalto.fi/bitstream/handle/123456789/2345/article3.pdf), International Conference on Auditory Display, Glasgow, UK, 1998 November
 * V. Pulkki, [Uniform Spreading Of Amplitude Panned Virtual Sources](https://aaltodoc.aalto.fi/bitstream/handle/123456789/2345/article4.pdf), Proceedings of the 1999 IEEE Workshop on Applications of Signal Processing to Audio and Acoustics, New Paltz, USA, 1999 October
@@ -12,7 +16,3 @@ Vector Base Amplitude Panning
 * V. Pulkki, [Spatial Sound Generation And Perception By Amplitude Panning Techniques](https://aaltodoc.aalto.fi/bitstream/handle/123456789/2345/isbn9512255324.pdf), Dissertation for the degree of Doctor of Science in Technology, Helsinki University of Technology Laboratory of Acoustics and Audio Signal Processing, 2001, August
 * V. Pulkki, [Compensating Displacement Of Amplitude-Panned Virtual sources](http://legacy.spa.aalto.fi/research/cat/vbap/papers/pulkkiaes22.pdf), AES 22nd International Conference on Virtual, Synthetic and Entertainment Audio, Espoo, Finland, 2002, June
 * J-M. Batke and F. Keiler, [Using VBAP-Derived Panning Functions For 3D Ambisonics Decoding](http://ambisonics10.ircam.fr/drupal/files/proceedings/presentations/O14_47.pdf), Proceedings of the 2nd International Symposium on Ambisonics and Spherical Acoustics, Paris, France, 2010
-
-## Documentation
-
-https://pierreguillot.github.io/vbap/

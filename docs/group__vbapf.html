@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>VBAP: vbapf</title>
+<title>vbap: vbapf</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,10 +23,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">VBAP
+   <div id="projectname">vbap
    &#160;<span id="projectnumber">0.0.1</span>
    </div>
-   <div id="projectbrief">Vector Based Amplitude Panning</div>
+   <div id="projectbrief">The vector based amplitude panning</div>
   </td>
  </tr>
  </tbody>
@@ -41,8 +41,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -91,32 +89,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:ga3c9b971298d6e8efed165328a6703ced"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga3c9b971298d6e8efed165328a6703ced"></a>
-typedef struct <a class="el" href="struct__vbapf.html">_vbapf</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a></td></tr>
+typedef struct _vbapf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a></td></tr>
 <tr class="memdesc:ga3c9b971298d6e8efed165328a6703ced"><td class="mdescLeft">&#160;</td><td class="mdescRight">The opaque type used to compute vbap coefficients. <br /></td></tr>
 <tr class="separator:ga3c9b971298d6e8efed165328a6703ced"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gad322209535cf97c8d321aecd3fb185d6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gad322209535cf97c8d321aecd3fb185d6"></a>
-VBAP_EXTERN <a class="el" href="struct__vbapf.html">t_vbapf</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vbapf.html#gad322209535cf97c8d321aecd3fb185d6">vbapf_new</a> (void)</td></tr>
-<tr class="memdesc:gad322209535cf97c8d321aecd3fb185d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates a new vbap structure. <br /></td></tr>
-<tr class="separator:gad322209535cf97c8d321aecd3fb185d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga47d594a03ade793f85caec6108939f2e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga47d594a03ade793f85caec6108939f2e"></a>
-VBAP_EXTERN void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vbapf.html#ga47d594a03ade793f85caec6108939f2e">vbapf_free</a> (<a class="el" href="struct__vbapf.html">t_vbapf</a> *vbap)</td></tr>
-<tr class="memdesc:ga47d594a03ade793f85caec6108939f2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees a vbap structure. <br /></td></tr>
-<tr class="separator:ga47d594a03ade793f85caec6108939f2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae2538c9387dc3b2ec99d5a6c5ed2cebd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gae2538c9387dc3b2ec99d5a6c5ed2cebd"></a>
-VBAP_EXTERN size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vbapf.html#gae2538c9387dc3b2ec99d5a6c5ed2cebd">vbapf_nls</a> (<a class="el" href="struct__vbapf.html">t_vbapf</a> const *vbap)</td></tr>
-<tr class="memdesc:gae2538c9387dc3b2ec99d5a6c5ed2cebd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current number of loudspeakers. <br /></td></tr>
-<tr class="separator:gae2538c9387dc3b2ec99d5a6c5ed2cebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4fd160ded211063e570c4cff3cc00253"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga4fd160ded211063e570c4cff3cc00253"></a>
-VBAP_EXTERN char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vbapf.html#ga4fd160ded211063e570c4cff3cc00253">vbapf_2d_prepare</a> (<a class="el" href="struct__vbapf.html">t_vbapf</a> *vbap, size_t const nangles, float const *angles)</td></tr>
-<tr class="memdesc:ga4fd160ded211063e570c4cff3cc00253"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the vbap structure for a specific configuration. <br /></td></tr>
-<tr class="separator:ga4fd160ded211063e570c4cff3cc00253"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga791aab7ebc5d299e9368b3b5f86f334f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga791aab7ebc5d299e9368b3b5f86f334f"></a>
-VBAP_EXTERN void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vbapf.html#ga791aab7ebc5d299e9368b3b5f86f334f">vbapf_2d_perform</a> (<a class="el" href="struct__vbapf.html">t_vbapf</a> const *vbap, float const angle, float *coefficients)</td></tr>
-<tr class="memdesc:ga791aab7ebc5d299e9368b3b5f86f334f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the coefficients of the loudspeakers for a specified angle. <br /></td></tr>
-<tr class="separator:ga791aab7ebc5d299e9368b3b5f86f334f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf90ce10637ce3953b2ab6ee7420534f2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaf90ce10637ce3953b2ab6ee7420534f2"></a>
+<a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vbapf.html#gaf90ce10637ce3953b2ab6ee7420534f2">vbapf_new</a> (void)</td></tr>
+<tr class="memdesc:gaf90ce10637ce3953b2ab6ee7420534f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates a new vbap structure. <br /></td></tr>
+<tr class="separator:gaf90ce10637ce3953b2ab6ee7420534f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga87a0b90393a5190a47c1651b24c252b0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga87a0b90393a5190a47c1651b24c252b0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vbapf.html#ga87a0b90393a5190a47c1651b24c252b0">vbapf_free</a> (<a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a> *vbap)</td></tr>
+<tr class="memdesc:ga87a0b90393a5190a47c1651b24c252b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees a vbap structure. <br /></td></tr>
+<tr class="separator:ga87a0b90393a5190a47c1651b24c252b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa7ae5b49a7ea599ee7601d75b75ffd04"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaa7ae5b49a7ea599ee7601d75b75ffd04"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vbapf.html#gaa7ae5b49a7ea599ee7601d75b75ffd04">vbapf_nls</a> (<a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a> const *vbap)</td></tr>
+<tr class="memdesc:gaa7ae5b49a7ea599ee7601d75b75ffd04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current number of loudspeakers. <br /></td></tr>
+<tr class="separator:gaa7ae5b49a7ea599ee7601d75b75ffd04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7ddba829320994b4d383c162fd2a1048"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga7ddba829320994b4d383c162fd2a1048"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vbapf.html#ga7ddba829320994b4d383c162fd2a1048">vbapf_2d_prepare</a> (<a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a> *vbap, size_t const nangles, float const *angles)</td></tr>
+<tr class="memdesc:ga7ddba829320994b4d383c162fd2a1048"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the vbap structure for a specific configuration. <br /></td></tr>
+<tr class="separator:ga7ddba829320994b4d383c162fd2a1048"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga666f7ecfe1527c231ee680466dafa7e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga666f7ecfe1527c231ee680466dafa7e6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vbapf.html#ga666f7ecfe1527c231ee680466dafa7e6">vbapf_2d_perform</a> (<a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a> const *vbap, float const angle, float *coefficients)</td></tr>
+<tr class="memdesc:ga666f7ecfe1527c231ee680466dafa7e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the coefficients of the loudspeakers for a specified angle. <br /></td></tr>
+<tr class="separator:ga666f7ecfe1527c231ee680466dafa7e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>The single point precision part of the library. </p>

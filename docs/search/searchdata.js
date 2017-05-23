@@ -1,27 +1,27 @@
 var indexSectionsWithContent =
 {
-  0: "_tv",
-  1: "_",
-  2: "v",
-  3: "t",
+  0: "tv",
+  1: "v",
+  2: "t",
+  3: "v",
   4: "v"
 };
 
 var indexSectionNames =
 {
   0: "all",
-  1: "classes",
-  2: "functions",
-  3: "typedefs",
-  4: "groups"
+  1: "functions",
+  2: "typedefs",
+  3: "groups",
+  4: "pages"
 };
 
 var indexSectionLabels =
 {
   0: "All",
-  1: "Data Structures",
-  2: "Functions",
-  3: "Typedefs",
-  4: "Modules"
+  1: "Functions",
+  2: "Typedefs",
+  3: "Modules",
+  4: "Pages"
 };
 
