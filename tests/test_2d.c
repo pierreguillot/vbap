@@ -56,16 +56,22 @@ void test_square(t_vbapf* vbap)
         assert(vbapf_nls(vbap) == 4);
         
         vbapf_2d_perform(vbap, 0.f, result);
-        assert(fabsf(result[0] - 0.707107f) < 0.00001f);
-        assert(fabsf(result[1] - 0.707107f) < 0.00001f);
+        assert(fabsf(result[0] - 1) < 0.00001f);
+        assert(fabsf(result[1] - 0) < 0.00001f);
+        assert(fabsf(result[2] - 0) < 0.00001f);
+        assert(fabsf(result[3] - 0) < 0.00001f);
         
         vbapf_2d_perform(vbap, -45.f, result);
-        assert(fabsf(result[0]) < 0.00001f);
-        assert(fabsf(result[1] - 1.f) < 0.00001f);
+        assert(fabsf(result[0] - 0.707107f) < 0.00001f);
+        assert(fabsf(result[1] - 0) < 0.00001f);
+        assert(fabsf(result[2] - 0) < 0.00001f);
+        assert(fabsf(result[3] - 0.707107f) < 0.00001f);
         
         vbapf_2d_perform(vbap, 45.f, result);
-        assert(fabsf(result[1]) < 0.00001f);
-        assert(fabsf(result[0] - 1.f) < 0.00001f);
+        assert(fabsf(result[0] - 0.707107f) < 0.00001f);
+        assert(fabsf(result[1] - 0.707107f) < 0.00001f);
+        assert(fabsf(result[2] - 0) < 0.00001f);
+        assert(fabsf(result[3] - 0) < 0.00001f);
         printf("done\n");
     }
     else
