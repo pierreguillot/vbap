@@ -18,6 +18,12 @@ matrix:
           packages: ['python-pip', 'python-yaml']
       before_script:
         - pip install --user git+git://github.com/eddyxu/cpp-coveralls.git
+      script:
+        - mkdir build
+        - cd build
+        - cmake -DGCOV_SUPPORT=On ..
+        - cmake --build .
+        - ctest .
       after_success:
         - coveralls -e build/CMakeFiles/feature_tests.cxx -e build/CMakeFiles/feature_tests.c -e build/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp -e build/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.c -e build/CMakeFiles/3.2.2/CompilerIdCXX/CMakeCXXCompilerId.cpp -e build/CMakeFiles/3.2.2/CompilerIdC/CMakeCCompilerId.c -e tests -e pd -e publications -e docs --gcov-options '\-lp'
     - os: linux
