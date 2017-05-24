@@ -119,7 +119,8 @@ int main(int argc, const char * argv[])
     printf("running 2d tests :\n");
     assert(vbap);
     test_stereo(vbap);
-    test_square(vbap);
+    test_square(vbap);    
+    vbapf_free(vbap);
     printf("end\n");
     return 0;
 }
