@@ -111,10 +111,11 @@ void test_square(t_vbapf* vbap)
 
 int main(int argc, const char * argv[])
 {
+    t_vbapf* vbap;
     UNUSED(argc);
     UNUSED(argv);
     
-    t_vbapf* vbap   = vbapf_new();
+    vbap = vbapf_new();
     printf("running 2d tests :\n");
     assert(vbap);
     test_stereo(vbap);
