@@ -97,6 +97,7 @@ char vbapf_2d_prepare(t_vbapf* vbap, size_t const nangles, float const * angles)
     
     if(!vbap->v_matrices || !vbap->v_indices)
     {
+// LCOV_EXCL_START
         if(vbap->v_indices)
         {
             free(vbap->v_indices);
@@ -107,6 +108,7 @@ char vbapf_2d_prepare(t_vbapf* vbap, size_t const nangles, float const * angles)
             free(vbap->v_matrices);
             vbap->v_matrices = NULL;
         }
+// LCOV_EXCL_STOP
         return -1;
     }
     
