@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-option(COVERALLS "Build with coveralls")
+option(GCOV_SUPPORT "Build with coveralls")
 set(CMAKE_SUPPRESS_REGENERATION true)
 set(CMAKE_MACOSX_RPATH Off)
 set(CMAKE_OSX_DEPLOYMENT_TARGET 10.4)
@@ -17,7 +17,7 @@ elseif(CMAKE_C_COMPILER_ID STREQUAL "Clang")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Weverything")
 endif()
 
-if(${COVERALLS} STREQUAL "On")
+if(${GCOV_SUPPORT} STREQUAL "On")
     message(STATUS "Build with coveralls")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fprofile-arcs -ftest-coverage")
 endif()
