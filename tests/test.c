@@ -165,7 +165,7 @@ void test_triangle(t_vbapf* vbap)
 
 void test_cube(t_vbapf* vbap)
 {
-    float angles[16] = {45.f, 35.3f, 135.f, 35.3f, 225.f, 35.3f, 315.f, 35.3f, 45.f, -35.3f, 135.f, -35.3f, 225.f, -35.3f, 315.f, -35.3};
+    float angles[16] = {45.f, 35.3f, 135.f, 35.3f, 225.f, 35.3f, 315.f, 35.3f, 45.f, -35.3f, 135.f, -35.3f, 225.f, -35.3f, 315.f, -35.3f};
     float result[8];
     printf("cube version... ");
     if(!vbapf_3d_prepare(vbap, 8, angles))
