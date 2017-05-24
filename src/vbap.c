@@ -108,8 +108,8 @@ char vbapf_2d_prepare(t_vbapf* vbap, size_t const nangles, float const * angles)
             free(vbap->v_matrices);
             vbap->v_matrices = NULL;
         }
-// LCOV_EXCL_STOP
         return -1;
+// LCOV_EXCL_STOP
     }
     
     for(i = 0; i < nangles; ++i)
