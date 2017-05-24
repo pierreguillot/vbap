@@ -373,20 +373,4 @@ void vbapf_3d_perform(t_vbapf const* vbap, float const azimuth, float const elev
     }
 }
 
-void vbapf_print(t_vbapf const* vbap)
-{
-    size_t i;
-    if(vbap->v_mode == 1)
-    {
-        printf("VBAP 3D - %i\n", (int)vbap->v_n);
-        for(i = 0; i < vbap->v_n; ++i)
-        {
-            printf("%i %i %i : [%f %f %f %f %f %f %f %f %f]\n",
-                   (int)vbap->v_indices[i*3], (int)vbap->v_indices[i*3+1], (int)vbap->v_indices[i*3+2],
-                   (double)vbap->v_matrices[i*4], (double)vbap->v_matrices[i*4+1], (double)vbap->v_matrices[i*4+2],
-                   (double)vbap->v_matrices[i*4+3], (double)vbap->v_matrices[i*4+4], (double)vbap->v_matrices[i*4+5],
-                   (double)vbap->v_matrices[i*4+6], (double)vbap->v_matrices[i*4+7], (double)vbap->v_matrices[i*4+8]);
-        }
-    }
-}
 

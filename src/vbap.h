@@ -48,9 +48,6 @@ VBAP_EXTERN char vbapf_3d_prepare(t_vbapf* vbap, size_t const nangles, float con
 //! @brief Computes the coefficients of the loudspeakers for a specified angle.
 VBAP_EXTERN void vbapf_3d_perform(t_vbapf const* vbap, float const azimuth, float const elevation, float * coefficients);
 
-//! @brief Prints informations about the vbap.
-VBAP_EXTERN void vbapf_print(t_vbapf const* vbap);
-
 //! @}
 
 #endif // VBAP_INCLUDE_C
