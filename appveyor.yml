@@ -11,6 +11,9 @@ os: Visual Studio 2015
 install:
     - git submodule update --init --recursive
 
+before_build:
+    - del "C:\Program Files (x86)\MSBuild\14.0\Microsoft.Common.targets\ImportAfter\Xamarin.Common.targets"
+
 build_script:
     - mkdir build
     - cd build
