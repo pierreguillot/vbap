@@ -35,17 +35,17 @@ set_target_properties(vbap_static PROPERTIES OUTPUT_NAME vbap)
 
 
 
-add_executable(vbap_test_dynamic ${PROJECT_SOURCE_DIR}/tests/test_2d.c)
+add_executable(vbap_test_dynamic ${PROJECT_SOURCE_DIR}/tests/test.c)
 target_link_libraries(vbap_test_dynamic vbap_dynamic)
 target_link_libraries(vbap_test_dynamic ${MATH_LIB})
 add_test(vbap_test_d vbap_test_dynamic)
 
-add_executable(vbap_test_static ${PROJECT_SOURCE_DIR}/tests/test_2d.c)
+add_executable(vbap_test_static ${PROJECT_SOURCE_DIR}/tests/test.c)
 target_link_libraries(vbap_test_static vbap_static)
 target_link_libraries(vbap_test_static ${MATH_LIB})
 add_test(vbap_test_s vbap_test_static)
 
-add_executable(vbap_test_compiled ${vbap_sources} ${PROJECT_SOURCE_DIR}/tests/test_2d.c)
+add_executable(vbap_test_compiled ${vbap_sources} ${PROJECT_SOURCE_DIR}/tests/test.c)
 target_link_libraries(vbap_test_compiled vbap_static)
 target_link_libraries(vbap_test_compiled ${MATH_LIB})
 add_test(vbap_test_c vbap_test_compiled)
