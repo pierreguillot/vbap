@@ -61,17 +61,47 @@ void test_square(t_vbapf* vbap)
         assert(fabsf(result[2] - 0) < 0.00001f);
         assert(fabsf(result[3] - 0) < 0.00001f);
         
-        vbapf_2d_perform(vbap, -45.f, result);
-        assert(fabsf(result[0] - 0.707107f) < 0.00001f);
-        assert(fabsf(result[1] - 0) < 0.00001f);
-        assert(fabsf(result[2] - 0) < 0.00001f);
-        assert(fabsf(result[3] - 0.707107f) < 0.00001f);
-        
         vbapf_2d_perform(vbap, 45.f, result);
         assert(fabsf(result[0] - 0.707107f) < 0.00001f);
         assert(fabsf(result[1] - 0.707107f) < 0.00001f);
         assert(fabsf(result[2] - 0) < 0.00001f);
         assert(fabsf(result[3] - 0) < 0.00001f);
+
+        vbapf_2d_perform(vbap, 90.f, result);
+        assert(fabsf(result[0] - 0) < 0.00001f);
+        assert(fabsf(result[1] - 1.f) < 0.00001f);
+        assert(fabsf(result[2] - 0) < 0.00001f);
+        assert(fabsf(result[3] - 0) < 0.00001f);
+        
+        vbapf_2d_perform(vbap, 135.f, result);
+        assert(fabsf(result[0] - 0) < 0.00001f);
+        assert(fabsf(result[1] - 0.707107f) < 0.00001f);
+        assert(fabsf(result[2] - 0.707107f) < 0.00001f);
+        assert(fabsf(result[3] - 0) < 0.00001f);
+        
+        vbapf_2d_perform(vbap, 180.f, result);
+        assert(fabsf(result[0] - 0) < 0.00001f);
+        assert(fabsf(result[1] - 0.f) < 0.00001f);
+        assert(fabsf(result[2] - 1.f) < 0.00001f);
+        assert(fabsf(result[3] - 0) < 0.00001f);
+        
+        vbapf_2d_perform(vbap, 225.f, result);
+        assert(fabsf(result[0] - 0) < 0.00001f);
+        assert(fabsf(result[1] - 0) < 0.00001f);
+        assert(fabsf(result[2] - 0.707107f) < 0.00001f);
+        assert(fabsf(result[3] - 0.707107f) < 0.00001f);
+        
+        vbapf_2d_perform(vbap, 270.f, result);
+        assert(fabsf(result[0] - 0) < 0.00001f);
+        assert(fabsf(result[1] - 0) < 0.00001f);
+        assert(fabsf(result[2] - 0) < 0.00001f);
+        assert(fabsf(result[3] - 1) < 0.00001f);
+        
+        vbapf_2d_perform(vbap, 315.f, result);
+        assert(fabsf(result[0] - 0.707107f) < 0.00001f);
+        assert(fabsf(result[1] - 0) < 0.00001f);
+        assert(fabsf(result[2] - 0) < 0.00001f);
+        assert(fabsf(result[3] - 0.707107f) < 0.00001f);
         printf("done\n");
     }
     else
