@@ -171,7 +171,6 @@ void test_cube(t_vbapf* vbap)
     if(!vbapf_3d_prepare(vbap, 8, angles))
     {
         assert(vbapf_nls(vbap) == 8);
-        //vbapf_print(vbap);
         
         vbapf_3d_perform(vbap, 0.f, 0.f, result);
         assert(fabsf(result[0] - 0) < 0.00001f);
@@ -182,6 +181,47 @@ void test_cube(t_vbapf* vbap)
         assert(fabsf(result[5] - 0) < 0.00001f);
         assert(fabsf(result[6] - 0) < 0.00001f);
         assert(fabsf(result[7] - 0) < 0.00001f);
+        
+        vbapf_3d_perform(vbap, 26.f, 39.f, result);
+        assert(fabsf(result[0] - 0.961695f) < 0.00001f);
+        assert(fabsf(result[1] - 0) < 0.00001f);
+        assert(fabsf(result[2] - 0) < 0.00001f);
+        assert(fabsf(result[3] - 0.266355f) < 0.00001f);
+        assert(fabsf(result[4] - 0) < 0.00001f);
+        assert(fabsf(result[5] - 0) < 0.00001f);
+        assert(fabsf(result[6] - 0) < 0.00001f);
+        assert(fabsf(result[7] - 0.0647837f) < 0.00001f);
+        
+        vbapf_3d_perform(vbap, -37.f, -23.f, result);
+        assert(fabsf(result[0] - 0.157329f) < 0.00001f);
+        assert(fabsf(result[1] - 0) < 0.00001f);
+        assert(fabsf(result[2] - 0) < 0.00001f);
+        assert(fabsf(result[3] - 0.142205f) < 0.00001f);
+        assert(fabsf(result[4] - 0) < 0.00001f);
+        assert(fabsf(result[5] - 0) < 0.00001f);
+        assert(fabsf(result[6] - 0) < 0.00001f);
+        assert(fabsf(result[7] - 0.977254f) < 0.00001f);
+        
+        vbapf_3d_perform(vbap, 156.f, 12.f, result);
+        assert(fabsf(result[0] - 0) < 0.00001f);
+        assert(fabsf(result[1] - 0.90076f) < 0.00001f);
+        assert(fabsf(result[2] - 0) < 0.00001f);
+        assert(fabsf(result[3] - 0) < 0.00001f);
+        assert(fabsf(result[4] - 0) < 0.00001f);
+        assert(fabsf(result[5] - 0.155586f) < 0.00001f);
+        assert(fabsf(result[6] - 0.405493f) < 0.00001f);
+        assert(fabsf(result[7] - 0) < 0.00001f);
+        
+        vbapf_3d_perform(vbap, 45.f, -35.f, result);
+        assert(fabsf(result[0] - 0.00556134f) < 0.00001f);
+        assert(fabsf(result[1] - 0) < 0.00001f);
+        assert(fabsf(result[2] - 0) < 0.00001f);
+        assert(fabsf(result[3] - 0) < 0.00001f);
+        assert(fabsf(result[4] - 0.999985f) < 0.00001f);
+        assert(fabsf(result[5] - 0) < 0.00001f);
+        assert(fabsf(result[6] - 0) < 0.00001f);
+        assert(fabsf(result[7] - 0) < 0.00001f);
+        
         printf("done\n");
     }
     else

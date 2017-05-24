@@ -310,7 +310,6 @@ char vbapf_3d_prepare(t_vbapf* vbap, size_t const nangles, float const * angles)
                         deta = 1.f;
                         err++;
                     }
-                    
                     vbap->v_indices[vbap->v_n*3]   = i;
                     vbap->v_indices[vbap->v_n*3+1] = j;
                     vbap->v_indices[vbap->v_n*3+2] = k;
@@ -345,9 +344,9 @@ void vbapf_3d_perform(t_vbapf const* vbap, float const azimuth, float const elev
     
     for(i = 0; i < vbap->v_n; ++i)
     {
-        r1 = vbap->v_matrices[i*4] * x + vbap->v_matrices[i*4+3] * y + vbap->v_matrices[i*4+6] * z;
-        r2 = vbap->v_matrices[i*4+1] * x + vbap->v_matrices[i*4+4] * y + vbap->v_matrices[i*4+7] * z;
-        r3 = vbap->v_matrices[i*4+2] * x + vbap->v_matrices[i*4+5] * y + vbap->v_matrices[i*4+8] * z;
+        r1 = vbap->v_matrices[i*9] * x + vbap->v_matrices[i*9+3] * y + vbap->v_matrices[i*9+6] * z;
+        r2 = vbap->v_matrices[i*9+1] * x + vbap->v_matrices[i*9+4] * y + vbap->v_matrices[i*9+7] * z;
+        r3 = vbap->v_matrices[i*9+2] * x + vbap->v_matrices[i*9+5] * y + vbap->v_matrices[i*9+8] * z;
         if(r1 >= 0.f && r2 >= 0.f && r3 >= 0.f)
         {
             powr = sqrtf(r1 * r1 + r2 * r2 + r3 * r3);
