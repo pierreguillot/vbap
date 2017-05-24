@@ -209,18 +209,18 @@ static void vbapf_circumcircle(float const x1, float const y1, float const z1,
                                float const x3, float const y3, float const z3,
                                float* xr, float* yr, float* zr, float* l)
 {
-    const float mx1 = x2 - x1, my1 = y2 - y1, mz1 = z2 - z1;
-    const float mx2 = x3 - x1, my2 = y3 - y1, mz2 = z3 - z1;
-    const float crx1 = my1 * mz2 - mz1 * my2, cry1 = mz1 * mx2 - mx1 * mz2, crz1 = mx1 * my2 - my1 * mx2;
+    const double mx1 = (double)x2 - (double)x1, my1 = (double)y2 - (double)y1, mz1 = (double)z2 - (double)z1;
+    const double mx2 = (double)x3 - (double)x1, my2 = (double)y3 - (double)y1, mz2 = (double)z3 - (double)z1;
+    const double crx1 = my1 * mz2 - mz1 * my2, cry1 = mz1 * mx2 - mx1 * mz2, crz1 = mx1 * my2 - my1 * mx2;
     
-    const float l1 = powf(sqrtf(crx1*crx1+cry1*cry1+crz1*crz1), 2.f) * 2.f;
-    const float l2 = powf(sqrtf(mx1*mx1+my1*my1+mz1*mz1), 2.f);
-    const float l3 = powf(sqrtf(mx2*mx2+my2*my2+mz2*mz2), 2.f);
+    const double l1 = pow(sqrt(crx1*crx1+cry1*cry1+crz1*crz1), 2.) * 2.;
+    const double l2 = pow(sqrt(mx1*mx1+my1*my1+mz1*mz1), 2.);
+    const double l3 = pow(sqrt(mx2*mx2+my2*my2+mz2*mz2), 2.);
     
-    const float crx2 = (cry1 * mz1 - crz1 * my1) * l3, cry2 = (crz1 * mx1 - crx1 * mz1) * l3, crz2 = (crx1 * my1 - cry1 * mx1) * l3;
-    const float crx3 = (my2 * crz1 - mz2 * cry1) * l2, cry3 = (mz2 * crx1 - mx2 * crz1) * l2, crz3 = (mx2 * cry1 - my2 * crx1) * l2;
+    const double crx2 = (cry1 * mz1 - crz1 * my1) * l3, cry2 = (crz1 * mx1 - crx1 * mz1) * l3, crz2 = (crx1 * my1 - cry1 * mx1) * l3;
+    const double crx3 = (my2 * crz1 - mz2 * cry1) * l2, cry3 = (mz2 * crx1 - mx2 * crz1) * l2, crz3 = (mx2 * cry1 - my2 * crx1) * l2;
 
-    *xr = (crx2 + crx3) / l1; *yr = (cry2 + cry3) / l1; *zr = (crz2 + crz3) / l1;
+    *xr = (float)((crx2 + crx3) / l1); *yr = (float)((cry2 + cry3) / l1); *zr = (float)((crz2 + crz3) / l1);
     *l = sqrtf(*xr * *xr + *yr * *yr + *zr * *zr);
     *xr += x1; *yr += y1; *zr += z1;
 }
@@ -228,7 +228,7 @@ static void vbapf_circumcircle(float const x1, float const y1, float const z1,
 char vbapf_3d_prepare(t_vbapf* vbap, size_t const nangles, float const * angles)
 {
     char valid, err = 0;
-    float x1, y1, z1, x2, y2, z2, x3, y3, z3, xc, yc, zc, xr, yr, zr, dc, deta, ra1, ra2;
+    float x1, y1, z1, x2, y2, z2, x3, y3, z3, xc, yc, zc, xr, yr, zr, dc, deta, ra, re;
     size_t i = 0, j = 0, k = 0, l = 0;
     size_t const max = vbap_factorial(nangles);
     
@@ -270,39 +270,36 @@ char vbapf_3d_prepare(t_vbapf* vbap, size_t const nangles, float const * angles)
         {
             for(k = j+1; k < nangles; ++k)
             {
-                ra1 = angles[i*2]   * VBAP_DEG_TO_RAD_F;
-                ra2 = angles[i*2+1] * VBAP_DEG_TO_RAD_F;
-                x1 = -sinf(ra1) * cosf(ra2);
-                y1 = cosf(ra1)  * cosf(ra2);
-                z1 = sinf(ra2);
-                ra1 = angles[j*2]   * VBAP_DEG_TO_RAD_F;
-                ra2 = angles[j*2+1] * VBAP_DEG_TO_RAD_F;
-                x2 = -sinf(ra1) * cosf(ra2);
-                y2 = cosf(ra1)  * cosf(ra2);
-                z2 = sinf(ra2);
-                ra1 = angles[k*2]   * VBAP_DEG_TO_RAD_F;
-                ra2 = angles[k*2+1] * VBAP_DEG_TO_RAD_F;
-                x3 = -sinf(ra1) * cosf(ra2);
-                y3 = cosf(ra1)  * cosf(ra2);
-                z3 = sinf(ra2);
+                ra = angles[i*2]   * VBAP_DEG_TO_RAD_F;
+                re = angles[i*2+1] * VBAP_DEG_TO_RAD_F;
+                x1 = -sinf(ra) * cosf(re);
+                y1 = cosf(ra)  * cosf(re);
+                z1 = sinf(re);
+                ra = angles[j*2]   * VBAP_DEG_TO_RAD_F;
+                re = angles[j*2+1] * VBAP_DEG_TO_RAD_F;
+                x2 = -sinf(ra) * cosf(re);
+                y2 = cosf(ra)  * cosf(re);
+                z2 = sinf(re);
+                ra = angles[k*2]   * VBAP_DEG_TO_RAD_F;
+                re = angles[k*2+1] * VBAP_DEG_TO_RAD_F;
+                x3 = -sinf(ra) * cosf(re);
+                y3 = cosf(ra)  * cosf(re);
+                z3 = sinf(re);
                 
-                //
                 vbapf_circumcircle(x3, y3, z3, x1, y1, z1, x2, y2, z2, &xr, &yr, &zr, &dc);
-                valid = (char)(sqrtf(xr * xr + yr * yr + zr * zr) > FLT_EPSILON * 10.f);
-                //printf("\n%i %i %i : %i (%f)", (int)i, (int)j, (int)k, (int)valid, (double)(sqrtf(xr * xr + yr * yr + zr * zr)));
-               // printf("%f %f %f", (double)xr, (double)yr, (double)zr);
-                //printf("%f\n", (double)sqrtf(xr * xr + yr * yr + zr * zr));
+                valid = (char)(sqrtf(xr * xr + yr * yr + zr * zr) > FLT_EPSILON);
+                
                 for(l = 0; l < nangles && valid; ++l)
                 {
                     if(l != i && l != j && l != k)
                     {
-                        ra1 = angles[l*2]   * VBAP_DEG_TO_RAD_F;
-                        ra2 = angles[l*2+1] * VBAP_DEG_TO_RAD_F;
-                        xc = -sinf(ra1) * cosf(ra2) - xr;
-                        yc = cosf(ra1) * cosf(ra2) - yr;
-                        zc = sinf(ra2) - zr;
+                        ra = angles[l*2]   * VBAP_DEG_TO_RAD_F;
+                        re = angles[l*2+1] * VBAP_DEG_TO_RAD_F;
+                        xc = -sinf(ra) * cosf(re) - xr;
+                        yc = cosf(ra) * cosf(re) - yr;
+                        zc = sinf(re) - zr;
                         
-                        valid = (char)((sqrtf(xr * xr + yr * yr + zc * zc) + FLT_EPSILON) > dc);
+                        valid = (char)((sqrtf(xc * xc + yc * yc + zc * zc) + FLT_EPSILON) > dc);
                     }
                 }
                 if(valid)
