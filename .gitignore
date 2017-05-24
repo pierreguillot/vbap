@@ -6,4 +6,5 @@ build
 *sha256
 *app
 deken
-publications
+references/*
+!references/references.md
