@@ -12,6 +12,7 @@ project(vbap)
 if(CMAKE_C_COMPILER_ID STREQUAL "MSVC")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /W4")
 elseif(CMAKE_C_COMPILER_ID STREQUAL "GNU")
+    find_library(MATH_LIB m)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -pedantic")
 elseif(CMAKE_C_COMPILER_ID STREQUAL "Clang")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Weverything")
@@ -31,7 +32,7 @@ add_library(vbap_static STATIC ${vbap_sources})
 set_target_properties(vbap_dynamic PROPERTIES OUTPUT_NAME vbap)
 set_target_properties(vbap_static PROPERTIES OUTPUT_NAME vbap)
 
-find_library(MATH_LIB m)
+
 
 add_executable(vbap_test_dynamic ${PROJECT_SOURCE_DIR}/tests/test_2d.c)
 target_link_libraries(vbap_test_dynamic vbap_dynamic)
