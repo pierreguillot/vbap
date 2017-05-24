@@ -15,6 +15,7 @@ elseif(CMAKE_C_COMPILER_ID STREQUAL "GNU")
     find_library(MATH_LIB m)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -pedantic")
 elseif(CMAKE_C_COMPILER_ID STREQUAL "Clang")
+    find_library(MATH_LIB m)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Weverything")
 endif()
 
