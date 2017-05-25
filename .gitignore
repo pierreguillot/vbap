@@ -7,4 +7,4 @@ build
 *app
 deken
 references/*
-!references/references.md
+!references/README.md

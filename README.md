@@ -6,3 +6,17 @@ The repository contains documentations and implementations of the Vector Base Am
 [![Coverage Status](https://coveralls.io/repos/github/pierreguillot/vbap/badge.svg?branch=master)](https://coveralls.io/github/pierreguillot/vbap?branch=master)
 
 [![Documentation](https://img.shields.io/badge/docs-doxygen-blue.svg)](https://pierreguillot.github.io/vbap/)
+
+### Compilation
+
+Use the basic CMake approach:
+```
+mkdir build
+cd build
+cmake ..
+cmake --build .
+```
+
+### Author
+
+Pierre Guillot | CICM | Université Paris 8
