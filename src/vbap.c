@@ -77,6 +77,11 @@ size_t vbapf_nls(t_vbapf const* vbap)
     return vbap->v_nls;
 }
 
+char vbapf_dimension(t_vbapf const* vbap)
+{
+    return (char)(vbap->v_mode + 2);
+}
+
 char vbapf_2d_prepare(t_vbapf* vbap, size_t const nangles, float const * angles)
 {
     char valid, err = 0;
