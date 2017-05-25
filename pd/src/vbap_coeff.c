@@ -53,40 +53,52 @@ static void vbap_coeff_float(t_vbap_coeff *x, t_floatarg azimuth)
 
 static void vbap_coeff_list(t_vbap_coeff *x, t_symbol* s, int argc, t_atom* argv)
 {
-    
+    vbap_coeff_set(x, atom_getfloatarg(0, argc, argv), atom_getfloatarg(1, argc, argv));
+    vbap_coeff_bang(x);
+}
+
+static void vbap_coeff_free_pointers(t_vbap_coeff *x)
+{
+    if(x->v_coeffs)
+    {
+        freebytes(x->v_coeffs, vbapf_nls(x->v_vbap) * sizeof(t_float));
+        x->v_coeffs = NULL;
+    }
+    if(x->v_list)
+    {
+        freebytes(x->v_list, vbapf_nls(x->v_vbap) * sizeof(t_atom));
+        x->v_list = NULL;
+    }
+}
+
+static void vbap_coeff_allocate_pointers(t_vbap_coeff *x, size_t const n)
+{
+    x->v_coeffs = (t_float *)getbytes(n * sizeof(t_float));
+    if(!x->v_coeffs)
+    {
+        pd_error(x, "vbap.coeff can't allocate memory for the coefficients.");
+    }
+    x->v_list = (t_atom *)getbytes(n * sizeof(t_atom));
+    if(!x->v_list)
+    {
+        freebytes(x->v_coeffs, n * sizeof(t_float));
+        x->v_coeffs = NULL;
+        pd_error(x, "vbap.coeff can't allocate memory for the list.");
+    }
 }
 
 static void vbap_coeff_configure(t_vbap_coeff *x, t_symbol* s, int argc, t_atom* argv)
 {
-    int i; char err;
+    int i; char err = 0;
     t_symbol const* mode = atom_getsymbolarg(0, argc, argv);
+    vbap_coeff_free_pointers(x);
+    vbap_coeff_allocate_pointers(x, (size_t)(argc-1));
+    if(!x->v_list)
+    {
+        return;
+    }
     if(mode == vbap_coeff_sym_3d)
     {
-        if(x->v_coeffs)
-        {
-            freebytes(x->v_coeffs, vbapf_nls(x->v_vbap) * sizeof(t_float));
-            x->v_coeffs = NULL;
-        }
-        if(x->v_list)
-        {
-            freebytes(x->v_list, vbapf_nls(x->v_vbap) * sizeof(t_atom));
-            x->v_list = NULL;
-        }
-        x->v_coeffs = (t_float *)getbytes((size_t)(argc - 1) * sizeof(t_float));
-        if(!x->v_coeffs)
-        {
-            pd_error(x, "vbap.coeff can't allocate memory for the coefficients.");
-            return;
-        }
-        x->v_list = (t_atom *)getbytes((size_t)(argc - 1) * sizeof(t_atom));
-        if(!x->v_list)
-        {
-            freebytes(x->v_coeffs, (size_t)(argc - 1) * sizeof(t_float));
-            x->v_coeffs = NULL;
-            pd_error(x, "vbap.coeff can't allocate memory for the list.");
-            return;
-        }
-        
         for(i = 1; i < argc; i++)
         {
             if(argv[i].a_type == A_FLOAT)
@@ -96,46 +108,16 @@ static void vbap_coeff_configure(t_vbap_coeff *x, t_symbol* s, int argc, t_atom*
             else
             {
                 x->v_coeffs[i-1] = 0.f;
-                pd_error(x, "vbap.coeff received a bad type of argument for the azimuth %i.", i-1);
+                pd_error(x, "vbap.coeff received a bad type of argument for the %s %i.", i%2 ? "elevation" : "azimuth", i-1);
             }
             x->v_list[i-1].a_type = A_FLOAT;
             x->v_list[i-1].a_w.w_float = 0.f;
         }
-        err = vbapf_2d_prepare(x->v_vbap, argc, x->v_coeffs);
-        if(err)
-        {
-            pd_error(x, "vbap.coeff something wrong happened while preparing the vbap %i.", (int)err);
-        }
-        vbap_coeff_set(x, 0.f, 0.f);
+        err = vbapf_3d_prepare(x->v_vbap, (size_t)(argc - 1) / 2, x->v_coeffs);
     }
     else if(mode == vbap_coeff_sym_2d)
     {
-        if(x->v_coeffs)
-        {
-            freebytes(x->v_coeffs, vbapf_nls(x->v_vbap) * sizeof(t_float));
-            x->v_coeffs = NULL;
-        }
-        if(x->v_list)
-        {
-            freebytes(x->v_list, vbapf_nls(x->v_vbap) * sizeof(t_atom));
-            x->v_list = NULL;
-        }
-        x->v_coeffs = (t_float *)getbytes((size_t)(argc - 1) * sizeof(t_float));
-        if(!x->v_coeffs)
-        {
-            pd_error(x, "vbap.coeff can't allocate memory for the coefficients.");
-            return;
-        }
-        x->v_list = (t_atom *)getbytes((size_t)(argc - 1) * sizeof(t_atom));
-        if(!x->v_list)
-        {
-            freebytes(x->v_coeffs, (size_t)(argc - 1) * sizeof(t_float));
-            x->v_coeffs = NULL;
-            pd_error(x, "vbap.coeff can't allocate memory for the list.");
-            return;
-        }
-        
-        for(i = 1; i < argc; ++i)
+       for(i = 1; i < argc; ++i)
         {
             if(argv[i].a_type == A_FLOAT)
             {
@@ -150,16 +132,16 @@ static void vbap_coeff_configure(t_vbap_coeff *x, t_symbol* s, int argc, t_atom*
             x->v_list[i-1].a_w.w_float = 0.f;
         }
         err = vbapf_2d_prepare(x->v_vbap, (size_t)(argc-1), x->v_coeffs);
-        if(err)
-        {
-            pd_error(x, "vbap.coeff something wrong happened while preparing the vbap %i.", (int)err);
-        }
-        vbap_coeff_set(x, 0.f, 0.f);
     }
     else
     {
         pd_error(x, "vbap.coeff expects the dimension (2d or 3d) before the list of angles.");
     }
+    if(err)
+    {
+        pd_error(x, "vbap.coeff something wrong happened while preparing the vbap %i.", (int)err);
+    }
+    vbap_coeff_set(x, 0.f, 0.f);
 }
 
 static void *vbap_coeff_new(t_symbol* s, int argc, t_atom* argv)
@@ -189,14 +171,7 @@ static void *vbap_coeff_new(t_symbol* s, int argc, t_atom* argv)
 
 static void vbap_coeff_free(t_vbap_coeff *x)
 {
-    if(x->v_coeffs)
-    {
-        freebytes(x->v_coeffs, vbapf_nls(x->v_vbap) * sizeof(t_float));
-    }
-    if(x->v_list)
-    {
-        freebytes(x->v_list, vbapf_nls(x->v_vbap) * sizeof(t_atom));
-    }
+    vbap_coeff_free_pointers(x);
     vbapf_free(x->v_vbap);
 }
 
