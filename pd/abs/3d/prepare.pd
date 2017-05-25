@@ -467,7 +467,7 @@
 #X connect 29 0 30 0;
 #X connect 30 0 22 0;
 #X restore 46 176 pd get.all.triplets;
-#N canvas 816 72 687 701 is.triplet.valid 1;
+#N canvas 816 72 687 701 is.triplet.valid 0;
 #X obj 57 17 inlet;
 #N canvas 0 22 259 357 get.other.indices 0;
 #X obj 6 98 until;
@@ -1095,10 +1095,8 @@
 #X obj 174 496 + 1e-07;
 #X obj 238 405 loadbang;
 #X msg 238 427 3;
-#X obj 280 335 list prepend;
 #X obj 57 38 t l l l, f 11;
-#X obj 275 360 print result;
-#X connect 0 0 29 0;
+#X connect 0 0 28 0;
 #X connect 1 0 7 0;
 #X connect 1 1 14 0;
 #X connect 2 0 9 0;
@@ -1131,14 +1129,11 @@
 #X connect 23 1 22 0;
 #X connect 24 0 17 0;
 #X connect 24 0 16 1;
-#X connect 24 0 28 0;
 #X connect 25 0 21 0;
 #X connect 26 0 27 0;
 #X connect 27 0 5 1;
-#X connect 28 0 30 0;
-#X connect 29 0 16 0;
-#X connect 29 1 8 0;
-#X connect 29 2 28 1;
+#X connect 28 0 16 0;
+#X connect 28 1 8 0;
 #X restore 91 221 pd is.triplet.valid;
 #X obj 98 109 / 2;
 #X obj 46 198 t l l, f 8;
