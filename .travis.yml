@@ -21,7 +21,7 @@ matrix:
       script:
         - mkdir build
         - cd build
-        - cmake -DGCOV_SUPPORT=On ..
+        - cmake -DGCOV_SUPPORT=ON ..
         - cmake --build .
         - ctest .
         - cd ../

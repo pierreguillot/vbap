@@ -1,8 +1,12 @@
 cmake_minimum_required(VERSION 2.8)
 
-option(GCOV_SUPPORT "Build with coveralls")
-set(CMAKE_SUPPRESS_REGENERATION true)
-set(CMAKE_MACOSX_RPATH Off)
+option(GCOV_SUPPORT "Build with coveralls" OFF)
+option(PDBUILD "Build for Pd" ON)
+option(MAXBUILD "Build for Max" ON)
+
+
+set(CMAKE_SUPPRESS_REGENERATION TRUE)
+set(CMAKE_MACOSX_RPATH OFF)
 set(CMAKE_OSX_DEPLOYMENT_TARGET 10.4)
 set(CMAKE_OSX_ARCHITECTURES "i386;x86_64")
 ENABLE_TESTING()
@@ -19,7 +23,7 @@ elseif(CMAKE_C_COMPILER_ID STREQUAL "Clang")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Weverything")
 endif()
 
-if(${GCOV_SUPPORT} STREQUAL "On")
+if(${GCOV_SUPPORT} STREQUAL "ON")
     message(STATUS "Build with coveralls")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fprofile-arcs -ftest-coverage")
 endif()
@@ -49,3 +53,8 @@ add_executable(vbap_test_compiled ${vbap_sources} ${PROJECT_SOURCE_DIR}/tests/te
 target_link_libraries(vbap_test_compiled vbap_static)
 target_link_libraries(vbap_test_compiled ${MATH_LIB})
 add_test(vbap_test_c vbap_test_compiled)
+
+if(${PDBUILD} STREQUAL "ON")
+  message(STATUS "Build Pd externals")
+  add_subdirectory(pd)
+endif()
