@@ -1,31 +1,78 @@
-#N canvas 587 286 541 246 10;
-#X obj 72 146 list prepend set;
-#X obj 72 168 list trim;
-#X msg 72 190 0.92388 0.382683;
-#X obj 72 124 vbap.coeff 2d 45 -45;
-#X obj 72 92 nbx 5 14 -45 45 0 0 empty empty empty 0 -8 0 10 -262144
+#N canvas 437 23 581 550 10;
+#X obj 92 276 list prepend set;
+#X obj 92 298 list trim;
+#X msg 92 320 0 1;
+#X obj 92 254 vbap.coeff 2d 45 -45;
+#X obj 317 276 list prepend set;
+#X obj 317 298 list trim;
+#X msg 317 320 0 0.374607 0.927184 0;
+#X obj 339 203 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 142 256;
+#X obj 317 254 vbap.coeff 2d 0 90 180 270;
+#N canvas 0 22 450 300 header 0;
+#X obj 11 11 cnv 15 65 18 empty empty vbap.coeff 2 8 0 14 -262144 -66577
+0;
+#X text 100 12 by Pierre Guillot - 2016 - 2017;
+#X coords 0 -1 1 1 286 20 2 10 10;
+#X restore 9 7 pd header;
+#X text 10 34 An external that computes the gains of a set of loudspeakers
+for the spatialization of a virtual source using V. Pulkki's Vector
+Base Amplitude Panning technique., f 90;
+#X text 10 64 The arguments are the dimension (2d or 3d) and the angles
+of the loudspeakers. The angles must be the azimuths only in 2d and
+pairs of azimuth and elevation in 3d. The message "configure" followed
+by the same arguments can be used to change the configuration after
+the initialization., f 90;
+#X obj 70 478 list prepend set;
+#X obj 70 500 list trim;
+#X msg 70 522 0 0 0;
+#X obj 20 375 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 502 256;
+#X text 10 124 An azimuth in 2d or an azimuth and an elevation in 3d
+defines the position of the virtual source and outputs the gains of
+the loudspeakers. You can use the "set" message to compute the compute
+the gains without output., f 90;
+#X obj 70 456 vbap.coeff 3d 45 0 0 35.3 -45 0;
+#X msg 144 383 configure 3d 45 35.3 135 35.3 225 35.3 315 35.3 45 -35.3
+135 -35.3 225 -35.3 315 -35.3;
+#X obj 400 203 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 158 256;
+#X msg 400 222 set \$1;
+#X obj 317 203 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 184 222 set \$1;
+#X obj 92 201 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 118 201 nbx 5 14 -45 45 0 0 empty empty empty 0 -8 0 10 -262144
+-1 -1 -42 256;
+#X obj 184 201 nbx 5 14 -45 45 0 0 empty empty empty 0 -8 0 10 -262144
 -1 -1 0 256;
-#X obj 222 146 list prepend set;
-#X obj 222 168 list trim;
-#X msg 222 190 3.17865e-08 -1 0 0;
-#X obj 222 93 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 90 256;
-#X obj 222 124 vbap.coeff 2d 0 90 180 270;
-#X msg 296 91 set 2d 0 90 180 270;
-#X msg 252 60 90;
-#X msg 222 60 0;
-#X msg 282 60 180;
-#X msg 312 60 270;
+#X msg 144 421 configure 3d 45 0 0 35.3 -45 0;
+#X obj 20 424 pack f f;
+#X obj 80 375 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 55 256;
+#X obj 80 394 t b f;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 3 0 0 0;
-#X connect 4 0 3 0;
+#X connect 4 0 5 0;
 #X connect 5 0 6 0;
-#X connect 6 0 7 0;
-#X connect 8 0 9 0;
-#X connect 9 0 5 0;
-#X connect 10 0 9 0;
-#X connect 11 0 8 0;
-#X connect 12 0 8 0;
-#X connect 13 0 8 0;
-#X connect 14 0 8 0;
+#X connect 7 0 8 0;
+#X connect 8 0 4 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 15 0 27 0;
+#X connect 17 0 12 0;
+#X connect 18 0 17 0;
+#X connect 19 0 20 0;
+#X connect 20 0 8 0;
+#X connect 21 0 8 0;
+#X connect 22 0 3 0;
+#X connect 23 0 3 0;
+#X connect 24 0 3 0;
+#X connect 25 0 22 0;
+#X connect 26 0 17 0;
+#X connect 27 0 17 0;
+#X connect 28 0 29 0;
+#X connect 29 0 27 0;
+#X connect 29 1 27 1;
