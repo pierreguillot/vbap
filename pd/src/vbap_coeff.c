@@ -16,8 +16,6 @@ typedef struct _vbap_coeff
     t_object    v_obj;
     t_vbapf*    v_vbap;
     t_float*    v_coeffs;
-    t_float     v_azimuth;
-    t_float     v_elevation;
     t_atom*     v_list;
     t_outlet*   v_out;
 } t_vbap_coeff;
@@ -151,8 +149,6 @@ static void *vbap_coeff_new(t_symbol* s, int argc, t_atom* argv)
     {
         x->v_coeffs     = NULL;
         x->v_list       = NULL;
-        x->v_azimuth    = 0;
-        x->v_elevation  = 0;
         x->v_vbap       = vbapf_new();
         if(x->v_vbap)
         {
@@ -190,4 +186,6 @@ EXTERN void setup_vbap0x2ecoeff(void)
     vbap_coeff_class = c;
     vbap_coeff_sym_2d = gensym("2d");
     vbap_coeff_sym_3d = gensym("3d");
+    
+    verbose(0, "vbap.coeff %s by %s", VBAP_STR_VERSION, VBAP_STR_CREDITS);
 }
