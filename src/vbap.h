@@ -94,33 +94,33 @@ VBAP_EXTERN void vbapf_3d_perform(t_vbapf const* vbap, float const azimuth, floa
 
 //! @}
 
-//! @defgroup vbapd vbapd
+//! @defgroup vbap vbap
 //! @brief The double point precision part of the library.
 
-//! @addtogroup vbapd
+//! @addtogroup vbap
 //! @{
 
-struct _vbapd;
+struct _vbap;
 
 //! @brief The opaque type used to compute vbap.
-typedef struct _vbapd t_vbapd;
+typedef struct _vbap t_vbap;
 
 //! @brief Allocates a new vbap structure.
 //! @details The function allocates and initializes a vbap structure that can be used for both<br>
 //! 2d and 3d applications.
 //! @return A pointer to a new vbap structure or NULL if the allocation failed.
-VBAP_EXTERN t_vbapd* vbapd_new(void);
+VBAP_EXTERN t_vbap* vbap_new(void);
 
 //! @brief Frees a vbap structure.
 //! @details The function frees a vbap structure. For convenience, the pointer is verified so<br>
 //! it can be NULL without generating any error.
 //! @param vbap The pointer to the vbap structure to free.
-VBAP_EXTERN void vbapd_free(t_vbapd* vbap);
+VBAP_EXTERN void vbap_free(t_vbap* vbap);
 
 //! @brief Gets the current number of loudspeakers.
 //! @param vbap The pointer to the vbap structure.
 //! @return The current number of loudspeakers.
-VBAP_EXTERN size_t vbapd_nls(t_vbapd const* vbap);
+VBAP_EXTERN size_t vbap_nls(t_vbap const* vbap);
 
 //! @brief Gets the current dimension.
 //! @details The dimension can be 0 if the vbap structure has not been prepared yet, 2 if the<br>
@@ -128,7 +128,7 @@ VBAP_EXTERN size_t vbapd_nls(t_vbapd const* vbap);
 //! structure has been prepared for a 2 dimensional application.
 //! @param vbap The pointer to the vbap structure.
 //! @return The dimension.
-VBAP_EXTERN unsigned char vbapd_dimension(t_vbapd const* vbap);
+VBAP_EXTERN unsigned char vbap_dimension(t_vbap const* vbap);
 
 //! @brief Prepares the vbap structure for a specific 2d configuration.
 //! @details The function finds the functional duets of loudspeakers and computes their<br>
@@ -137,7 +137,7 @@ VBAP_EXTERN unsigned char vbapd_dimension(t_vbapd const* vbap);
 //! @param vbap The pointer to the vbap structure.
 //! @param nls The number of loudspeakers.
 //! @param angles The angles of the loudspeakers.
-VBAP_EXTERN char vbapd_2d_prepare(t_vbapd* vbap, size_t const nls, double const * angles);
+VBAP_EXTERN char vbap_2d_prepare(t_vbap* vbap, size_t const nls, double const * angles);
 
 //! @brief Computes the gains of the loudspeakers for a specified angle.
 //! @details The function finds the best duet of loudspeakers depending on the azimuth of the<br>
@@ -146,7 +146,7 @@ VBAP_EXTERN char vbapd_2d_prepare(t_vbapd* vbap, size_t const nls, double const 
 //! @param vbap The pointer to the vbap structure.
 //! @param azimuth The azimuth of the virtual source.
 //! @param gains The vector to fill with the gains of the loudspkeakers.
-VBAP_EXTERN void vbapd_2d_perform(t_vbapd const* vbap, double const azimuth, double * gains);
+VBAP_EXTERN void vbap_2d_perform(t_vbap const* vbap, double const azimuth, double * gains);
 
 //! @brief Prepares the vbap structure for a specific 3d configuration.
 //! @details The function finds the functional triplets of loudspeakers and computes their<br>
@@ -156,7 +156,7 @@ VBAP_EXTERN void vbapd_2d_perform(t_vbapd const* vbap, double const azimuth, dou
 //! @param nls The number of loudspeakers.
 //! @param angles The angles of the loudspeakers.
 //! @todo Check the variable max
-VBAP_EXTERN char vbapd_3d_prepare(t_vbapd* vbap, size_t const nls, double const * angles);
+VBAP_EXTERN char vbap_3d_prepare(t_vbap* vbap, size_t const nls, double const * angles);
 
 //! @brief Computes the gains of the loudspeakers for a specified angle.
 //! @details The function finds the best triplet of loudspeakers depending on the azimuth of<br>
@@ -166,7 +166,7 @@ VBAP_EXTERN char vbapd_3d_prepare(t_vbapd* vbap, size_t const nls, double const 
 //! @param azimuth The azimuth of the virtual source.
 //! @param elevation The elevation of the virtual source.
 //! @param gains The vector to fill with the gains of the loudspkeakers.
-VBAP_EXTERN void vbapd_3d_perform(t_vbapd const* vbap, double const azimuth, double const elevation, double * gains);
+VBAP_EXTERN void vbap_3d_perform(t_vbap const* vbap, double const azimuth, double const elevation, double * gains);
 
 //! @}
 

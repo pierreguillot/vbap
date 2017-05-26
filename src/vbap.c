@@ -386,7 +386,7 @@ void vbapf_3d_perform(t_vbapf const* vbap, float const azimuth, float const elev
 
 #define VBAP_DEG_TO_RAD_D 0.01745329238474369049072266
 
-struct _vbapd
+struct _vbap
 {
     size_t  v_nls;
     size_t  v_n;
@@ -396,9 +396,9 @@ struct _vbapd
 };
 
 
-t_vbapd* vbapd_new(void)
+t_vbap* vbap_new(void)
 {
-    t_vbapd* vbap = (t_vbapd *)malloc(sizeof(t_vbapd));
+    t_vbap* vbap = (t_vbap *)malloc(sizeof(t_vbap));
     if(vbap)
     {
         vbap->v_nls         = 0;
@@ -411,7 +411,7 @@ t_vbapd* vbapd_new(void)
     return NULL;
 }
 
-void vbapd_free(t_vbapd* vbap)
+void vbap_free(t_vbap* vbap)
 {
     if(vbap)
     {
@@ -430,17 +430,17 @@ void vbapd_free(t_vbapd* vbap)
     }
 }
 
-size_t vbapd_nls(t_vbapd const* vbap)
+size_t vbap_nls(t_vbap const* vbap)
 {
     return vbap->v_nls;
 }
 
-unsigned char vbapd_dimension(t_vbapd const* vbap)
+unsigned char vbap_dimension(t_vbap const* vbap)
 {
     return (unsigned char)(vbap->v_dim);
 }
 
-char vbapd_2d_prepare(t_vbapd* vbap, size_t const nls, double const * angles)
+char vbap_2d_prepare(t_vbap* vbap, size_t const nls, double const * angles)
 {
     char valid, err = 0;
     double x1, y1, x2, y2, xc, yc, xr, yr, dc, deta, ra;
@@ -530,7 +530,7 @@ char vbapd_2d_prepare(t_vbapd* vbap, size_t const nls, double const * angles)
     return err;
 }
 
-void vbapd_2d_perform(t_vbapd const* vbap, double const azimuth, double * gains)
+void vbap_2d_perform(t_vbap const* vbap, double const azimuth, double * gains)
 {
     size_t i = 0, index = SIZE_MAX;
     double r1, r2, s1 = 0., s2 = 0., powr, ref = 0.;
@@ -567,7 +567,7 @@ void vbapd_2d_perform(t_vbapd const* vbap, double const azimuth, double * gains)
     }
 }
 
-static void vbapd_circumcircle(double const x1, double const y1, double const z1,
+static void vbap_circumcircle(double const x1, double const y1, double const z1,
                                double const x2, double const y2, double const z2,
                                double const x3, double const y3, double const z3,
                                double* xr, double* yr, double* zr, double* l)
@@ -588,7 +588,7 @@ static void vbapd_circumcircle(double const x1, double const y1, double const z1
     *xr += x1; *yr += y1; *zr += z1;
 }
 
-char vbapd_3d_prepare(t_vbapd* vbap, size_t const nls, double const * angles)
+char vbap_3d_prepare(t_vbap* vbap, size_t const nls, double const * angles)
 {
     char valid, err = 0;
     double x1, y1, z1, x2, y2, z2, x3, y3, z3, xc, yc, zc, xr, yr, zr, dc, deta, ra, re;
@@ -649,7 +649,7 @@ char vbapd_3d_prepare(t_vbapd* vbap, size_t const nls, double const * angles)
                 y3 = cos(ra)  * cos(re);
                 z3 = sin(re);
                 
-                vbapd_circumcircle(x3, y3, z3, x1, y1, z1, x2, y2, z2, &xr, &yr, &zr, &dc);
+                vbap_circumcircle(x3, y3, z3, x1, y1, z1, x2, y2, z2, &xr, &yr, &zr, &dc);
                 valid = (char)(sqrtf(xr * xr + yr * yr + zr * zr) > FLT_EPSILON);
                 
                 for(l = 0; l < nls && valid; ++l)
@@ -695,7 +695,7 @@ char vbapd_3d_prepare(t_vbapd* vbap, size_t const nls, double const * angles)
     return err;
 }
 
-void vbapd_3d_perform(t_vbapd const* vbap, double const azimuth, double const elevation, double * gains)
+void vbap_3d_perform(t_vbap const* vbap, double const azimuth, double const elevation, double * gains)
 {
     size_t i = 0, index = SIZE_MAX;
     double r1, r2, r3, s1 = 0., s2 = 0., s3 = 0., powr, ref = 0.;

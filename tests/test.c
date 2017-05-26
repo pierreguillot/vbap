@@ -245,25 +245,25 @@ static void test_f(void)
 }
 
 
-static void test_d_stereo(t_vbapd* vbap)
+static void test_d_stereo(t_vbap* vbap)
 {
     double angles[2] = {45., -45.};
     double result[2];
     printf("    stereo version... ");
-    if(!vbapd_2d_prepare(vbap, 2, angles))
+    if(!vbap_2d_prepare(vbap, 2, angles))
     {
-        assert(vbapd_nls(vbap) == 2);
-        assert(vbapd_dimension(vbap) == 2);
+        assert(vbap_nls(vbap) == 2);
+        assert(vbap_dimension(vbap) == 2);
         
-        vbapd_2d_perform(vbap, 0., result);
+        vbap_2d_perform(vbap, 0., result);
         assert(fabs(result[0] - 0.707107) < 0.00001);
         assert(fabs(result[1] - 0.707107) < 0.00001);
         
-        vbapd_2d_perform(vbap, -45., result);
+        vbap_2d_perform(vbap, -45., result);
         assert(fabs(result[0]) < 0.00001);
         assert(fabs(result[1] - 1.) < 0.00001);
         
-        vbapd_2d_perform(vbap, 45., result);
+        vbap_2d_perform(vbap, 45., result);
         assert(fabs(result[1]) < 0.00001);
         assert(fabs(result[0] - 1.) < 0.00001);
         printf("done\n");
@@ -274,59 +274,59 @@ static void test_d_stereo(t_vbapd* vbap)
     }
 }
 
-static void test_d_square(t_vbapd* vbap)
+static void test_d_square(t_vbap* vbap)
 {
     double angles[4] = {0., 90., 180., 270.};
     double result[4];
     printf("    quadri version... ");
-    if(!vbapd_2d_prepare(vbap, 4, angles))
+    if(!vbap_2d_prepare(vbap, 4, angles))
     {
-        assert(vbapd_nls(vbap) == 4);
-        assert(vbapd_dimension(vbap) == 2);
+        assert(vbap_nls(vbap) == 4);
+        assert(vbap_dimension(vbap) == 2);
         
-        vbapd_2d_perform(vbap, 0., result);
+        vbap_2d_perform(vbap, 0., result);
         assert(fabs(result[0] - 1) < 0.00001);
         assert(fabs(result[1] - 0) < 0.00001);
         assert(fabs(result[2] - 0) < 0.00001);
         assert(fabs(result[3] - 0) < 0.00001);
         
-        vbapd_2d_perform(vbap, 45., result);
+        vbap_2d_perform(vbap, 45., result);
         assert(fabs(result[0] - 0.707107) < 0.00001);
         assert(fabs(result[1] - 0.707107) < 0.00001);
         assert(fabs(result[2] - 0) < 0.00001);
         assert(fabs(result[3] - 0) < 0.00001);
         
-        vbapd_2d_perform(vbap, 90., result);
+        vbap_2d_perform(vbap, 90., result);
         assert(fabs(result[0] - 0) < 0.00001);
         assert(fabs(result[1] - 1.) < 0.00001);
         assert(fabs(result[2] - 0) < 0.00001);
         assert(fabs(result[3] - 0) < 0.00001);
         
-        vbapd_2d_perform(vbap, 135., result);
+        vbap_2d_perform(vbap, 135., result);
         assert(fabs(result[0] - 0) < 0.00001);
         assert(fabs(result[1] - 0.707107) < 0.00001);
         assert(fabs(result[2] - 0.707107) < 0.00001);
         assert(fabs(result[3] - 0) < 0.00001);
         
-        vbapd_2d_perform(vbap, 180., result);
+        vbap_2d_perform(vbap, 180., result);
         assert(fabs(result[0] - 0) < 0.00001);
         assert(fabs(result[1] - 0.) < 0.00001);
         assert(fabs(result[2] - 1.) < 0.00001);
         assert(fabs(result[3] - 0) < 0.00001);
         
-        vbapd_2d_perform(vbap, 225, result);
+        vbap_2d_perform(vbap, 225, result);
         assert(fabs(result[0] - 0) < 0.00001);
         assert(fabs(result[1] - 0) < 0.00001);
         assert(fabs(result[2] - 0.707107) < 0.00001);
         assert(fabs(result[3] - 0.707107) < 0.00001);
         
-        vbapd_2d_perform(vbap, 270, result);
+        vbap_2d_perform(vbap, 270, result);
         assert(fabs(result[0] - 0) < 0.00001);
         assert(fabs(result[1] - 0) < 0.00001);
         assert(fabs(result[2] - 0) < 0.00001);
         assert(fabs(result[3] - 1) < 0.00001);
         
-        vbapd_2d_perform(vbap, 315., result);
+        vbap_2d_perform(vbap, 315., result);
         assert(fabs(result[0] - 0.707107) < 0.00001);
         assert(fabs(result[1] - 0) < 0.00001);
         assert(fabs(result[2] - 0) < 0.00001);
@@ -339,47 +339,47 @@ static void test_d_square(t_vbapd* vbap)
     }
 }
 
-static void test_d_triangle(t_vbapd* vbap)
+static void test_d_triangle(t_vbap* vbap)
 {
     double angles[6] = {45., 0., 0., 35.3, -45., 0.};
     double result[3];
     printf("    triangle version... ");
-    if(!vbapd_3d_prepare(vbap, 3, angles))
+    if(!vbap_3d_prepare(vbap, 3, angles))
     {
-        assert(vbapd_nls(vbap) == 3);
-        assert(vbapd_dimension(vbap) == 3);
+        assert(vbap_nls(vbap) == 3);
+        assert(vbap_dimension(vbap) == 3);
         
-        vbapd_3d_perform(vbap, 0., 0., result);
+        vbap_3d_perform(vbap, 0., 0., result);
         assert(fabs(result[0] - 0.707107) < 0.00001);
         assert(fabs(result[1] - 0) < 0.00001);
         assert(fabs(result[2] - 0.707107) < 0.00001);
         
-        vbapd_3d_perform(vbap, 45., 0., result);
+        vbap_3d_perform(vbap, 45., 0., result);
         assert(fabs(result[0] - 1.) < 0.00001);
         assert(fabs(result[1] - 0) < 0.00001);
         assert(fabs(result[2] - 0) < 0.00001);
         
-        vbapd_3d_perform(vbap, -45., 0., result);
+        vbap_3d_perform(vbap, -45., 0., result);
         assert(fabs(result[0] - 0) < 0.00001);
         assert(fabs(result[1] - 0) < 0.00001);
         assert(fabs(result[2] - 1.) < 0.00001);
         
-        vbapd_3d_perform(vbap, 0., 35.3, result);
+        vbap_3d_perform(vbap, 0., 35.3, result);
         assert(fabs(result[0] - 0) < 0.00001);
         assert(fabs(result[1] - 1.) < 0.00001);
         assert(fabs(result[2] - 0) < 0.00001);
         
-        vbapd_3d_perform(vbap, 12., 20., result);
+        vbap_3d_perform(vbap, 12., 20., result);
         assert(fabs(result[0] - 0.586984) < 0.00001);
         assert(fabs(result[1] - 0.77806) < 0.00001);
         assert(fabs(result[2] - 0.22377) < 0.00001);
         
-        vbapd_3d_perform(vbap, -17., 25., result);
+        vbap_3d_perform(vbap, -17., 25., result);
         assert(fabs(result[0] - 0.00415882) < 0.00001);
         assert(fabs(result[1] - 0.888272) < 0.00001);
         assert(fabs(result[2] - 0.459299) < 0.00001);
         
-        vbapd_3d_perform(vbap, -30., 4., result);
+        vbap_3d_perform(vbap, -30., 4., result);
         assert(fabs(result[0] - 0.204581) < 0.00001);
         assert(fabs(result[1] - 0.130997) < 0.00001);
         assert(fabs(result[2] - 0.970045) < 0.00001);
@@ -462,13 +462,13 @@ void test_f_cube(t_vbapf* vbap)
 
 static void test_d(void)
 {
-    t_vbapd* vbapd = vbapd_new();
+    t_vbap* vbap = vbap_new();
     printf("double precision...\n");
-    assert(vbapd);
-    test_d_stereo(vbapd);
-    test_d_square(vbapd);
-    test_d_triangle(vbapd);
-    vbapd_free(vbapd);
+    assert(vbap);
+    test_d_stereo(vbap);
+    test_d_square(vbap);
+    test_d_triangle(vbap);
+    vbap_free(vbap);
     printf("done\n");
 }
 
