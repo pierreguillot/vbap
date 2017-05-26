@@ -229,6 +229,15 @@ static void test_f_cube(t_vbapf* vbap)
     }
 }
 
+static void test_f_invalid(t_vbapf* vbap)
+{
+    float angles_2d[4] = {0.f, 0.f, 90.f, 90.f};
+    float angles_3d[6] = {0.f, 0.f, 2.f, 0.f, 4.f, 0.f};
+    printf("    invalid version... ");
+    assert(vbapf_2d_prepare(vbap, 2, angles_2d));
+    assert(vbapf_3d_prepare(vbap, 3, angles_3d));
+}
+
 static void test_f(void)
 {
     t_vbapf* vbapf = vbapf_new();
@@ -236,14 +245,17 @@ static void test_f(void)
     assert(vbapf);
     test_f_stereo(vbapf);
     test_f_square(vbapf);
-    
     test_f_triangle(vbapf);
     test_f_cube(vbapf);
-    
+    test_f_invalid(vbapf);
     vbapf_free(vbapf);
     printf("done\n");
 }
 
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
 
 static void test_d_stereo(t_vbap* vbap)
 {
@@ -459,6 +471,12 @@ void test_d_cube(t_vbap* vbap)
     }
 }
 
+static void test_d_invalid(t_vbap* vbap)
+{
+    double angles_2d[4] = {0., 0., 90., 90.};
+    printf("    invalid version... ");
+    assert(vbap_2d_prepare(vbap, 2, angles_2d));
+}
 
 static void test_d(void)
 {
@@ -469,6 +487,7 @@ static void test_d(void)
     test_d_square(vbap);
     test_d_triangle(vbap);
     test_d_cube(vbap);
+    test_d_invalid(vbap);
     vbap_free(vbap);
     printf("done\n");
 }
