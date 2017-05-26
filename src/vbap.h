@@ -18,6 +18,9 @@
 #define VBAP_STR_VERSION "v0.0.1"
 #define VBAP_STR_CREDITS "Pierre Guillot | CICM - Université Paris 8"
 
+
+
+
 //! @defgroup vbapf vbapf
 //! @brief The single point precision part of the library.
 
@@ -93,6 +96,12 @@ VBAP_EXTERN char vbapf_3d_prepare(t_vbapf* vbap, size_t const nls, float const *
 VBAP_EXTERN void vbapf_3d_perform(t_vbapf const* vbap, float const azimuth, float const elevation, float * gains);
 
 //! @}
+
+
+
+
+
+
 
 //! @defgroup vbap vbap
 //! @brief The double point precision part of the library.
