@@ -21,7 +21,7 @@ struct _vbapf
     size_t  v_n;
     float*  v_matrices;
     size_t* v_indices;
-    size_t  v_mode;
+    size_t  v_dim;
 };
 
 static size_t vbap_factorial(size_t value)
@@ -47,7 +47,7 @@ t_vbapf* vbapf_new(void)
         vbap->v_n           = 0;
         vbap->v_matrices    = NULL;
         vbap->v_indices     = NULL;
-        vbap->v_mode        = 0;
+        vbap->v_dim        = 0;
         return vbap;
     }
     return NULL;
@@ -77,19 +77,19 @@ size_t vbapf_nls(t_vbapf const* vbap)
     return vbap->v_nls;
 }
 
-char vbapf_dimension(t_vbapf const* vbap)
+unsigned char vbapf_dimension(t_vbapf const* vbap)
 {
-    return (char)(vbap->v_mode + 2);
+    return (unsigned char)(vbap->v_dim);
 }
 
-char vbapf_2d_prepare(t_vbapf* vbap, size_t const nangles, float const * angles)
+char vbapf_2d_prepare(t_vbapf* vbap, size_t const nls, float const * angles)
 {
     char valid, err = 0;
     float x1, y1, x2, y2, xc, yc, xr, yr, dc, deta, ra;
     size_t i = 0, j = 0, k = 0;
-    size_t const max = vbap_factorial(nangles);
+    size_t const max = vbap_factorial(nls);
     
-    vbap->v_mode = 0;
+    vbap->v_dim = 2;
     if(vbap->v_n && vbap->v_matrices)
     {
         free(vbap->v_matrices);
@@ -99,7 +99,7 @@ char vbapf_2d_prepare(t_vbapf* vbap, size_t const nangles, float const * angles)
         free(vbap->v_indices);
     }
     
-    vbap->v_nls      = nangles;
+    vbap->v_nls      = nls;
     vbap->v_n        = 0;
     vbap->v_matrices = (float *)malloc(max * 4 * sizeof(float));
     vbap->v_indices  = (size_t *)malloc(max * 2 * sizeof(size_t));
@@ -121,9 +121,9 @@ char vbapf_2d_prepare(t_vbapf* vbap, size_t const nangles, float const * angles)
 // LCOV_EXCL_STOP
     }
     
-    for(i = 0; i < nangles - 1; ++i)
+    for(i = 0; i < nls - 1; ++i)
     {
-        for(j = i+1; j < nangles; ++j)
+        for(j = i+1; j < nls; ++j)
         {
             ra = angles[i] * VBAP_DEG_TO_RAD_F;
             x1 = -sinf(ra);
@@ -138,7 +138,7 @@ char vbapf_2d_prepare(t_vbapf* vbap, size_t const nangles, float const * angles)
             yr = yc - y2;
             dc = sqrtf(xr * xr + yr * yr);
             valid = (char)(fabsf(xc) >= FLT_EPSILON || fabsf(yc) >= FLT_EPSILON);
-            for(k = 0; k < nangles && valid; ++k)
+            for(k = 0; k < nls && valid; ++k)
             {
                 if(k != i && k != j)
                 {
@@ -172,7 +172,7 @@ char vbapf_2d_prepare(t_vbapf* vbap, size_t const nangles, float const * angles)
     return err;
 }
 
-void vbapf_2d_perform(t_vbapf const* vbap, float const azimuth, float * coefficients)
+void vbapf_2d_perform(t_vbapf const* vbap, float const azimuth, float * gains)
 {
     size_t i = 0, index = SIZE_MAX;
     float r1, r2, s1 = 0.f, s2 = 0.f, powr, ref = 0.f;
@@ -199,13 +199,13 @@ void vbapf_2d_perform(t_vbapf const* vbap, float const azimuth, float * coeffici
     }
     for(i = 0; i < vbap->v_nls; ++i)
     {
-        coefficients[i] = 0.f;
+        gains[i] = 0.f;
     }
     
     if(ref != 0.f)
     {
-        coefficients[vbap->v_indices[index*2]]   = s1 / ref;
-        coefficients[vbap->v_indices[index*2+1]] = s2 / ref;
+        gains[vbap->v_indices[index*2]]   = s1 / ref;
+        gains[vbap->v_indices[index*2+1]] = s2 / ref;
     }
 }
 
@@ -230,14 +230,14 @@ static void vbapf_circumcircle(float const x1, float const y1, float const z1,
     *xr += x1; *yr += y1; *zr += z1;
 }
 
-char vbapf_3d_prepare(t_vbapf* vbap, size_t const nangles, float const * angles)
+char vbapf_3d_prepare(t_vbapf* vbap, size_t const nls, float const * angles)
 {
     char valid, err = 0;
     float x1, y1, z1, x2, y2, z2, x3, y3, z3, xc, yc, zc, xr, yr, zr, dc, deta, ra, re;
     size_t i = 0, j = 0, k = 0, l = 0;
-    size_t const max = vbap_factorial(nangles);
+    size_t const max = vbap_factorial(nls);
     
-    vbap->v_mode     = 1;
+    vbap->v_dim     = 3;
     if(vbap->v_n && vbap->v_matrices)
     {
         free(vbap->v_matrices);
@@ -247,7 +247,7 @@ char vbapf_3d_prepare(t_vbapf* vbap, size_t const nangles, float const * angles)
         free(vbap->v_indices);
     }
     
-    vbap->v_nls      = nangles;
+    vbap->v_nls      = nls;
     vbap->v_n        = 0;
     vbap->v_matrices = (float *)malloc(max * 9 * sizeof(float));
     vbap->v_indices  = (size_t *)malloc(max * 3 * sizeof(size_t));
@@ -269,11 +269,11 @@ char vbapf_3d_prepare(t_vbapf* vbap, size_t const nangles, float const * angles)
         // LCOV_EXCL_STOP
     }
     
-    for(i = 0; i < nangles - 2; ++i)
+    for(i = 0; i < nls - 2; ++i)
     {
-        for(j = i+1; j < nangles - 1; ++j)
+        for(j = i+1; j < nls - 1; ++j)
         {
-            for(k = j+1; k < nangles; ++k)
+            for(k = j+1; k < nls; ++k)
             {
                 ra = angles[i*2]   * VBAP_DEG_TO_RAD_F;
                 re = angles[i*2+1] * VBAP_DEG_TO_RAD_F;
@@ -294,7 +294,7 @@ char vbapf_3d_prepare(t_vbapf* vbap, size_t const nangles, float const * angles)
                 vbapf_circumcircle(x3, y3, z3, x1, y1, z1, x2, y2, z2, &xr, &yr, &zr, &dc);
                 valid = (char)(sqrtf(xr * xr + yr * yr + zr * zr) > FLT_EPSILON);
                 
-                for(l = 0; l < nangles && valid; ++l)
+                for(l = 0; l < nls && valid; ++l)
                 {
                     if(l != i && l != j && l != k)
                     {
@@ -337,7 +337,7 @@ char vbapf_3d_prepare(t_vbapf* vbap, size_t const nangles, float const * angles)
     return err;
 }
 
-void vbapf_3d_perform(t_vbapf const* vbap, float const azimuth, float const elevation, float * coefficients)
+void vbapf_3d_perform(t_vbapf const* vbap, float const azimuth, float const elevation, float * gains)
 {
     size_t i = 0, index = SIZE_MAX;
     float r1, r2, r3, s1 = 0.f, s2 = 0.f, s3 = 0.f, powr, ref = 0.f;
@@ -367,14 +367,14 @@ void vbapf_3d_perform(t_vbapf const* vbap, float const azimuth, float const elev
     }
     for(i = 0; i < vbap->v_nls; ++i)
     {
-        coefficients[i] = 0.f;
+        gains[i] = 0.f;
     }
     
     if(ref != 0.f)
     {
-        coefficients[vbap->v_indices[index*3]]   = s1 / ref;
-        coefficients[vbap->v_indices[index*3+1]] = s2 / ref;
-        coefficients[vbap->v_indices[index*3+2]] = s3 / ref;
+        gains[vbap->v_indices[index*3]]   = s1 / ref;
+        gains[vbap->v_indices[index*3+1]] = s2 / ref;
+        gains[vbap->v_indices[index*3+2]] = s3 / ref;
     }
 }
 
