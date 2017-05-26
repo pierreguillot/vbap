@@ -229,9 +229,8 @@ t_int *vbap_tilde_perform_2d(t_int *w)
     size_t noutlets     = x->v_noutlets;
     
     size_t i;
-    while(n)
+    while(n--)
     {
-        --n;
         const t_sample f  = inputs[0][n];
         vbapf_2d_perform(vbap, inputs[1][n], coeffs);
         for(i = 0; i < noutlets; ++i)
@@ -254,9 +253,8 @@ t_int *vbap_tilde_perform_3d(t_int *w)
     t_sample**  outputs = x->v_outputs;
     
     size_t i;
-    while(n)
+    while(n--)
     {
-        --n;
         const t_sample f = inputs[0][n];
         vbapf_3d_perform(vbap, inputs[1][n], inputs[2][n], coeffs);
         for(i = 0; i < noutlets; ++i)
