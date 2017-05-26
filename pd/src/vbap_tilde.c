@@ -11,13 +11,48 @@ static t_class *vbap_tilde_class;
 static t_symbol *vbap_tilde_sym_2d;
 static t_symbol *vbap_tilde_sym_3d;
 
+typedef struct _vbap_outlist
+{
+    t_outlet*             v_out;
+    struct _vbap_outlist* v_next;
+} t_vbap_outlist;
+
 typedef struct _vbap_tilde
 {
     t_object    v_obj;
     t_float     v_f;
     t_vbapf*    v_vbap;
     t_float*    v_coeffs;
+    t_sample**  v_outputs;
+    t_vbap_outlist v_outlets;
 } t_vbap_tilde;
+
+static void vbap_tilde_allocate_outlets(t_vbap_tilde *x, size_t const newsize)
+{
+    size_t oldsize = 0;
+    t_vbap_outlist* list = &x->v_outlets;
+    while(oldsize++ < newsize)
+    {
+        if(!list->v_out)
+        {
+            list->v_out = (t_outlet *)outlet_new((t_object *)x, &s_signal);
+        }
+        if(oldsize <= newsize && !list->v_next)
+        {
+            list->v_next = (t_vbap_outlist *)getbytes(sizeof(t_vbap_outlist));
+            if(list->v_next)
+            {
+                list->v_next->v_out  = NULL;
+                list->v_next->v_next = NULL;
+            }
+            else
+            {
+                pd_error(x, "vabp~ can't allocate a new outlet.");
+            }
+        }
+        list = list->v_next;
+    }    
+}
 
 static void vbap_tilde_free_pointers(t_vbap_tilde *x)
 {
@@ -25,6 +60,11 @@ static void vbap_tilde_free_pointers(t_vbap_tilde *x)
     {
         freebytes(x->v_coeffs, vbapf_nls(x->v_vbap) * sizeof(t_float));
         x->v_coeffs = NULL;
+    }
+    if(x->v_outputs)
+    {
+        freebytes(x->v_outputs, vbapf_nls(x->v_vbap) * sizeof(t_sample *));
+        x->v_outputs = NULL;
     }
 }
 
@@ -35,6 +75,13 @@ static void vbap_tilde_allocate_pointers(t_vbap_tilde *x, size_t const n)
     {
         pd_error(x, "vbap~ can't allocate memory for the coefficients.");
     }
+    x->v_outputs = (t_sample **)getbytes(n * sizeof(t_sample *));
+    if(!x->v_outputs)
+    {
+        freebytes(x->v_coeffs, vbapf_nls(x->v_vbap) * sizeof(t_float));
+        x->v_coeffs = NULL;
+        pd_error(x, "vbap~ can't allocate memory for the outputs.");
+    }
 }
 
 static void vbap_tilde_configure(t_vbap_tilde *x, t_symbol* s, int argc, t_atom* argv)
@@ -43,7 +90,7 @@ static void vbap_tilde_configure(t_vbap_tilde *x, t_symbol* s, int argc, t_atom*
     t_symbol const* mode = atom_getsymbolarg(0, argc, argv);
     vbap_tilde_free_pointers(x);
     vbap_tilde_allocate_pointers(x, (size_t)(argc-1));
-    if(!x->v_coeffs)
+    if(!x->v_outputs)
     {
         return;
     }
@@ -96,6 +143,8 @@ static void *vbap_tilde_new(t_symbol* s, int argc, t_atom* argv)
     {
         x->v_coeffs     = NULL;
         x->v_vbap       = vbapf_new();
+        x->v_outlets.v_next = NULL;
+        x->v_outlets.v_out  = NULL;
         if(x->v_vbap)
         {
             vbap_tilde_configure(x, &s_list, argc-1, argv+1);
@@ -131,7 +180,7 @@ void vbap_tilde_dsp(t_vbap_tilde *x, t_signal **sp)
     
 }
 
-EXTERN void vbap_tilde_tilde_setup(void)
+EXTERN void vbap_tilde_setup(void)
 {
     t_class* c = class_new(gensym("vbap~"), (t_newmethod)vbap_tilde_new, (t_method)vbap_tilde_free,
                            sizeof(t_vbap_tilde), CLASS_DEFAULT, A_GIMME, 0);
