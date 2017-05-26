@@ -71,17 +71,20 @@ static void vbap_coeff_free_pointers(t_vbap_coeff *x)
 
 static void vbap_coeff_allocate_pointers(t_vbap_coeff *x, size_t const n)
 {
-    x->v_coeffs = (t_float *)getbytes(n * sizeof(t_float));
-    if(!x->v_coeffs)
+    if(n)
     {
-        pd_error(x, "vbap.coeff can't allocate memory for the coefficients.");
-    }
-    x->v_list = (t_atom *)getbytes(n * sizeof(t_atom));
-    if(!x->v_list)
-    {
-        freebytes(x->v_coeffs, n * sizeof(t_float));
-        x->v_coeffs = NULL;
-        pd_error(x, "vbap.coeff can't allocate memory for the list.");
+        x->v_coeffs = (t_float *)getbytes(n * sizeof(t_float));
+        if(!x->v_coeffs)
+        {
+            pd_error(x, "vbap.coeff can't allocate memory for the coefficients.");
+        }
+        x->v_list = (t_atom *)getbytes(n * sizeof(t_atom));
+        if(!x->v_list)
+        {
+            freebytes(x->v_coeffs, n * sizeof(t_float));
+            x->v_coeffs = NULL;
+            pd_error(x, "vbap.coeff can't allocate memory for the list.");
+        }
     }
 }
 
