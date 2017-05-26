@@ -62,7 +62,7 @@ VBAP_EXTERN char vbapf_2d_prepare(t_vbapf* vbap, size_t const nls, float const *
 
 //! @brief Computes the gains of the loudspeakers for a specified angle.
 //! @details The function finds the best duet of loudspeakers depending on the azimuth of the<br>
-//! virtual source and computes the gains coeffcients of this loudspeakers. The vector of
+//! virtual source and computes the gains coeffcients of this loudspeakers. The vector of<br>
 //! gains must be at least the size of the number of loudspeakers.
 //! @param vbap The pointer to the vbap structure.
 //! @param azimuth The azimuth of the virtual source.
@@ -71,7 +71,7 @@ VBAP_EXTERN void vbapf_2d_perform(t_vbapf const* vbap, float const azimuth, floa
 
 //! @brief Prepares the vbap structure for a specific 3d configuration.
 //! @details The function finds the functional triplets of loudspeakers and computes their<br>
-//! matrices. The function expects a vector of pair of angles in degrees that defines the
+//! matrices. The function expects a vector of pair of angles in degrees that defines the<br>
 //! azimuth and the elevation of the loudspkeakers.
 //! @param vbap The pointer to the vbap structure.
 //! @param nls The number of loudspeakers.
@@ -81,7 +81,7 @@ VBAP_EXTERN char vbapf_3d_prepare(t_vbapf* vbap, size_t const nls, float const *
 
 //! @brief Computes the gains of the loudspeakers for a specified angle.
 //! @details The function finds the best triplet of loudspeakers depending on the azimuth of<br>
-//! the virtual source and computes the gains coeffcients of this loudspeakers. The vector of
+//! the virtual source and computes the gains coeffcients of this loudspeakers. The vector of<br>
 //! gains must be at least the size of the number of loudspeakers.
 //! @param vbap The pointer to the vbap structure.
 //! @param azimuth The azimuth of the virtual source.
