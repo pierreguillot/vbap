@@ -49,9 +49,8 @@ t_vbapf* vbapf_new(void)
         vbap->v_matrices    = NULL;
         vbap->v_indices     = NULL;
         vbap->v_dim        = 0;
-        return vbap;
     }
-    return NULL;
+    return vbap;
 }
 
 void vbapf_free(t_vbapf* vbap)
@@ -406,9 +405,8 @@ t_vbap* vbap_new(void)
         vbap->v_matrices    = NULL;
         vbap->v_indices     = NULL;
         vbap->v_dim        = 0;
-        return vbap;
     }
-    return NULL;
+    return vbap;
 }
 
 void vbap_free(t_vbap* vbap)
