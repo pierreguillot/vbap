@@ -4,7 +4,7 @@ var indexSectionsWithContent =
   1: "v",
   2: "t",
   3: "v",
-  4: "v"
+  4: "tv"
 };
 
 var indexSectionNames =

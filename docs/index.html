@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>vbap: vbap</title>
+<title>vbap: VBAP</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -40,6 +40,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -76,28 +77,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">vbap </div>  </div>
+<div class="title">VBAP </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Vector Base Amplitude Panning</p>
-<p><a href="https://travis-ci.org/pierreguillot/vbap"></a> <a href="https://coveralls.io/github/pierreguillot/vbap?branch=master"></a> <a href="https://pierreguillot.github.io/vbap/"></a></p>
-<h3>Author</h3>
-<ul>
-<li>Pierre Guillot</li>
-</ul>
-<h3>Publications</h3>
-<ul>
-<li>V. Pulkki, <a href="https://aaltodoc.aalto.fi/bitstream/handle/123456789/2345/article1.pdf">Virtual Sound Source Positioning Using Vector Base Amplitude Panning</a>, Journal of the Audio Engineering Society, Vol.45, No.6, 1997 June</li>
-<li>V. Pulkki &amp; T. Lokki, <a href="https://aaltodoc.aalto.fi/bitstream/handle/123456789/2345/article3.pdf">Creating Auditory Displays with Multiple Loudspeakers Using VBAP: A Case Study with DIVA Project</a>, International Conference on Auditory Display, Glasgow, UK, 1998 November</li>
-<li>V. Pulkki, <a href="https://aaltodoc.aalto.fi/bitstream/handle/123456789/2345/article4.pdf">Uniform Spreading Of Amplitude Panned Virtual Sources</a>, Proceedings of the 1999 IEEE Workshop on Applications of Signal Processing to Audio and Acoustics, New Paltz, USA, 1999 October</li>
-<li>V. Pulkki, <a href="https://aaltodoc.aalto.fi/doc_public/images/pdf.gif">Generic panning tools for MAX/MSP</a>, Proceedings of International Computer Music Conference 2000. pp. 304-307. Berlin, Germany, 2000, August</li>
-<li>V. Pulkki &amp; Mati Karjalainen, <a href="http://users.spa.aalto.fi/mak/PUB/ICADpulkki.pdf">Directional Quality Of 3-D Amplitude Panned Virtual Sources</a>, Proceedings of the 2001 International Conference on Auditory Display, Espoo, Finland, 2001, July</li>
-<li>V. Pulkki &amp; Mati Karjalainen, <a href="https://aaltodoc.aalto.fi/bitstream/handle/123456789/2345/article6.pdf">Localization of amplitude-panned virtual sources I: Stereophonic Panning</a>, Journal of the Audio Engineering Society, Vol.49, No.9, 2001, September</li>
-<li>V. Pulkki, <a href="https://aaltodoc.aalto.fi/bitstream/handle/123456789/2345/article7.pdf">Localization of amplitude-panned virtual sources II - Two- And Three-Dimensional Panning</a>, Journal of the Audio Engineering Society, Vol.49, No.9, 2001 September</li>
-<li>V. Pulkki, <a href="https://aaltodoc.aalto.fi/bitstream/handle/123456789/2345/isbn9512255324.pdf">Spatial Sound Generation And Perception By Amplitude Panning Techniques</a>, Dissertation for the degree of Doctor of Science in Technology, Helsinki University of Technology Laboratory of Acoustics and Audio Signal Processing, 2001, August</li>
-<li>V. Pulkki, <a href="http://legacy.spa.aalto.fi/research/cat/vbap/papers/pulkkiaes22.pdf">Compensating Displacement Of Amplitude-Panned Virtual sources</a>, AES 22nd International Conference on Virtual, Synthetic and Entertainment Audio, Espoo, Finland, 2002, June</li>
-<li>J-M. Batke and F. Keiler, <a href="http://ambisonics10.ircam.fr/drupal/files/proceedings/presentations/O14_47.pdf">Using VBAP-Derived Panning Functions For 3D Ambisonics Decoding</a>, Proceedings of the 2nd International Symposium on Ambisonics and Spherical Acoustics, Paris, France, 2010 </li>
-</ul>
+<div class="textblock"><p>The repository contains documentations and implementations of the Vector Base Amplitude Panning (VBAP). The VBAP is a spatialization techniques created by Ville Pulkki in the late 90's. For further information see the <a href="https://github.com/pierreguillot/vbap/blob/master/references">references</a>. The VBAP is available as a C library with an <a href="https://github.com/pierreguillot/vbap/blob/master/pd">implementation</a> as externals for Pure Data (and also as abstractions).</p>
+<p><a href="https://travis-ci.org/pierreguillot/vbap"></a> <a href="https://ci.appveyor.com/project/pierreguillot/vbap/history"></a> <a href="https://coveralls.io/github/pierreguillot/vbap?branch=master"></a></p>
+<p><a href="https://pierreguillot.github.io/vbap/"></a></p>
+<h3>Compilation</h3>
+<p>Use the basic CMake approach: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;mkdir build</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;cd build</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;cmake ..</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;cmake --build .</div></div><!-- fragment --><h3>Author</h3>
+<p>Pierre Guillot | CICM | Université Paris 8 </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

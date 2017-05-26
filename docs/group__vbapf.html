@@ -40,6 +40,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="modules.html"><span>Modules</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -90,34 +91,317 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Typedefs</h2></td></tr>
 <tr class="memitem:ga3c9b971298d6e8efed165328a6703ced"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga3c9b971298d6e8efed165328a6703ced"></a>
 typedef struct _vbapf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a></td></tr>
-<tr class="memdesc:ga3c9b971298d6e8efed165328a6703ced"><td class="mdescLeft">&#160;</td><td class="mdescRight">The opaque type used to compute vbap coefficients. <br /></td></tr>
+<tr class="memdesc:ga3c9b971298d6e8efed165328a6703ced"><td class="mdescLeft">&#160;</td><td class="mdescRight">The opaque type used to compute vbap. <br /></td></tr>
 <tr class="separator:ga3c9b971298d6e8efed165328a6703ced"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gaf90ce10637ce3953b2ab6ee7420534f2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaf90ce10637ce3953b2ab6ee7420534f2"></a>
-<a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vbapf.html#gaf90ce10637ce3953b2ab6ee7420534f2">vbapf_new</a> (void)</td></tr>
-<tr class="memdesc:gaf90ce10637ce3953b2ab6ee7420534f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates a new vbap structure. <br /></td></tr>
+<tr class="memitem:gaf90ce10637ce3953b2ab6ee7420534f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vbapf.html#gaf90ce10637ce3953b2ab6ee7420534f2">vbapf_new</a> (void)</td></tr>
+<tr class="memdesc:gaf90ce10637ce3953b2ab6ee7420534f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates a new vbap structure.  <a href="#gaf90ce10637ce3953b2ab6ee7420534f2">More...</a><br /></td></tr>
 <tr class="separator:gaf90ce10637ce3953b2ab6ee7420534f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga87a0b90393a5190a47c1651b24c252b0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga87a0b90393a5190a47c1651b24c252b0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vbapf.html#ga87a0b90393a5190a47c1651b24c252b0">vbapf_free</a> (<a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a> *vbap)</td></tr>
-<tr class="memdesc:ga87a0b90393a5190a47c1651b24c252b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees a vbap structure. <br /></td></tr>
+<tr class="memitem:ga87a0b90393a5190a47c1651b24c252b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vbapf.html#ga87a0b90393a5190a47c1651b24c252b0">vbapf_free</a> (<a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a> *vbap)</td></tr>
+<tr class="memdesc:ga87a0b90393a5190a47c1651b24c252b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees a vbap structure.  <a href="#ga87a0b90393a5190a47c1651b24c252b0">More...</a><br /></td></tr>
 <tr class="separator:ga87a0b90393a5190a47c1651b24c252b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa7ae5b49a7ea599ee7601d75b75ffd04"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaa7ae5b49a7ea599ee7601d75b75ffd04"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vbapf.html#gaa7ae5b49a7ea599ee7601d75b75ffd04">vbapf_nls</a> (<a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a> const *vbap)</td></tr>
-<tr class="memdesc:gaa7ae5b49a7ea599ee7601d75b75ffd04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current number of loudspeakers. <br /></td></tr>
+<tr class="memitem:gaa7ae5b49a7ea599ee7601d75b75ffd04"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vbapf.html#gaa7ae5b49a7ea599ee7601d75b75ffd04">vbapf_nls</a> (<a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a> const *vbap)</td></tr>
+<tr class="memdesc:gaa7ae5b49a7ea599ee7601d75b75ffd04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current number of loudspeakers.  <a href="#gaa7ae5b49a7ea599ee7601d75b75ffd04">More...</a><br /></td></tr>
 <tr class="separator:gaa7ae5b49a7ea599ee7601d75b75ffd04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7ddba829320994b4d383c162fd2a1048"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga7ddba829320994b4d383c162fd2a1048"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vbapf.html#ga7ddba829320994b4d383c162fd2a1048">vbapf_2d_prepare</a> (<a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a> *vbap, size_t const nangles, float const *angles)</td></tr>
-<tr class="memdesc:ga7ddba829320994b4d383c162fd2a1048"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the vbap structure for a specific configuration. <br /></td></tr>
-<tr class="separator:ga7ddba829320994b4d383c162fd2a1048"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga666f7ecfe1527c231ee680466dafa7e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga666f7ecfe1527c231ee680466dafa7e6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vbapf.html#ga666f7ecfe1527c231ee680466dafa7e6">vbapf_2d_perform</a> (<a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a> const *vbap, float const angle, float *coefficients)</td></tr>
-<tr class="memdesc:ga666f7ecfe1527c231ee680466dafa7e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the coefficients of the loudspeakers for a specified angle. <br /></td></tr>
-<tr class="separator:ga666f7ecfe1527c231ee680466dafa7e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga984517a874bdabf395f63a9e5ef677fa"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vbapf.html#ga984517a874bdabf395f63a9e5ef677fa">vbapf_dimension</a> (<a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a> const *vbap)</td></tr>
+<tr class="memdesc:ga984517a874bdabf395f63a9e5ef677fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current dimension.  <a href="#ga984517a874bdabf395f63a9e5ef677fa">More...</a><br /></td></tr>
+<tr class="separator:ga984517a874bdabf395f63a9e5ef677fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3e0693f5265b84a62df4bd748ae43c90"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vbapf.html#ga3e0693f5265b84a62df4bd748ae43c90">vbapf_2d_prepare</a> (<a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a> *vbap, size_t const nls, float const *angles)</td></tr>
+<tr class="memdesc:ga3e0693f5265b84a62df4bd748ae43c90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the vbap structure for a specific 2d configuration.  <a href="#ga3e0693f5265b84a62df4bd748ae43c90">More...</a><br /></td></tr>
+<tr class="separator:ga3e0693f5265b84a62df4bd748ae43c90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae426095186fd7697d49ee54f8df07938"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vbapf.html#gae426095186fd7697d49ee54f8df07938">vbapf_2d_perform</a> (<a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a> const *vbap, float const azimuth, float *gains)</td></tr>
+<tr class="memdesc:gae426095186fd7697d49ee54f8df07938"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the gains of the loudspeakers for a specified angle.  <a href="#gae426095186fd7697d49ee54f8df07938">More...</a><br /></td></tr>
+<tr class="separator:gae426095186fd7697d49ee54f8df07938"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4cc613c5cf996adcddd7f7ea5dd0dbd8"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vbapf.html#ga4cc613c5cf996adcddd7f7ea5dd0dbd8">vbapf_3d_prepare</a> (<a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a> *vbap, size_t const nls, float const *angles)</td></tr>
+<tr class="memdesc:ga4cc613c5cf996adcddd7f7ea5dd0dbd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the vbap structure for a specific 3d configuration.  <a href="#ga4cc613c5cf996adcddd7f7ea5dd0dbd8">More...</a><br /></td></tr>
+<tr class="separator:ga4cc613c5cf996adcddd7f7ea5dd0dbd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga39201b5861596a4b0c727d9532255bda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vbapf.html#ga39201b5861596a4b0c727d9532255bda">vbapf_3d_perform</a> (<a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a> const *vbap, float const azimuth, float const elevation, float *gains)</td></tr>
+<tr class="memdesc:ga39201b5861596a4b0c727d9532255bda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the gains of the loudspeakers for a specified angle.  <a href="#ga39201b5861596a4b0c727d9532255bda">More...</a><br /></td></tr>
+<tr class="separator:ga39201b5861596a4b0c727d9532255bda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>The single point precision part of the library. </p>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="gae426095186fd7697d49ee54f8df07938"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vbapf_2d_perform </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a> const *&#160;</td>
+          <td class="paramname"><em>vbap</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float const&#160;</td>
+          <td class="paramname"><em>azimuth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>gains</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes the gains of the loudspeakers for a specified angle. </p>
+<p>The function finds the best duet of loudspeakers depending on the azimuth of the<br />
+ virtual source and computes the gains coeffcients of this loudspeakers. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vbap</td><td>The pointer to the vbap structure. </td></tr>
+    <tr><td class="paramname">azimuth</td><td>The azimuth of the virtual source. </td></tr>
+    <tr><td class="paramname">gains</td><td>The vector to fill with the gains of the loudspkeakers. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga3e0693f5265b84a62df4bd748ae43c90"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char vbapf_2d_prepare </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a> *&#160;</td>
+          <td class="paramname"><em>vbap</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t const&#160;</td>
+          <td class="paramname"><em>nls</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float const *&#160;</td>
+          <td class="paramname"><em>angles</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prepares the vbap structure for a specific 2d configuration. </p>
+<p>The function finds the functional duets of loudspeakers and computes their<br />
+ matrices. The function expects a vector of angles in degrees that defines the azimuth of<br />
+ the loudspkeakers. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vbap</td><td>The pointer to the vbap structure. </td></tr>
+    <tr><td class="paramname">nls</td><td>The number of loudspeakers. </td></tr>
+    <tr><td class="paramname">angles</td><td>The angles of the loudspeakers. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga39201b5861596a4b0c727d9532255bda"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vbapf_3d_perform </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a> const *&#160;</td>
+          <td class="paramname"><em>vbap</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float const&#160;</td>
+          <td class="paramname"><em>azimuth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float const&#160;</td>
+          <td class="paramname"><em>elevation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>gains</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes the gains of the loudspeakers for a specified angle. </p>
+<p>The function finds the best triplet of loudspeakers depending on the azimuth of<br />
+ the virtual source and computes the gains coeffcients of this loudspeakers. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vbap</td><td>The pointer to the vbap structure. </td></tr>
+    <tr><td class="paramname">azimuth</td><td>The azimuth of the virtual source. </td></tr>
+    <tr><td class="paramname">elevation</td><td>The elevation of the virtual source. </td></tr>
+    <tr><td class="paramname">gains</td><td>The vector to fill with the gains of the loudspkeakers. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga4cc613c5cf996adcddd7f7ea5dd0dbd8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char vbapf_3d_prepare </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a> *&#160;</td>
+          <td class="paramname"><em>vbap</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t const&#160;</td>
+          <td class="paramname"><em>nls</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float const *&#160;</td>
+          <td class="paramname"><em>angles</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prepares the vbap structure for a specific 3d configuration. </p>
+<p>The function finds the functional triplets of loudspeakers and computes their<br />
+ matrices. The function expects a vector of pair of angles in degrees that defines the azimuth and the elevation of the loudspkeakers. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vbap</td><td>The pointer to the vbap structure. </td></tr>
+    <tr><td class="paramname">nls</td><td>The number of loudspeakers. </td></tr>
+    <tr><td class="paramname">angles</td><td>The angles of the loudspeakers. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Check the variable max </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga984517a874bdabf395f63a9e5ef677fa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char vbapf_dimension </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a> const *&#160;</td>
+          <td class="paramname"><em>vbap</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the current dimension. </p>
+<p>The dimension can be 0 if the vbap structure has not been prepared yet, 2 if the<br />
+ the vbap structure has been prepared for a 2 dimensional application and 3 if thee vbap<br />
+ structure has been prepared for a 2 dimensional application. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vbap</td><td>The pointer to the vbap structure. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The dimension. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga87a0b90393a5190a47c1651b24c252b0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vbapf_free </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a> *&#160;</td>
+          <td class="paramname"><em>vbap</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Frees a vbap structure. </p>
+<p>The function frees a vbap structure. For convenience, the pointer is verified so<br />
+ it can be NULL without generating any error. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vbap</td><td>The pointer to the vbap structure to free. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gaf90ce10637ce3953b2ab6ee7420534f2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a>* vbapf_new </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Allocates a new vbap structure. </p>
+<p>The function allocates and initializes a vbap structure that can be used for both<br />
+ 2d and 3d applications. </p><dl class="section return"><dt>Returns</dt><dd>A pointer to a new vbap structure or NULL if the allocation failed. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaa7ae5b49a7ea599ee7601d75b75ffd04"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t vbapf_nls </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__vbapf.html#ga3c9b971298d6e8efed165328a6703ced">t_vbapf</a> const *&#160;</td>
+          <td class="paramname"><em>vbap</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the current number of loudspeakers. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vbap</td><td>The pointer to the vbap structure. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The current number of loudspeakers. </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
