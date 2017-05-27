@@ -58,7 +58,7 @@ VBAP_EXTERN size_t vbapf_nls(t_vbapf const* vbap);
 VBAP_EXTERN unsigned char vbapf_dimension(t_vbapf const* vbap);
 
 //! @brief Prepares the vbap structure for a specific 2d configuration.
-//! @details The function finds the functional duets of loudspeakers and computes their<br>
+//! @details The function finds the functional pairs of loudspeakers and computes their<br>
 //! matrices. The function expects a vector of angles in degrees that defines the azimuth of<br>
 //! the loudspkeakers.
 //! @param vbap The pointer to the vbap structure.
@@ -67,7 +67,7 @@ VBAP_EXTERN unsigned char vbapf_dimension(t_vbapf const* vbap);
 VBAP_EXTERN char vbapf_2d_prepare(t_vbapf* vbap, size_t const nls, float const * angles);
 
 //! @brief Computes the gains of the loudspeakers for a specified angle.
-//! @details The function finds the best duet of loudspeakers depending on the azimuth of the<br>
+//! @details The function finds the best pair of loudspeakers depending on the azimuth of the<br>
 //! virtual source and computes the gains coeffcients of this loudspeakers. The vector of<br>
 //! gains must be at least the size of the number of loudspeakers.
 //! @param vbap The pointer to the vbap structure.
@@ -140,7 +140,7 @@ VBAP_EXTERN size_t vbap_nls(t_vbap const* vbap);
 VBAP_EXTERN unsigned char vbap_dimension(t_vbap const* vbap);
 
 //! @brief Prepares the vbap structure for a specific 2d configuration.
-//! @details The function finds the functional duets of loudspeakers and computes their<br>
+//! @details The function finds the functional pairs of loudspeakers and computes their<br>
 //! matrices. The function expects a vector of angles in degrees that defines the azimuth of<br>
 //! the loudspkeakers.
 //! @param vbap The pointer to the vbap structure.
@@ -149,7 +149,7 @@ VBAP_EXTERN unsigned char vbap_dimension(t_vbap const* vbap);
 VBAP_EXTERN char vbap_2d_prepare(t_vbap* vbap, size_t const nls, double const * angles);
 
 //! @brief Computes the gains of the loudspeakers for a specified angle.
-//! @details The function finds the best duet of loudspeakers depending on the azimuth of the<br>
+//! @details The function finds the best pair of loudspeakers depending on the azimuth of the<br>
 //! virtual source and computes the gains coeffcients of this loudspeakers. The vector of<br>
 //! gains must be at least the size of the number of loudspeakers.
 //! @param vbap The pointer to the vbap structure.
