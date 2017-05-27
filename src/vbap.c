@@ -378,6 +378,22 @@ void vbapf_3d_perform(t_vbapf const* vbap, float const azimuth, float const elev
     }
 }
 
+#undef VBAP_DEG_TO_RAD_F
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
@@ -734,4 +750,4 @@ void vbap_3d_perform(t_vbap const* vbap, double const azimuth, double const elev
     }
 }
 
-
+#undef VBAP_DEG_TO_RAD_D
