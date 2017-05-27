@@ -5,7 +5,7 @@ This part of the repository contains the [Pure Data](http://msp.ucsd.edu/softwar
 
 - *p.vbap*: An abstraction that outputs the coefficients for a set of loudspeakers depending on the direction of the virtual source. The abstraction works in 2d and 3d.
 - *vbap.coeff*: An external that outputs the coefficients for a set of loudspeakers depending on the direction of the virtual source. The external works in 2d and 3d.
-- *vbap~*: An external that generates the signals of a set of loudspeakers depending on a sound source and its direction. It can be used for real-time processing. The external works in 2d and 3d.
+- *vbap~*: An external that generates the signals for a set of loudspeakers depending on a sound source and its direction. It can be used for real-time processing. The external works in 2d and 3d.
 
 ### Compilation
 
