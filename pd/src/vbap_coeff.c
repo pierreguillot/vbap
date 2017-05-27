@@ -153,17 +153,17 @@ static void *vbap_coeff_new(t_symbol* s, int argc, t_atom* argv)
         x->v_coeffs     = NULL;
         x->v_list       = NULL;
         x->v_vbap       = vbapf_new();
-        if(x->v_vbap)
-        {
-            x->v_out = outlet_new((t_object *)x, &s_list);
-            vbap_coeff_configure(x, &s_list, argc, argv);
-        }
-        else
+        if(!x->v_vbap)
         {
             pd_error(x, "vbap.coeff can't allocate its internal structure.");
             pd_free((t_pd *)x);
             return NULL;
         }
+        else if(argc > 1)
+        {
+            vbap_coeff_configure(x, &s_list, argc, argv);
+        }
+        x->v_out = outlet_new((t_object *)x, &s_list);
     }
     return (x);
 }
