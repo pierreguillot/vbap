@@ -179,4 +179,4 @@ VBAP_EXTERN void vbap_3d_perform(t_vbap const* vbap, double const azimuth, doubl
 
 //! @}
 
-#endif // VBAP_INCLUDE_C
+#endif // VBAP_INCLUDE_H
