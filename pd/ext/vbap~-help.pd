@@ -1,119 +1,160 @@
-#N canvas 437 23 647 738 10;
+#N canvas 437 23 587 550 10;
 #N canvas 0 22 450 300 header 0;
 #X obj 11 11 cnv 15 65 18 empty empty vbap~ 2 8 0 14 -262144 -66577
 0;
-#X text 100 12 by Pierre Guillot - 2016 - 2017;
-#X coords 0 -1 1 1 286 20 2 10 10;
+#X text 100 12 by Pierre Guillot | CICM - Université Paris 8 | 2016
+- 2017;
+#X coords 0 -1 1 1 452 20 2 10 10;
 #X restore 9 7 pd header;
-#X text 10 34 An external that computes the gains of a set of loudspeakers
-for the spatialization of a virtual source using V. Pulkki's Vector
-Base Amplitude Panning technique., f 90;
-#X text 10 64 The arguments are the dimension (2d or 3d) and the angles
-of the loudspeakers. The angles must be the azimuths only in 2d and
-pairs of azimuth and elevation in 3d. The message "configure" followed
-by the same arguments can be used to change the configuration after
-the initialization., f 90;
-#X text 10 124 An azimuth in 2d or an azimuth and an elevation in 3d
-defines the position of the virtual source and outputs the gains of
-the loudspeakers. You can use the "set" message to compute the compute
-the gains without output., f 90;
-#X obj 39 356 vbap~ 2d 45 -45;
-#X obj 126 308 osc~ 0.1;
-#X obj 126 330 *~ 45;
-#X obj 39 412 - 100;
-#X obj 126 412 - 100;
-#X obj 127 441 vu 12 80 empty empty -1 -8 0 4 -66577 -262144 1 0;
-#X obj 66 225 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 19 266 vbap~ 2d 45 -45;
+#X obj 106 218 osc~ 0.1;
+#X obj 106 240 *~ 45;
+#X obj 19 322 - 100;
+#X obj 106 322 - 100;
+#X obj 107 351 vu 12 80 empty empty -1 -8 0 4 -66577 -262144 1 0;
+#X obj 20 487 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X msg 66 245 \; pd dsp \$1;
-#X obj 39 309 noise~;
-#X obj 39 542 dac~ 1 2, f 15;
-#X obj 40 441 vu 12 80 empty empty -1 -8 0 4 -66577 -262144 1 0;
-#X obj 199 412 - 100;
-#X obj 246 412 - 100;
-#X obj 247 441 vu 12 80 empty empty -1 -8 0 4 -66577 -262144 1 0;
-#X obj 200 441 vu 12 80 empty empty -1 -8 0 4 -66577 -262144 1 0;
-#X obj 199 356 vbap~ 3d 45 35.3 135 35.3 225 35.3 315 35.3 45 -35.3
+#X msg 20 507 \; pd dsp \$1;
+#X obj 19 219 noise~;
+#X obj 19 452 dac~ 1 2, f 15;
+#X obj 20 351 vu 12 80 empty empty -1 -8 0 4 -66577 -262144 1 0;
+#X obj 169 321 - 100;
+#X obj 216 321 - 100;
+#X obj 217 350 vu 12 80 empty empty -1 -8 0 4 -66577 -262144 1 0;
+#X obj 170 350 vu 12 80 empty empty -1 -8 0 4 -66577 -262144 1 0;
+#X obj 169 265 vbap~ 3d 45 35.3 135 35.3 225 35.3 315 35.3 45 -35.3
 135 -35.3 225 -35.3 315 -35.3;
-#X obj 294 412 - 100;
-#X obj 341 412 - 100;
-#X obj 342 441 vu 12 80 empty empty -1 -8 0 4 -66577 -262144 1 0;
-#X obj 295 441 vu 12 80 empty empty -1 -8 0 4 -66577 -262144 1 0;
-#X obj 365 330 *~ 360;
-#X obj 389 412 - 100;
-#X obj 436 412 - 100;
-#X obj 437 441 vu 12 80 empty empty -1 -8 0 4 -66577 -262144 1 0;
-#X obj 390 441 vu 12 80 empty empty -1 -8 0 4 -66577 -262144 1 0;
-#X obj 484 412 - 100;
-#X obj 532 412 - 100;
-#X obj 533 441 vu 12 80 empty empty -1 -8 0 4 -66577 -262144 1 0;
-#X obj 485 441 vu 12 80 empty empty -1 -8 0 4 -66577 -262144 1 0;
-#X obj 532 330 *~ 90;
-#X obj 199 309 sig~ 1;
-#X obj 365 308 phasor~ 0.5;
-#X obj 532 308 osc~ 0.05;
-#X obj 126 390 env~;
-#X obj 39 390 env~;
-#X obj 199 390 env~;
-#X obj 246 390 env~;
-#X obj 294 390 env~;
-#X obj 341 390 env~;
-#X obj 389 390 env~;
-#X obj 436 390 env~;
-#X obj 484 390 env~;
-#X obj 532 390 env~;
-#X obj 182 611 vbap~ 2d 45 -45;
-#X obj 269 563 osc~ 0.1;
-#X obj 269 585 *~ 45;
-#X obj 182 564 noise~;
-#X msg 351 582 configure 3d 45 0 0 35.3 -45 0;
-#X msg 351 552 configure 2d 45 -45;
-#X obj 183 662 *~;
-#X connect 4 0 13 0;
-#X connect 4 0 38 0;
-#X connect 4 1 13 1;
-#X connect 4 1 37 0;
+#X obj 264 321 - 100;
+#X obj 311 321 - 100;
+#X obj 312 350 vu 12 80 empty empty -1 -8 0 4 -66577 -262144 1 0;
+#X obj 265 350 vu 12 80 empty empty -1 -8 0 4 -66577 -262144 1 0;
+#X obj 335 239 *~ 360;
+#X obj 359 321 - 100;
+#X obj 406 321 - 100;
+#X obj 407 350 vu 12 80 empty empty -1 -8 0 4 -66577 -262144 1 0;
+#X obj 360 350 vu 12 80 empty empty -1 -8 0 4 -66577 -262144 1 0;
+#X obj 454 321 - 100;
+#X obj 502 321 - 100;
+#X obj 503 350 vu 12 80 empty empty -1 -8 0 4 -66577 -262144 1 0;
+#X obj 455 350 vu 12 80 empty empty -1 -8 0 4 -66577 -262144 1 0;
+#X obj 502 239 *~ 90;
+#X obj 169 218 sig~ 1;
+#X obj 335 217 phasor~ 0.5;
+#X obj 502 217 osc~ 0.05;
+#X obj 106 300 env~;
+#X obj 19 300 env~;
+#X obj 169 299 env~;
+#X obj 216 299 env~;
+#X obj 264 299 env~;
+#X obj 311 299 env~;
+#X obj 359 299 env~;
+#X obj 406 299 env~;
+#X obj 454 299 env~;
+#X obj 502 299 env~;
+#N canvas 314 240 559 465 some.cofigurations 0;
+#X text 13 8 Some typical loudspeakers' configurations:;
+#X msg 15 45 2d 45 -45;
+#X msg 45 88 2d 0 90 180 270;
+#X text 43 68 Quadriphonic;
+#X text 73 111 Octophonics;
+#X msg 75 131 2d 0 45 90 135 180 225 270 315;
+#X msg 65 181 2d 0 30 110 250 330;
+#X text 63 161 5.1;
+#X obj 22 341 vbap~, f 34;
+#X obj 22 319 list trim;
+#X obj 22 297 list prepend configure;
+#X obj 22 275 r \$0-config;
+#X obj 15 211 s \$0-config;
+#X obj 264 391 s \$0-config;
+#X msg 284 102 3d 45 35.3 135 35.3 225 35.3 315 35.3 45 -35.3 135 -35.3
+225 -35.3 315 -35.3, f 39;
+#X text 283 81 Cube;
+#X msg 264 54 3d 45 0 0 35.3 -45 0, f 21;
+#X text 263 33 Frontal triplet;
+#X text 15 27 Frontal pair;
+#X msg 309 165 3d 180 90 0 26.6 324 -26.6 72 26.6 36 -26.6 144 26.6
+108 -26.6 216 26.6 180 -26.6 288 26.6 252 -26.6 180 -90, f 36;
+#X text 307 145 Dodecahedron;
+#X msg 324 235 3d 180 69.1 159.1 0 90 20.9 135 35.3 135 -35.3 180 -69.1
+20.9 0 90 -20.9 45 35.3 45 -35.3 0 69.1 200.9 0 270 20.9 225 35.3 225
+-35.3 0 -69.1 339.1 0 270 -20.9 315 35.3 315 -35.3, f 36;
+#X text 324 215 Icosahedron;
+#X msg 324 331 3d 0 0 72 0 144 0 216 0 288 0 60 45 180 45 240 45,
+f 25;
+#X text 324 310 Pullki's configuration;
+#X connect 1 0 12 0;
+#X connect 2 0 12 0;
+#X connect 5 0 12 0;
+#X connect 6 0 12 0;
+#X connect 9 0 8 0;
+#X connect 10 0 9 0;
+#X connect 11 0 10 0;
+#X connect 14 0 13 0;
+#X connect 16 0 13 0;
+#X connect 19 0 13 0;
+#X connect 21 0 13 0;
+#X connect 23 0 13 0;
+#X restore 166 516 pd some.cofigurations;
+#X text 333 197 Azimuth;
+#X text 105 200 Azimuth;
+#X text 500 200 Elevation;
+#X text 167 200 Sound source;
+#X text 16 201 Sound source;
+#X text 165 478 Here are examples of typical loudspeakers' configuration
+, f 30;
+#X text 10 74 The arguments are the dimension (2d or 3d) followed by
+a set of angles that defines the directions of the loudspeakers. The
+angles must be azimuths in 2d and pairs of azimuth and elevation in
+3d. The angles are defined in degrees. The number of outlets depends
+on the number of angles \, the are consequently as many outlets as
+there are angles in 2d and the half in 3d. In 2d \, there 2 inlets
+\, the 1st for the sound source and the 2nd for the azimuth of the
+sound source. In 3d there is a 3rd inlet for the elevation of the sound
+source. The message "configure" followed by the same arguments can
+be used to change the configuration after the initialization \, the
+numbers of inlets and outlets change consequently., f 90;
+#X text 10 34 An external that generates the signals for a set of loudspeakers
+depending on a sound source and its direction using the V. Pulkki's
+vector base amplitude panning (VBAP). It can be used for real-time
+processing in 2d and 3d., f 90;
+#X connect 1 0 10 0;
+#X connect 1 0 35 0;
+#X connect 1 1 10 1;
+#X connect 1 1 34 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 1;
+#X connect 4 0 11 0;
 #X connect 5 0 6 0;
-#X connect 6 0 4 1;
-#X connect 7 0 14 0;
-#X connect 8 0 9 0;
-#X connect 10 0 11 0;
-#X connect 12 0 4 0;
-#X connect 15 0 18 0;
-#X connect 16 0 17 0;
-#X connect 19 0 39 0;
-#X connect 19 1 40 0;
-#X connect 19 2 41 0;
-#X connect 19 3 42 0;
-#X connect 19 4 43 0;
-#X connect 19 5 44 0;
-#X connect 19 6 45 0;
-#X connect 19 7 46 0;
-#X connect 20 0 23 0;
-#X connect 21 0 22 0;
-#X connect 24 0 19 1;
-#X connect 25 0 28 0;
-#X connect 26 0 27 0;
-#X connect 29 0 32 0;
-#X connect 30 0 31 0;
-#X connect 33 0 19 2;
-#X connect 34 0 19 0;
-#X connect 35 0 24 0;
-#X connect 36 0 33 0;
-#X connect 37 0 8 0;
-#X connect 38 0 7 0;
-#X connect 39 0 15 0;
-#X connect 40 0 16 0;
-#X connect 41 0 20 0;
-#X connect 42 0 21 0;
-#X connect 43 0 25 0;
-#X connect 44 0 26 0;
-#X connect 45 0 29 0;
-#X connect 46 0 30 0;
-#X connect 47 0 53 0;
-#X connect 47 1 53 1;
-#X connect 48 0 49 0;
-#X connect 49 0 47 1;
-#X connect 50 0 47 0;
-#X connect 51 0 47 0;
-#X connect 52 0 47 0;
+#X connect 7 0 8 0;
+#X connect 9 0 1 0;
+#X connect 12 0 15 0;
+#X connect 13 0 14 0;
+#X connect 16 0 36 0;
+#X connect 16 1 37 0;
+#X connect 16 2 38 0;
+#X connect 16 3 39 0;
+#X connect 16 4 40 0;
+#X connect 16 5 41 0;
+#X connect 16 6 42 0;
+#X connect 16 7 43 0;
+#X connect 17 0 20 0;
+#X connect 18 0 19 0;
+#X connect 21 0 16 1;
+#X connect 22 0 25 0;
+#X connect 23 0 24 0;
+#X connect 26 0 29 0;
+#X connect 27 0 28 0;
+#X connect 30 0 16 2;
+#X connect 31 0 16 0;
+#X connect 32 0 21 0;
+#X connect 33 0 30 0;
+#X connect 34 0 5 0;
+#X connect 35 0 4 0;
+#X connect 36 0 12 0;
+#X connect 37 0 13 0;
+#X connect 38 0 17 0;
+#X connect 39 0 18 0;
+#X connect 40 0 22 0;
+#X connect 41 0 23 0;
+#X connect 42 0 26 0;
+#X connect 43 0 27 0;
