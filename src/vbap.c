@@ -48,7 +48,7 @@ t_vbapf* vbapf_new(void)
         vbap->v_n           = 0;
         vbap->v_matrices    = NULL;
         vbap->v_indices     = NULL;
-        vbap->v_dim        = 0;
+        vbap->v_dim         = 0;
     }
     return vbap;
 }
