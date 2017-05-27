@@ -4,8 +4,8 @@
 // WARRANTIES, see the file, "LICENSE.txt," in this distribution.
 */
 
-#ifndef VBAP_INCLUDE_C
-#define VBAP_INCLUDE_C
+#ifndef VBAP_INCLUDE_H
+#define VBAP_INCLUDE_H
 
 #include <stddef.h>
 
