@@ -87,7 +87,7 @@ char vbapf_2d_prepare(t_vbapf* vbap, size_t const nls, float const * angles)
     char valid, err = 0;
     float x1, y1, x2, y2, xc, yc, xr, yr, dc, deta, ra;
     size_t i = 0, j = 0, k = 0;
-    size_t const max = vbap_factorial(nls);
+    size_t const max = vbap_factorial(nls > 10 ? 10 : nls);
     
     vbap->v_dim = 2;
     if(vbap->v_n && vbap->v_matrices)
@@ -165,6 +165,10 @@ char vbapf_2d_prepare(t_vbapf* vbap, size_t const nls, float const * angles)
                 vbap->v_matrices[vbap->v_n*4+2] = -y1 / deta;
                 vbap->v_matrices[vbap->v_n*4+3] = x1 / deta;
                 vbap->v_n++;
+                if(vbap->v_n > max)
+                {
+                    return 255;
+                }
             }
         }
     }
@@ -235,7 +239,7 @@ char vbapf_3d_prepare(t_vbapf* vbap, size_t const nls, float const * angles)
     char valid, err = 0;
     float x1, y1, z1, x2, y2, z2, x3, y3, z3, xc, yc, zc, xr, yr, zr, dc, deta, ra, re;
     size_t i = 0, j = 0, k = 0, l = 0;
-    size_t const max = vbap_factorial(nls);
+    size_t const max = vbap_factorial(nls > 10 ? 10 : nls);
     
     vbap->v_dim     = 3;
     if(vbap->v_n && vbap->v_matrices)
@@ -329,6 +333,11 @@ char vbapf_3d_prepare(t_vbapf* vbap, size_t const nls, float const * angles)
                     vbap->v_matrices[vbap->v_n*9+7] = (y1 * x3 - x1 * y3) / deta;
                     vbap->v_matrices[vbap->v_n*9+8] = (x1 * y2 - y1 * x2) / deta;
                     vbap->v_n++;
+                    
+                    if(vbap->v_n > max)
+                    {
+                        return 255;
+                    }
                 }
             }
         }

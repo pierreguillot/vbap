@@ -229,6 +229,20 @@ static void test_f_cube(t_vbapf* vbap)
     }
 }
 
+static void test_f_icosahedron(t_vbapf* vbap)
+{
+    float angles[] = {180, 69.1, 159.1, 0, 90, 20.9, 135, 35.3, 135, -35.3, 180, -69.1, 20.9, 0, 90, -20.9, 45, 35.3, 45, -35.3, 0, 69.1, 200.9, 0, 270, 20.9, 225, 35.3, 225, -35.3, 0, -69.1, 339.1, 0, 270, -20.9, 315, 35.3, 315, -35.3};
+    printf("    icosahedron version... ");
+    if(!vbapf_3d_prepare(vbap, 20, angles))
+    {
+        printf("done\n");
+    }
+    else
+    {
+        printf("preparation failed!\n");
+    };
+}
+
 static void test_f_invalid(t_vbapf* vbap)
 {
     float angles_2d[4] = {0.f, 0.f, 90.f, 90.f};
@@ -247,6 +261,7 @@ static void test_f(void)
     test_f_square(vbapf);
     test_f_triangle(vbapf);
     test_f_cube(vbapf);
+    test_f_icosahedron(vbapf);
     test_f_invalid(vbapf);
     vbapf_free(vbapf);
     printf("done\n");
