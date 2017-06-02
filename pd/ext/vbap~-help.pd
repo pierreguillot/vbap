@@ -101,28 +101,28 @@ f 25;
 #X text 16 201 Sound source;
 #X text 165 478 Here are examples of typical loudspeakers' configuration
 , f 30;
-#X text 10 74 The arguments are the dimension (2d or 3d) followed by
-a set of angles that defines the directions of the loudspeakers. The
-angles must be azimuths in 2d and pairs of azimuth and elevation in
-3d. The angles are defined in degrees. The number of outlets depends
-on the number of angles \, the are consequently as many outlets as
-there are angles in 2d and the half in 3d. In 2d \, there 2 inlets
-\, the 1st for the sound source and the 2nd for the azimuth of the
-sound source. In 3d there is a 3rd inlet for the elevation of the sound
-source. The message "configure" followed by the same arguments can
-be used to change the configuration after the initialization \, the
-numbers of inlets and outlets change consequently., f 90;
 #X text 10 34 An external that generates the signals for a set of loudspeakers
 depending on a sound source and its direction using the V. Pulkki's
 vector base amplitude panning (VBAP). It can be used for real-time
 processing in 2d and 3d., f 90;
 #X obj 106 240 *~ 50;
 #X obj 106 262 clip~ -45 45;
+#X text 10 74 The arguments are the dimension (2d or 3d) followed by
+a set of angles that defines the directions of the loudspeakers. The
+angles must be azimuths in 2d and pairs of azimuth and elevation in
+3d. The angles are defined in degrees. The number of outlets depends
+on the number of angles \, the are consequently as many outlets as
+there are angles in 2d and the half in 3d. In 2d \, there are 2 inlets
+\, the 1st for the sound source and the 2nd for the azimuth of the
+sound source. In 3d there is a 3rd inlet for the elevation of the sound
+source. The message "configure" followed by the same arguments can
+be used to change the configuration after the initialization \, the
+numbers of inlets and outlets change consequently., f 90;
 #X connect 1 0 9 0;
 #X connect 1 0 34 0;
 #X connect 1 1 9 1;
 #X connect 1 1 33 0;
-#X connect 2 0 52 0;
+#X connect 2 0 51 0;
 #X connect 3 0 10 0;
 #X connect 4 0 5 0;
 #X connect 6 0 7 0;
@@ -158,5 +158,5 @@ processing in 2d and 3d., f 90;
 #X connect 40 0 22 0;
 #X connect 41 0 25 0;
 #X connect 42 0 26 0;
-#X connect 52 0 53 0;
-#X connect 53 0 1 1;
+#X connect 51 0 52 0;
+#X connect 52 0 1 1;
