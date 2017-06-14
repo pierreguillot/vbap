@@ -511,6 +511,7 @@ int main(int argc, const char * argv[])
 {
     UNUSED(argc);
     UNUSED(argv);
+
     printf("vbap running test:\n");
     test_f();
     test_d();

@@ -468,7 +468,7 @@ char vbap_2d_prepare(t_vbap* vbap, size_t const nls, double const * angles)
     char valid, err = 0;
     double x1, y1, x2, y2, xc, yc, xr, yr, dc, deta, ra;
     size_t i = 0, j = 0, k = 0;
-    size_t const max = vbap_factorial(nls);
+    size_t const max = vbap_factorial(nls > 10 ? 10 : nls);
     
     vbap->v_dim = 2;
     if(vbap->v_n && vbap->v_matrices)
@@ -616,7 +616,7 @@ char vbap_3d_prepare(t_vbap* vbap, size_t const nls, double const * angles)
     char valid, err = 0;
     double x1, y1, z1, x2, y2, z2, x3, y3, z3, xc, yc, zc, xr, yr, zr, dc, deta, ra, re;
     size_t i = 0, j = 0, k = 0, l = 0;
-    size_t const max = vbap_factorial(nls);
+    size_t const max = vbap_factorial(nls > 10 ? 10 : nls);
     
     vbap->v_dim     = 3;
     if(vbap->v_n && vbap->v_matrices)
