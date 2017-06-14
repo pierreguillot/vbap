@@ -1,4 +1,4 @@
-#N canvas 437 23 587 550 10;
+#N canvas 146 101 587 550 10;
 #N canvas 0 22 450 300 header 0;
 #X obj 11 11 cnv 15 65 18 empty empty vbap~ 2 8 0 14 -262144 -66577
 0;
@@ -6,17 +6,17 @@
 - 2017;
 #X coords 0 -1 1 1 452 20 2 10 10;
 #X restore 9 7 pd header;
-#X obj 19 286 vbap~ 2d 45 -45;
+#X obj 19 351 vbap~ 2d 45 -45;
 #X obj 106 218 osc~ 0.1;
-#X obj 19 332 - 100;
-#X obj 106 332 - 100;
-#X obj 107 361 vu 12 80 empty empty -1 -8 0 4 -66577 -262144 1 0;
-#X obj 20 487 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 19 397 - 100;
+#X obj 106 397 - 100;
+#X obj 107 426 vu 12 80 empty empty -1 -8 0 4 -66577 -262144 1 0;
+#X obj 404 465 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
-#X msg 20 507 \; pd dsp \$1;
+#X msg 404 485 \; pd dsp \$1;
 #X obj 19 219 noise~;
-#X obj 19 452 dac~ 1 2, f 15;
-#X obj 20 361 vu 12 80 empty empty -1 -8 0 4 -66577 -262144 1 0;
+#X obj 19 517 dac~ 1 2, f 15;
+#X obj 20 426 vu 12 80 empty empty -1 -8 0 4 -66577 -262144 1 0;
 #X obj 209 321 - 100;
 #X obj 248 321 - 100;
 #X obj 249 350 vu 12 80 empty empty -1 -8 0 4 -66577 -262144 1 0;
@@ -40,8 +40,8 @@
 #X obj 209 218 sig~ 1;
 #X obj 345 217 phasor~ 0.5;
 #X obj 482 217 osc~ 0.05;
-#X obj 106 310 env~;
-#X obj 19 310 env~;
+#X obj 106 375 env~;
+#X obj 19 375 env~;
 #X obj 209 299 env~;
 #X obj 248 299 env~;
 #X obj 287 299 env~;
@@ -118,6 +118,12 @@ sound source. In 3d there is a 3rd inlet for the elevation of the sound
 source. The message "configure" followed by the same arguments can
 be used to change the configuration after the initialization \, the
 numbers of inlets and outlets change consequently., f 90;
+#X obj 19 326 *~;
+#X obj 34 240 nbx 5 14 0 100 0 0 empty empty empty 0 -8 0 10 -262144
+-1 -1 93 256;
+#X obj 34 259 dbtorms;
+#X msg 34 281 \$1 20;
+#X obj 34 303 line~;
 #X connect 1 0 9 0;
 #X connect 1 0 34 0;
 #X connect 1 1 9 1;
@@ -126,7 +132,7 @@ numbers of inlets and outlets change consequently., f 90;
 #X connect 3 0 10 0;
 #X connect 4 0 5 0;
 #X connect 6 0 7 0;
-#X connect 8 0 1 0;
+#X connect 8 0 54 0;
 #X connect 11 0 14 0;
 #X connect 12 0 13 0;
 #X connect 15 0 35 0;
@@ -160,3 +166,8 @@ numbers of inlets and outlets change consequently., f 90;
 #X connect 42 0 26 0;
 #X connect 51 0 52 0;
 #X connect 52 0 1 1;
+#X connect 54 0 1 0;
+#X connect 55 0 56 0;
+#X connect 56 0 57 0;
+#X connect 57 0 58 0;
+#X connect 58 0 54 1;

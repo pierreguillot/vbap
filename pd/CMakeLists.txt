@@ -20,8 +20,14 @@ elseif(CMAKE_C_COMPILER_ID STREQUAL "Clang")
 endif()
 
 include_directories(${PROJECT_SOURCE_DIR}/../src/)
-file(GLOB pd_vbap_tilde_sources ${PROJECT_SOURCE_DIR}/src/vbap_tilde.c ${PROJECT_SOURCE_DIR}/../src/vbap.c ${PROJECT_SOURCE_DIR}/../src/vbap.h)
+set(pd_vbap_sources_dir ${PROJECT_SOURCE_DIR}/src/)
+file(GLOB pd_vbap_lib_sources ${PROJECT_SOURCE_DIR}/../src/vbap.c ${PROJECT_SOURCE_DIR}/../src/vbap.h)
+
+file(GLOB pd_vbap_tilde_sources ${pd_vbap_sources_dir}/vbap_tilde.c ${pd_vbap_lib_sources})
 add_pd_external(pd_vbap_tilde_project vbap~ "${pd_vbap_tilde_sources}")
 
-file(GLOB pd_vbap_coeff_sources ${PROJECT_SOURCE_DIR}/src/vbap_coeff.c ${PROJECT_SOURCE_DIR}/../src/vbap.c ${PROJECT_SOURCE_DIR}/../src/vbap.h)
+file(GLOB pd_vbap_coeff_sources ${pd_vbap_sources_dir}/vbap_coeff.c ${pd_vbap_lib_sources})
 add_pd_external(pd_vbap_coeff_project vbap.coeff "${pd_vbap_coeff_sources}")
+
+file(GLOB pd_vbap_load_sources ${pd_vbap_sources_dir}/vbap_load.c ${pd_vbap_sources_dir}/vbap_tilde.c ${pd_vbap_sources_dir}/vbap_coeff.c ${pd_vbap_lib_sources})
+add_pd_external(pd_vbap_load_project vbap "${pd_vbap_load_sources}")

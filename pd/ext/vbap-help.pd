@@ -1,0 +1,15 @@
+#N canvas 383 169 529 193 10;
+#X declare -lib vbap;
+#N canvas 0 22 450 300 header 0;
+#X obj 11 11 cnv 15 65 18 empty empty vbap 2 8 0 14 -262144 -66577
+0;
+#X text 100 12 by Pierre Guillot | CICM - Université Paris 8 | 2016
+- 2017;
+#X coords 0 -1 1 1 452 20 2 10 10;
+#X restore 9 7 pd header;
+#X obj 9 40 declare -lib vbap;
+#X obj 9 71 vbap.coeff;
+#X obj 9 101 vbap~ 2d;
+#X obj 129 101 vbap~ 3d;
+#X obj 8 137 ../abs/p.vbap 2d;
+#X obj 128 137 ../abs/p.vbap 3d;
