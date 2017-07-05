@@ -1,4 +1,4 @@
-#N canvas 458 131 569 280 10;
+#N canvas 500 447 569 280 10;
 #X text 10 34 An abstraction that computes the gains of a set of loudspeakers
 for the spatialization of a virtual source using V. Pulkki's Vector
 Base Amplitude Panning technique., f 90;
@@ -12,204 +12,28 @@ Base Amplitude Panning technique., f 90;
 45 35.3 45 -35.3 0 69.1 200.9 0 270 20.9 225 35.3 225 -35.3 0 -69.1
 339.1 0 270 -20.9 315 35.3 315 -35.3 \; pulkki 0 0 72 0 144 0 216 0
 288 0 60 45 180 45 240 45 \;;
-#N canvas 0 22 253 374 example.3d.triangle 0;
-#X text 21 8 Angle of the virtual source in degrees, f 21;
-#X text 24 317 Gains of the loudspkeakers, f 13;
-#X obj 24 48 nbx 5 14 -45 45 0 0 empty \$0-angle empty 0 -8 0 10 -262144
--1 -1 0 256;
-#X obj 24 207 pack f f, f 12;
-#X obj 66 68 nbx 5 14 0 35.3 0 0 empty \$0-angle empty 0 -8 0 10 -262144
--1 -1 0 256;
-#X obj 66 87 t b f;
-#X obj 24 117 f;
-#X obj 24 252 list prepend set;
-#X obj 24 274 list trim;
-#X msg 24 296 0.707107 0 0.707107;
-#X obj 24 182 *, f 5;
-#X obj 189 199 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 51 117 / 35.3;
-#X msg 51 139 1 \$1;
-#X obj 51 161 -;
-#X text 108 129 We need to stay inside the triangle, f 13;
-#X obj 24 230 p.vbap 3d text \$0-angles tri;
-#X connect 2 0 6 0;
-#X connect 3 0 16 0;
-#X connect 4 0 5 0;
-#X connect 5 0 6 0;
-#X connect 5 1 3 1;
-#X connect 5 1 12 0;
-#X connect 6 0 10 0;
-#X connect 7 0 8 0;
-#X connect 8 0 9 0;
-#X connect 10 0 3 0;
-#X connect 11 0 16 1;
-#X connect 12 0 13 0;
-#X connect 13 0 14 0;
-#X connect 14 0 10 1;
-#X connect 16 0 7 0;
-#X restore 13 181 pd example.3d.triangle;
-#N canvas 0 22 324 203 example.2d.stereo 0;
-#X obj 24 43 nbx 5 14 -45 45 0 0 empty \$0-angle empty 0 -8 0 10 -262144
--1 -1 0 256;
-#X obj 24 84 list prepend set;
-#X obj 24 106 list trim;
-#X text 21 10 Angle of the virtual source in degrees, f 21;
-#X text 24 149 Gains of the loudspkeakers, f 13;
-#X msg 24 128 0.707107 0.707107;
-#X obj 207 38 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X msg 229 38 print;
-#X obj 24 62 p.vbap 2d text \$0-angles stereo;
-#X connect 0 0 8 0;
-#X connect 1 0 2 0;
-#X connect 2 0 5 0;
-#X connect 6 0 8 1;
-#X connect 7 0 8 1;
-#X connect 8 0 1 0;
-#X restore 13 101 pd example.2d.stereo;
-#N canvas 466 202 263 225 example.2d.octo 0;
-#X text 18 24 Angle of the virtual source in degrees, f 21;
-#X text 19 172 Gains of the loudspkeakers, f 13;
-#X obj 21 59 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 0 256;
-#X obj 21 102 list prepend set;
-#X obj 21 124 list trim;
-#X msg 21 146 0.99618 0 0 0 0 0 0 0.0873222;
-#X obj 192 57 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X msg 220 57 print;
-#X obj 21 80 p.vbap 2d text \$0-angles octo;
-#X connect 2 0 8 0;
-#X connect 3 0 4 0;
-#X connect 4 0 5 0;
-#X connect 6 0 8 1;
-#X connect 7 0 8 1;
-#X connect 8 0 3 0;
-#X restore 13 141 pd example.2d.octo;
-#N canvas 371 127 299 236 example.2d.five 0;
-#X text 19 14 Angle of the virtual source in degrees, f 21;
-#X text 19 162 Gains of the loudspkeakers, f 13;
-#X obj 21 49 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 0 256;
-#X obj 21 92 list prepend set;
-#X obj 21 114 list trim;
-#X msg 21 136 0 0.61374 0.789508 0 0;
-#X obj 218 47 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X msg 192 21 print;
-#X obj 21 70 p.vbap 2d text \$0-angles five;
-#X connect 2 0 8 0;
-#X connect 3 0 4 0;
-#X connect 4 0 5 0;
-#X connect 6 0 8 1;
-#X connect 7 0 8 1;
-#X connect 8 0 3 0;
-#X restore 13 161 pd example.2d.five;
-#N canvas 428 73 322 246 example.3d.cube 0;
-#X obj 25 138 list prepend set;
-#X obj 25 160 list trim;
-#X obj 25 46 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 0 256;
-#X obj 25 94 pack f f, f 15;
-#X obj 85 45 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 0 256;
-#X obj 85 64 t b f;
-#X obj 25 73 f;
-#X obj 196 89 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X msg 25 182 0 0.0649022 0.996238 0 0 0.0574207 0 0;
-#X msg 215 89 print;
-#X text 26 14 Angles of the virtual source in degrees, f 21;
-#X text 23 202 Gains of the loudspkeakers, f 13;
-#X obj 25 117 p.vbap 3d text \$0-angles cube;
-#X connect 0 0 1 0;
-#X connect 1 0 8 0;
-#X connect 2 0 6 0;
-#X connect 3 0 12 0;
-#X connect 4 0 5 0;
-#X connect 5 0 6 0;
-#X connect 5 1 3 1;
-#X connect 6 0 3 0;
-#X connect 7 0 12 1;
-#X connect 9 0 12 1;
-#X connect 12 0 0 0;
-#X restore 13 201 pd example.3d.cube;
-#N canvas 213 163 355 267 example.3d.dodecahedron 0;
-#X obj 25 138 list prepend set;
-#X obj 25 160 list trim;
-#X obj 244 79 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X msg 25 182 0 -2.98023e-08 0 0 1 0 0 0 0 0 0 0;
-#X msg 264 79 print;
-#X obj 25 46 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 0 256;
-#X obj 25 94 pack f f, f 15;
-#X obj 85 45 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 0 256;
-#X obj 85 64 t b f;
-#X obj 25 73 f;
-#X text 26 14 Angles of the virtual source in degrees, f 21;
-#X text 23 202 Gains of the loudspkeakers, f 13;
-#X obj 25 117 p.vbap 3d text \$0-angles dodecahedron;
-#X connect 0 0 1 0;
-#X connect 1 0 3 0;
-#X connect 2 0 12 1;
-#X connect 4 0 12 1;
-#X connect 5 0 9 0;
-#X connect 6 0 12 0;
-#X connect 7 0 8 0;
-#X connect 8 0 9 0;
-#X connect 8 1 6 1;
-#X connect 9 0 6 0;
-#X connect 12 0 0 0;
-#X restore 13 221 pd example.3d.dodecahedron;
-#N canvas 428 73 444 261 example.3d.icosahedron 0;
-#X obj 23 131 list prepend set;
-#X obj 23 153 list trim;
-#X obj 224 72 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X msg 23 175 0 0 0 0 0 0 0.707107 0 0 0 0 0 0 0 0 0 0.707107 0 0 0
-;
-#X msg 244 69 print;
-#X obj 23 42 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 0 256;
-#X obj 23 90 pack f f, f 15;
-#X obj 83 41 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 0 256;
-#X obj 83 60 t b f;
-#X text 24 10 Angles of the virtual source in degrees, f 21;
-#X text 21 198 Gains of the loudspkeakers, f 13;
-#X obj 23 110 p.vbap 3d tex\$0-angles icosahedron;
-#X connect 0 0 1 0;
-#X connect 1 0 3 0;
-#X connect 2 0 11 1;
-#X connect 4 0 11 1;
-#X connect 5 0 6 0;
-#X connect 6 0 11 0;
-#X connect 7 0 8 0;
-#X connect 8 0 6 0;
-#X connect 8 1 6 1;
-#X connect 11 0 0 0;
-#X restore 13 241 pd example.3d.icosahedron;
 #N canvas 771 166 306 212 example.2d.square 0;
 #X text 9 14 Angle of the virtual source in degrees, f 21;
-#X text 9 162 Gains of the loudspkeakers, f 13;
+#X text 9 182 Gains of the loudspkeakers, f 13;
 #X obj 11 49 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
 -262144 -1 -1 0 256;
-#X obj 11 92 list prepend set;
-#X obj 11 114 list trim;
-#X msg 11 136 0.224956 0.974369 0 0;
+#X obj 11 112 list prepend set;
+#X obj 11 134 list trim;
+#X msg 11 156 0.224956 0.974369 0 0;
 #X obj 194 47 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X msg 214 45 print;
-#X obj 11 70 p.vbap 2d text \$0-angles square;
+#X obj 11 68 pack f f, f 15;
+#X obj 98 49 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0 256;
+#X obj 11 90 p.mdap 2d text \$0-angles square;
 #X connect 2 0 8 0;
 #X connect 3 0 4 0;
 #X connect 4 0 5 0;
-#X connect 6 0 8 1;
-#X connect 7 0 8 1;
-#X connect 8 0 3 0;
+#X connect 6 0 10 1;
+#X connect 7 0 10 1;
+#X connect 8 0 10 0;
+#X connect 9 0 8 1;
 #X restore 13 121 pd example.2d.square;
 #N canvas 428 73 375 448 compare.3d.cube 0;
 #X obj 31 25 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
@@ -443,8 +267,40 @@ Base Amplitude Panning technique., f 90;
 #X connect 14 0 8 0;
 #X restore 193 121 pd compare.3d.dodecahedron;
 #N canvas 0 22 450 300 header 0;
-#X obj 11 11 cnv 15 65 18 empty empty p.vbap 2 8 0 14 -262144 -66577
+#X obj 11 11 cnv 15 65 18 empty empty p.mdap 2 8 0 14 -262144 -66577
 0;
 #X text 100 12 by Pierre Guillot - 2016 - 2017;
 #X coords 0 -1 1 1 286 20 2 10 10;
 #X restore 9 7 pd header;
+#N canvas 213 163 355 267 example.3d.dodecahedron 1;
+#X obj 25 138 list prepend set;
+#X obj 25 160 list trim;
+#X obj 244 79 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 25 182 0 -2.98023e-08 0 0 1 0 0 0 0 0 0 0;
+#X msg 264 79 print;
+#X obj 25 46 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0 256;
+#X obj 85 45 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0 256;
+#X obj 85 64 t b f;
+#X obj 25 73 f;
+#X text 26 14 Angles of the virtual source in degrees, f 21;
+#X text 23 202 Gains of the loudspkeakers, f 13;
+#X obj 25 94 pack f f f, f 28;
+#X obj 177 70 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0 256;
+#X obj 25 117 p.mdap 3d text \$0-angles dodecahedron;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 13 1;
+#X connect 4 0 13 1;
+#X connect 5 0 8 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 7 1 11 1;
+#X connect 8 0 11 0;
+#X connect 11 0 13 0;
+#X connect 12 0 11 2;
+#X connect 13 0 0 0;
+#X restore 13 221 pd example.3d.dodecahedron;
