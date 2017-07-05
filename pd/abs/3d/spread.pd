@@ -7,6 +7,8 @@
 #X obj 48 271 outlet;
 #X obj 48 248 pack f f;
 #X obj 162 133 virtual;
+#X text 141 184 Here need to compute the coordinates of the 16 virtual
+sources depending on the spread;
 #X connect 0 0 2 0;
 #X connect 2 0 3 0;
 #X connect 2 1 4 0;
