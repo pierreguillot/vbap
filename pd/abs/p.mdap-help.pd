@@ -48,36 +48,35 @@
 #X obj 25 160 list trim;
 #X obj 244 79 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X msg 25 182 0 0 0 0 0 0 0 0 0 0 0 0;
+#X msg 25 182 0 0.102927 0 0.727 0.656301 0 0.173625 0 0 0 0 0;
 #X msg 264 79 print;
 #X obj 25 46 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 80 256;
+-262144 -1 -1 57 256;
 #X obj 95 47 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 75 256;
+-262144 -1 -1 0 256;
 #X obj 95 66 t b f;
 #X text 25 14 Angles of the virtual source in degrees, f 21;
 #X text 23 202 Gains of the loudspkeakers, f 13;
 #X obj 25 94 pack f f f, f 28;
-#X obj 25 117 p.mdap 3d text \$0-angles dodecahedron;
 #X obj 163 49 nbx 5 14 0 100 0 0 empty empty empty 0 -8 0 10 -262144
--1 -1 48 256;
+-1 -1 20 256;
 #X text 162 14 Spread factor in degrees (between 0 - 100), f 26;
 #X obj 163 68 t b f;
+#X obj 25 117 p.mdap 3d text \$0-angles dodecahedron;
 #X connect 0 0 1 0;
 #X connect 1 0 3 0;
-#X connect 2 0 11 1;
-#X connect 4 0 11 1;
+#X connect 2 0 14 1;
+#X connect 4 0 14 1;
 #X connect 5 0 10 0;
 #X connect 6 0 7 0;
 #X connect 7 0 10 0;
 #X connect 7 1 10 1;
-#X connect 10 0 11 0;
-#X connect 11 0 0 0;
-#X connect 12 0 14 0;
-#X connect 14 0 10 0;
-#X connect 14 1 10 2;
+#X connect 10 0 14 0;
+#X connect 11 0 13 0;
+#X connect 13 0 10 0;
+#X connect 13 1 10 2;
+#X connect 14 0 0 0;
 #X restore 13 172 pd example.3d.dodecahedron;
 #X text 10 34 An abstraction that computes the gains of a set of loudspeakers
 for the spatialization of a virtual source using V. Pulkki's Multiple-Direction
 Amplitude Panning an extension of VBAP., f 90;
-#X text 181 174 <- to finish;
