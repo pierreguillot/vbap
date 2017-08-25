@@ -1,4 +1,4 @@
-#N canvas 458 131 569 280 10;
+#N canvas 458 131 654 284 10;
 #X text 10 34 An abstraction that computes the gains of a set of loudspeakers
 for the spatialization of a virtual source using V. Pulkki's Vector
 Base Amplitude Panning technique., f 90;
@@ -51,12 +51,12 @@ Base Amplitude Panning technique., f 90;
 #X restore 13 181 pd example.3d.triangle;
 #N canvas 0 22 324 203 example.2d.stereo 0;
 #X obj 24 43 nbx 5 14 -45 45 0 0 empty \$0-angle empty 0 -8 0 10 -262144
--1 -1 0 256;
+-1 -1 -45 256;
 #X obj 24 84 list prepend set;
 #X obj 24 106 list trim;
 #X text 21 10 Angle of the virtual source in degrees, f 21;
 #X text 24 149 Gains of the loudspkeakers, f 13;
-#X msg 24 128 0.707107 0.707107;
+#X msg 24 128 0 1;
 #X obj 207 38 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X msg 229 38 print;

@@ -1,4 +1,4 @@
-#N canvas 252 223 566 223 10;
+#N canvas 252 223 662 221 10;
 #X obj 13 111 text define -k \$0-angles;
 #A set stereo 45 -45 \; square 0 90 180 270 \; octo 0 45 90 135 180
 225 270 315 \; five 0 30 110 250 330 \; cube 45 35.3 135 35.3 225 35.3
@@ -13,16 +13,16 @@
 #X text 9 14 Angle of the virtual source in degrees, f 21;
 #X text 9 212 Gains of the loudspkeakers, f 13;
 #X obj 11 49 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 0 256;
+-262144 -1 -1 43 256;
 #X obj 11 142 list prepend set;
 #X obj 11 164 list trim;
-#X msg 11 186 0.515598 0.57099 0.478711 0.423042;
+#X msg 11 186 0.696089 0.6697 0.178664 0.187194;
 #X obj 230 47 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X msg 250 45 print;
 #X obj 11 98 pack f f, f 25;
 #X obj 158 49 nbx 5 14 0 100 0 0 empty empty empty 0 -8 0 10 -262144
--1 -1 0 256;
+-1 -1 78 256;
 #X text 159 14 Spread factor in degrees (between 0 - 100), f 26;
 #X obj 131 68 t b f;
 #X obj 11 120 p.mdap 2d text \$0-angles square, f 37;
@@ -41,9 +41,9 @@
 #X obj 11 11 cnv 15 65 18 empty empty p.mdap 2 8 0 14 -262144 -66577
 0;
 #X text 100 12 by Pierre Guillot - 2016 - 2017;
-#X coords 0 -1 1 1 286 20 2 10 10;
+#X coords 0 -1 1 1 313 20 2 10 10;
 #X restore 9 7 pd header;
-#N canvas 213 163 355 267 example.3d.dodecahedron 0;
+#N canvas 213 163 405 258 example.3d.dodecahedron 0;
 #X obj 25 138 list prepend set;
 #X obj 25 160 list trim;
 #X obj 244 79 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
@@ -51,7 +51,7 @@
 #X msg 25 182 0 0.102927 0 0.727 0.656301 0 0.173625 0 0 0 0 0;
 #X msg 264 79 print;
 #X obj 25 46 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 57 256;
+-262144 -1 -1 0 256;
 #X obj 95 47 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
 -262144 -1 -1 0 256;
 #X obj 95 66 t b f;
@@ -59,7 +59,7 @@
 #X text 23 202 Gains of the loudspkeakers, f 13;
 #X obj 25 94 pack f f f, f 28;
 #X obj 163 49 nbx 5 14 0 100 0 0 empty empty empty 0 -8 0 10 -262144
--1 -1 20 256;
+-1 -1 0 256;
 #X text 162 14 Spread factor in degrees (between 0 - 100), f 26;
 #X obj 163 68 t b f;
 #X obj 25 117 p.mdap 3d text \$0-angles dodecahedron;
