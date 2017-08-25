@@ -24,15 +24,15 @@ static void test_f_stereo(t_vbapf* vbap)
         assert(vbapf_nls(vbap) == 2);
         assert(vbapf_dimension(vbap) == 2);
         
-        vbapf_2d_perform(vbap, 0.f, result);
+        vbapf_2d_perform(vbap, result, 0.f, 0.f);
         assert(fabsf(result[0] - 0.707107f) < 0.00001f);
         assert(fabsf(result[1] - 0.707107f) < 0.00001f);
         
-        vbapf_2d_perform(vbap, -45.f, result);
+        vbapf_2d_perform(vbap, result, -45.f, 0.f);
         assert(fabsf(result[0]) < 0.00001f);
         assert(fabsf(result[1] - 1.f) < 0.00001f);
         
-        vbapf_2d_perform(vbap, 45.f, result);
+        vbapf_2d_perform(vbap, result, 45.f, 0.f);
         assert(fabsf(result[1]) < 0.00001f);
         assert(fabsf(result[0] - 1.f) < 0.00001f);
         printf("done\n");
@@ -53,49 +53,49 @@ static void test_f_square(t_vbapf* vbap)
         assert(vbapf_nls(vbap) == 4);
         assert(vbapf_dimension(vbap) == 2);
         
-        vbapf_2d_perform(vbap, 0.f, result);
+        vbapf_2d_perform(vbap, result, 0.f, 0.f);
         assert(fabsf(result[0] - 1) < 0.00001f);
         assert(fabsf(result[1] - 0) < 0.00001f);
         assert(fabsf(result[2] - 0) < 0.00001f);
         assert(fabsf(result[3] - 0) < 0.00001f);
         
-        vbapf_2d_perform(vbap, 45.f, result);
+        vbapf_2d_perform(vbap, result, 45.f, 0.f);
         assert(fabsf(result[0] - 0.707107f) < 0.00001f);
         assert(fabsf(result[1] - 0.707107f) < 0.00001f);
         assert(fabsf(result[2] - 0) < 0.00001f);
         assert(fabsf(result[3] - 0) < 0.00001f);
 
-        vbapf_2d_perform(vbap, 90.f, result);
+        vbapf_2d_perform(vbap, result, 90.f, 0.f);
         assert(fabsf(result[0] - 0) < 0.00001f);
         assert(fabsf(result[1] - 1.f) < 0.00001f);
         assert(fabsf(result[2] - 0) < 0.00001f);
         assert(fabsf(result[3] - 0) < 0.00001f);
         
-        vbapf_2d_perform(vbap, 135.f, result);
+        vbapf_2d_perform(vbap, result, 135.f, 0.f);
         assert(fabsf(result[0] - 0) < 0.00001f);
         assert(fabsf(result[1] - 0.707107f) < 0.00001f);
         assert(fabsf(result[2] - 0.707107f) < 0.00001f);
         assert(fabsf(result[3] - 0) < 0.00001f);
         
-        vbapf_2d_perform(vbap, 180.f, result);
+        vbapf_2d_perform(vbap, result, 180.f, 0.f);
         assert(fabsf(result[0] - 0) < 0.00001f);
         assert(fabsf(result[1] - 0.f) < 0.00001f);
         assert(fabsf(result[2] - 1.f) < 0.00001f);
         assert(fabsf(result[3] - 0) < 0.00001f);
         
-        vbapf_2d_perform(vbap, 225.f, result);
+        vbapf_2d_perform(vbap, result, 225.f, 0.f);
         assert(fabsf(result[0] - 0) < 0.00001f);
         assert(fabsf(result[1] - 0) < 0.00001f);
         assert(fabsf(result[2] - 0.707107f) < 0.00001f);
         assert(fabsf(result[3] - 0.707107f) < 0.00001f);
         
-        vbapf_2d_perform(vbap, 270.f, result);
+        vbapf_2d_perform(vbap, result, 270.f, 0.f);
         assert(fabsf(result[0] - 0) < 0.00001f);
         assert(fabsf(result[1] - 0) < 0.00001f);
         assert(fabsf(result[2] - 0) < 0.00001f);
         assert(fabsf(result[3] - 1) < 0.00001f);
         
-        vbapf_2d_perform(vbap, 315.f, result);
+        vbapf_2d_perform(vbap, result, 315.f, 0.f);
         assert(fabsf(result[0] - 0.707107f) < 0.00001f);
         assert(fabsf(result[1] - 0) < 0.00001f);
         assert(fabsf(result[2] - 0) < 0.00001f);
@@ -118,37 +118,37 @@ static void test_f_triangle(t_vbapf* vbap)
         assert(vbapf_nls(vbap) == 3);
         assert(vbapf_dimension(vbap) == 3);
         
-        vbapf_3d_perform(vbap, 0.f, 0.f, result);
+        vbapf_3d_perform(vbap, result, 0.f, 0.f, 0.f);
         assert(fabsf(result[0] - 0.707107f) < 0.00001f);
         assert(fabsf(result[1] - 0) < 0.00001f);
         assert(fabsf(result[2] - 0.707107f) < 0.00001f);
         
-        vbapf_3d_perform(vbap, 45.f, 0.f, result);
+        vbapf_3d_perform(vbap, result, 45.f, 0.f, 0.f);
         assert(fabsf(result[0] - 1.f) < 0.00001f);
         assert(fabsf(result[1] - 0) < 0.00001f);
         assert(fabsf(result[2] - 0) < 0.00001f);
         
-        vbapf_3d_perform(vbap, -45.f, 0.f, result);
+        vbapf_3d_perform(vbap, result, -45.f, 0.f, 0.f);
         assert(fabsf(result[0] - 0) < 0.00001f);
         assert(fabsf(result[1] - 0) < 0.00001f);
         assert(fabsf(result[2] - 1.f) < 0.00001f);
         
-        vbapf_3d_perform(vbap, 0.f, 35.3f, result);
+        vbapf_3d_perform(vbap, result, 0.f, 35.3f, 0.f);
         assert(fabsf(result[0] - 0) < 0.00001f);
         assert(fabsf(result[1] - 1.f) < 0.00001f);
         assert(fabsf(result[2] - 0) < 0.00001f);
         
-        vbapf_3d_perform(vbap, 12.f, 20.f, result);
+        vbapf_3d_perform(vbap, result, 12.f, 20.f, 0.f);
         assert(fabsf(result[0] - 0.586984f) < 0.00001f);
         assert(fabsf(result[1] - 0.77806f) < 0.00001f);
         assert(fabsf(result[2] - 0.22377f) < 0.00001f);
         
-        vbapf_3d_perform(vbap, -17.f, 25.f, result);
+        vbapf_3d_perform(vbap, result, -17.f, 25.f, 0.f);
         assert(fabsf(result[0] - 0.00415882f) < 0.00001f);
         assert(fabsf(result[1] - 0.888272f) < 0.00001f);
         assert(fabsf(result[2] - 0.459299f) < 0.00001f);
         
-        vbapf_3d_perform(vbap, -30.f, 4.f, result);
+        vbapf_3d_perform(vbap, result, -30.f, 4.f, 0.f);
         assert(fabsf(result[0] - 0.204581f) < 0.00001f);
         assert(fabsf(result[1] - 0.130997f) < 0.00001f);
         assert(fabsf(result[2] - 0.970045f) < 0.00001f);
@@ -171,7 +171,7 @@ static void test_f_cube(t_vbapf* vbap)
         assert(vbapf_nls(vbap) == 8);
         assert(vbapf_dimension(vbap) == 3);
         
-        vbapf_3d_perform(vbap, 0.f, 0.f, result);
+        vbapf_3d_perform(vbap, result, 0.f, 0.f, 0.f);
         assert(fabsf(result[0] - 0) < 0.00001f);
         assert(fabsf(result[1] - 0) < 0.00001f);
         assert(fabsf(result[2] - 0) < 0.00001f);
@@ -181,7 +181,7 @@ static void test_f_cube(t_vbapf* vbap)
         assert(fabsf(result[6] - 0) < 0.00001f);
         assert(fabsf(result[7] - 0) < 0.00001f);
         
-        vbapf_3d_perform(vbap, 26.f, 39.f, result);
+        vbapf_3d_perform(vbap, result, 26.f, 39.f, 0.f);
         assert(fabsf(result[0] - 0.961695f) < 0.00001f);
         assert(fabsf(result[1] - 0) < 0.00001f);
         assert(fabsf(result[2] - 0) < 0.00001f);
@@ -191,7 +191,7 @@ static void test_f_cube(t_vbapf* vbap)
         assert(fabsf(result[6] - 0) < 0.00001f);
         assert(fabsf(result[7] - 0.0647837f) < 0.00001f);
         
-        vbapf_3d_perform(vbap, -37.f, -23.f, result);
+        vbapf_3d_perform(vbap, result, -37.f, -23.f, 0.f);
         assert(fabsf(result[0] - 0.157329f) < 0.00001f);
         assert(fabsf(result[1] - 0) < 0.00001f);
         assert(fabsf(result[2] - 0) < 0.00001f);
@@ -201,7 +201,7 @@ static void test_f_cube(t_vbapf* vbap)
         assert(fabsf(result[6] - 0) < 0.00001f);
         assert(fabsf(result[7] - 0.977254f) < 0.00001f);
         
-        vbapf_3d_perform(vbap, 156.f, 12.f, result);
+        vbapf_3d_perform(vbap, result, 156.f, 12.f, 0.f);
         assert(fabsf(result[0] - 0) < 0.00001f);
         assert(fabsf(result[1] - 0.90076f) < 0.00001f);
         assert(fabsf(result[2] - 0) < 0.00001f);
@@ -211,7 +211,7 @@ static void test_f_cube(t_vbapf* vbap)
         assert(fabsf(result[6] - 0.405493f) < 0.00001f);
         assert(fabsf(result[7] - 0) < 0.00001f);
         
-        vbapf_3d_perform(vbap, 45.f, -35.f, result);
+        vbapf_3d_perform(vbap, result, 45.f, -35.f, 0.f);
         assert(fabsf(result[0] - 0.00556134f) < 0.00001f);
         assert(fabsf(result[1] - 0) < 0.00001f);
         assert(fabsf(result[2] - 0) < 0.00001f);

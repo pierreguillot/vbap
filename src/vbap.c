@@ -9,9 +9,11 @@
 #include <stdio.h>
 #include <stddef.h>
 #include <stdlib.h>
+#include <stdint.h>
+
 #include <math.h>
 #include <float.h>
-#include <stdint.h>
+#include <string.h>
 
 static size_t vbap_factorial(size_t value)
 {
@@ -176,7 +178,7 @@ char vbapf_2d_prepare(t_vbapf* vbap, size_t const nls, float const * angles)
     return err;
 }
 
-void vbapf_2d_perform(t_vbapf const* vbap, float const azimuth, float * gains)
+static void vbapf_2d_perform_add(t_vbapf const* vbap, float * gains, float const azimuth)
 {
     size_t i = 0, index = SIZE_MAX;
     float r1, r2, s1 = 0.f, s2 = 0.f, powr, ref = 0.f;
@@ -201,15 +203,42 @@ void vbapf_2d_perform(t_vbapf const* vbap, float const azimuth, float * gains)
             }
         }
     }
-    for(i = 0; i < vbap->v_nls; ++i)
-    {
-        gains[i] = 0.f;
-    }
-    
     if(ref != 0.f)
     {
-        gains[vbap->v_indices[index*2]]   = s1 / ref;
-        gains[vbap->v_indices[index*2+1]] = s2 / ref;
+        gains[vbap->v_indices[index*2]]   += s1 / ref;
+        gains[vbap->v_indices[index*2+1]] += s2 / ref;
+    }
+}
+
+void vbapf_2d_perform(t_vbapf const* vbap, float * gains, float const azimuth, float const spread)
+{
+    memset(gains, 0, vbap->v_nls * sizeof(float));
+    vbapf_2d_perform_add(vbap, gains, azimuth);
+    if(spread > 0.f)
+    {
+        size_t i;
+        float power = 0.f;
+        const float rspread = spread > 100.f ? 100.f : spread;
+        const float factor = rspread > 70.f ? powf((rspread - 70.f) / 30.f, 2.f) * 10.f : 0.f;
+        vbapf_2d_perform_add(vbap, gains, azimuth + rspread * 0.25f);
+        vbapf_2d_perform_add(vbap, gains, azimuth - rspread * 0.25f);
+        vbapf_2d_perform_add(vbap, gains, azimuth + rspread * 0.5f);
+        vbapf_2d_perform_add(vbap, gains, azimuth - rspread * 0.5f);
+        vbapf_2d_perform_add(vbap, gains, azimuth + rspread);
+        vbapf_2d_perform_add(vbap, gains, azimuth - rspread);
+        for(i = 0; i < vbap->v_nls; ++i)
+        {
+            gains[i] += factor;
+            power += gains[i];
+        }
+        if(power)
+        {
+            power = 1.f / sqrtf(power);
+            for(i = 0; i < vbap->v_nls; ++i)
+            {
+                gains[i] *= power;
+            }
+        }
     }
 }
 
@@ -346,7 +375,7 @@ char vbapf_3d_prepare(t_vbapf* vbap, size_t const nls, float const * angles)
     return err;
 }
 
-void vbapf_3d_perform(t_vbapf const* vbap, float const azimuth, float const elevation, float * gains)
+void vbapf_3d_perform_add(t_vbapf const* vbap, float * gains, float const azimuth, float const elevation)
 {
     size_t i = 0, index = SIZE_MAX;
     float r1, r2, r3, s1 = 0.f, s2 = 0.f, s3 = 0.f, powr, ref = 0.f;
@@ -374,16 +403,44 @@ void vbapf_3d_perform(t_vbapf const* vbap, float const azimuth, float const elev
             }
         }
     }
-    for(i = 0; i < vbap->v_nls; ++i)
-    {
-        gains[i] = 0.f;
-    }
     
     if(ref != 0.f)
     {
-        gains[vbap->v_indices[index*3]]   = s1 / ref;
-        gains[vbap->v_indices[index*3+1]] = s2 / ref;
-        gains[vbap->v_indices[index*3+2]] = s3 / ref;
+        gains[vbap->v_indices[index*3]]   += s1 / ref;
+        gains[vbap->v_indices[index*3+1]] += s2 / ref;
+        gains[vbap->v_indices[index*3+2]] += s3 / ref;
+    }
+}
+
+void vbapf_3d_perform(t_vbapf const* vbap, float * gains, float const azimuth, float const elevation, float const spread)
+{
+    memset(gains, 0, vbap->v_nls * sizeof(float));
+    vbapf_3d_perform_add(vbap, gains, azimuth, elevation);
+    if(spread > 0.f)
+    {
+        size_t i;
+        float power = 0.f;
+        const float rspread = spread > 100.f ? 100.f : spread;
+        const float factor = rspread > 70.f ? powf((rspread - 70.f) / 30.f, 2.f) * 10.f : 0.f;
+        vbapf_3d_perform_add(vbap, gains, azimuth + rspread * 0.25f, elevation);
+        vbapf_3d_perform_add(vbap, gains, azimuth - rspread * 0.25f, elevation);
+        vbapf_3d_perform_add(vbap, gains, azimuth + rspread * 0.5f, elevation);
+        vbapf_3d_perform_add(vbap, gains, azimuth - rspread * 0.5f, elevation);
+        vbapf_3d_perform_add(vbap, gains, azimuth + rspread, elevation);
+        vbapf_3d_perform_add(vbap, gains, azimuth - rspread, elevation);
+        for(i = 0; i < vbap->v_nls; ++i)
+        {
+            gains[i] += factor;
+            power += gains[i];
+        }
+        if(power)
+        {
+            power = 1.f / sqrtf(power);
+            for(i = 0; i < vbap->v_nls; ++i)
+            {
+                gains[i] *= power;
+            }
+        }
     }
 }
 

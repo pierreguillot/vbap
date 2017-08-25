@@ -71,9 +71,10 @@ VBAP_EXTERN char vbapf_2d_prepare(t_vbapf* vbap, size_t const nls, float const *
 //! virtual source and computes the gains coeffcients of this loudspeakers. The vector of<br>
 //! gains must be at least the size of the number of loudspeakers.
 //! @param vbap The pointer to the vbap structure.
-//! @param azimuth The azimuth of the virtual source.
 //! @param gains The vector to fill with the gains of the loudspkeakers.
-VBAP_EXTERN void vbapf_2d_perform(t_vbapf const* vbap, float const azimuth, float * gains);
+//! @param azimuth The azimuth of the virtual source.
+//! @param spread The spread factor in degrees between 0° and 70°.
+VBAP_EXTERN void vbapf_2d_perform(t_vbapf const* vbap, float * gains, float const azimuth, float const spread);
 
 //! @brief Prepares the vbap structure for a specific 3d configuration.
 //! @details The function finds the functional triplets of loudspeakers and computes their<br>
@@ -90,10 +91,12 @@ VBAP_EXTERN char vbapf_3d_prepare(t_vbapf* vbap, size_t const nls, float const *
 //! the virtual source and computes the gains coeffcients of this loudspeakers. The vector of<br>
 //! gains must be at least the size of the number of loudspeakers.
 //! @param vbap The pointer to the vbap structure.
+//! @param gains The vector to fill with the gains of the loudspkeakers.
 //! @param azimuth The azimuth of the virtual source.
 //! @param elevation The elevation of the virtual source.
-//! @param gains The vector to fill with the gains of the loudspkeakers.
-VBAP_EXTERN void vbapf_3d_perform(t_vbapf const* vbap, float const azimuth, float const elevation, float * gains);
+//! @param spread The spread factor in degrees between 0° and 70°.
+//! @todo compute the right angles for spread 
+VBAP_EXTERN void vbapf_3d_perform(t_vbapf const* vbap, float * gains, float const azimuth, float const elevation, float const spread);
 
 //! @}
 
