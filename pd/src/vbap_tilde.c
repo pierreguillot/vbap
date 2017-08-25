@@ -232,7 +232,7 @@ t_int *vbap_tilde_perform_2d(t_int *w)
     while(n--)
     {
         const t_sample f  = inputs[0][n];
-        vbapf_2d_perform(vbap, inputs[1][n], coeffs);
+        vbapf_2d_perform(vbap, coeffs, inputs[1][n], 0.f);
         for(i = 0; i < noutlets; ++i)
         {
             outputs[i][n] = f * coeffs[i];
@@ -256,7 +256,7 @@ t_int *vbap_tilde_perform_3d(t_int *w)
     while(n--)
     {
         const t_sample f = inputs[0][n];
-        vbapf_3d_perform(vbap, inputs[1][n], inputs[2][n], coeffs);
+        vbapf_3d_perform(vbap, coeffs, inputs[1][n], inputs[2][n], 0.f);
         for(i = 0; i < noutlets; ++i)
         {
             outputs[i][n] = f * coeffs[i];

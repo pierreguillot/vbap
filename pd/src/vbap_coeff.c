@@ -30,11 +30,11 @@ static void vbap_coeff_set(t_vbap_coeff *x, t_floatarg azimuth, t_floatarg eleva
     size_t i, n = vbapf_nls(x->v_vbap);
     if(vbapf_dimension(x->v_vbap) == 2)
     {
-        vbapf_2d_perform(x->v_vbap, azimuth, x->v_coeffs);
+        vbapf_2d_perform(x->v_vbap, x->v_coeffs, azimuth, 0.f);
     }
     else
     {
-        vbapf_3d_perform(x->v_vbap, azimuth, elevation, x->v_coeffs);
+        vbapf_3d_perform(x->v_vbap, x->v_coeffs, azimuth, elevation, 0.f);
     }
     
     for(i = 0; i < n; ++i)
