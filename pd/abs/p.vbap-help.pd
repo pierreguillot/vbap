@@ -1,7 +1,4 @@
-#N canvas 458 131 654 284 10;
-#X text 10 34 An abstraction that computes the gains of a set of loudspeakers
-for the spatialization of a virtual source using V. Pulkki's Vector
-Base Amplitude Panning technique., f 90;
+#N canvas 458 131 405 276 10;
 #X obj 13 81 text define -k \$0-angles;
 #A set stereo 45 -45 \; square 0 90 180 270 \; octo 0 45 90 135 180
 225 270 315 \; five 0 30 110 250 330 \; cube 45 35.3 135 35.3 225 35.3
@@ -49,7 +46,7 @@ Base Amplitude Panning technique., f 90;
 #X connect 14 0 10 1;
 #X connect 16 0 7 0;
 #X restore 13 181 pd example.3d.triangle;
-#N canvas 0 22 324 203 example.2d.stereo 0;
+#N canvas 0 23 324 203 example.2d.stereo 0;
 #X obj 24 43 nbx 5 14 -45 45 0 0 empty \$0-angle empty 0 -8 0 10 -262144
 -1 -1 -45 256;
 #X obj 24 84 list prepend set;
@@ -57,9 +54,9 @@ Base Amplitude Panning technique., f 90;
 #X text 21 10 Angle of the virtual source in degrees, f 21;
 #X text 24 149 Gains of the loudspkeakers, f 13;
 #X msg 24 128 0 1;
-#X obj 207 38 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 238 38 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X msg 229 38 print;
+#X msg 260 38 print;
 #X obj 24 62 p.vbap 2d text \$0-angles stereo;
 #X connect 0 0 8 0;
 #X connect 1 0 2 0;
@@ -446,5 +443,8 @@ Base Amplitude Panning technique., f 90;
 #X obj 11 11 cnv 15 65 18 empty empty p.vbap 2 8 0 14 -262144 -66577
 0;
 #X text 100 12 by Pierre Guillot - 2016 - 2017;
-#X coords 0 -1 1 1 286 20 2 10 10;
+#X coords 0 -1 1 1 319 20 2 10 10;
 #X restore 9 7 pd header;
+#X text 10 34 An abstraction that computes the gains of a set of loudspeakers
+for the spatialization of a virtual source using V. Pulkki's Vector
+Base Amplitude Panning.;
