@@ -17,7 +17,6 @@ cmake ..
 cmake --build .
 ```
 
-
 ### Author
 
 Pierre Guillot | CICM | Université Paris 8
