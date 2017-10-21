@@ -12,22 +12,21 @@
 #N canvas 771 166 360 261 example.2d.square 0;
 #X text 245 193 Gains of the loudspkeakers, f 13;
 #X obj 11 73 nbx 5 14 -360 360 0 0 empty \$0-angle empty 0 -8 0 10
--262144 -1 -1 0 256;
+-262144 -1 -1 -347 256;
 #X text 8 10 Angle of the virtual source in degrees, f 12;
 #X obj 139 74 nbx 5 14 0 100 0 0 empty empty empty 0 -8 0 10 -262144
 -1 -1 0 256;
 #X text 140 9 Spread factor in percent, f 8;
 #X obj 267 95 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 267 143 print;
 #X obj 11 170 vsl 15 62 0 1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
+-1 -1 5944 1;
 #X obj 77 170 vsl 15 62 0 1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
+-1 -1 1372 1;
 #X obj 11 240 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 0 256;
+-262144 -1 -1 0.974369 256;
 #X obj 77 240 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 0 256;
+-262144 -1 -1 0.224956 256;
 #X obj 11 148 unpack f f f f, f 29;
 #X obj 144 170 vsl 15 62 0 1 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
@@ -38,18 +37,18 @@
 #X obj 211 240 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
 -262144 -1 -1 0 256;
 #X obj 11 120 p.mdap 2d text \$0-angles square, f 37;
-#X connect 1 0 16 0;
-#X connect 3 0 16 1;
-#X connect 5 0 16 2;
+#X connect 1 0 15 0;
+#X connect 3 0 15 1;
+#X connect 5 0 15 2;
+#X connect 6 0 8 0;
 #X connect 7 0 9 0;
-#X connect 8 0 10 0;
-#X connect 11 0 7 0;
-#X connect 11 1 8 0;
-#X connect 11 2 12 0;
-#X connect 11 3 13 0;
+#X connect 10 0 6 0;
+#X connect 10 1 7 0;
+#X connect 10 2 11 0;
+#X connect 10 3 12 0;
+#X connect 11 0 13 0;
 #X connect 12 0 14 0;
-#X connect 13 0 15 0;
-#X connect 16 0 11 0;
+#X connect 15 0 10 0;
 #X restore 333 189 pd example.2d.square;
 #N canvas 0 22 450 300 header 0;
 #X obj 11 11 cnv 15 65 18 empty empty p.mdap 2 8 0 14 -262144 -66577
@@ -66,28 +65,27 @@ Amplitude Panning an extension of VBAP., f 63;
 #X text 21 155 Angle of the virtual source in degrees, f 12;
 #X text 117 320 Gains of the loudspkeakers, f 13;
 #X obj 131 219 nbx 5 14 0 100 0 0 empty empty empty 0 -8 0 10 -262144
--1 -1 0 256;
+-1 -1 100 256;
 #X text 132 154 Spread factor in percent, f 8;
-#X obj 238 274 print;
 #X obj 24 273 unpack f f;
 #X obj 24 295 vsl 15 62 0 1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
+-1 -1 950 1;
 #X obj 91 295 vsl 15 62 0 1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
+-1 -1 793 1;
 #X obj 24 365 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 0 256;
+-262144 -1 -1 0.155702 256;
 #X obj 91 365 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 0 256;
+-262144 -1 -1 0.130008 256;
 #X obj 24 218 nbx 5 14 -45 45 0 0 empty \$0-angle empty 0 -8 0 10 -262144
--1 -1 0 256;
+-1 -1 45 256;
 #X obj 238 226 bng 15 250 50 1 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 24 247 p.mdap 2d text \$0-angles stereo;
-#X connect 7 0 17 1;
-#X connect 10 0 11 0;
-#X connect 10 1 12 0;
+#X connect 7 0 16 1;
+#X connect 9 0 10 0;
+#X connect 9 1 11 0;
+#X connect 10 0 12 0;
 #X connect 11 0 13 0;
-#X connect 12 0 14 0;
-#X connect 15 0 17 0;
-#X connect 16 0 17 2;
-#X connect 17 0 10 0;
+#X connect 14 0 16 0;
+#X connect 15 0 16 2;
+#X connect 16 0 9 0;
